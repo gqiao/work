@@ -1,0 +1,13 @@
+osal.h
+s3c_camera_driver.c
+s3c_camif.c
+s3c_camif_fsm.c
+s3c_camif_fsm.h
+s3c_camif.h
+s3c.h
+saa7113h.c
+saa7113h.h
+saa711x_regs.h
+tuner-simple.h
+videocodec.h
+videodev2_s3c.h

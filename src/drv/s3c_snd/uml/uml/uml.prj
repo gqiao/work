@@ -1,0 +1,1112 @@
+format 48
+"uml"
+  revision 5
+  modified_by 2 "george"
+
+
+  
+  // class settings
+  default_attribute_visibility protected default_relation_visibility protected default_operation_visibility public
+  //class diagram settings
+  draw_all_relations yes hide_attributes no hide_operations no show_members_full_definition no show_members_visibility no show_members_stereotype no show_parameter_dir yes show_parameter_name yes package_name_in_tab no class_drawing_mode natural drawing_language uml show_context_mode no auto_label_position yes show_infonote no shadow yes
+  //use case diagram settings
+  package_name_in_tab no show_context no auto_label_position yes draw_all_relations yes shadow yes
+  //sequence diagram settings
+  show_full_operations_definition no write_horizontally yes class_drawing_mode natural drawing_language uml draw_all_relations yes shadow yes
+  //collaboration diagram settings
+  show_full_operations_definition no show_hierarchical_rank no write_horizontally yes drawing_language uml package_name_in_tab no show_context no draw_all_relations yes shadow yes
+  //object diagram settings
+   write_horizontally yes package_name_in_tab no show_context no auto_label_position yes draw_all_relations yes shadow yes
+  //component diagram settings
+  package_name_in_tab no show_context no auto_label_position yes draw_all_relations yes shadow yes
+  draw_component_as_icon no show_component_req_prov no show_component_rea no
+  //deployment diagram settings
+  package_name_in_tab no show_context no write_horizontally yes auto_label_position yes draw_all_relations yes shadow yes
+  draw_component_as_icon no show_component_req_prov no show_component_rea no
+  //state diagram settings
+  package_name_in_tab no show_context no auto_label_position yes write_trans_label_horizontally yes show_trans_definition no draw_all_relations yes shadow yes
+  show_activities yes region_horizontally yes drawing_language uml
+  //activity diagram settings
+  package_name_in_tab no show_context no show_opaque_action_definition no auto_label_position yes write_flow_label_horizontally no draw_all_relations yes shadow yes
+  show_infonote yes drawing_language uml
+  
+  class_color yellow duration_color transparent continuation_color gray note_color blue fragment_color transparent subject_color transparent usecase_color yellow package_color transparent component_color green artifact_color green deploymentnode_color gray state_color yellow stateaction_color transparent activity_color transparent activityregion_color transparent activityaction_color transparent parameterpin_color white 
+  font_size 9
+  diagram_format A4
+
+  mark_for_import
+  
+  classview 128048 "soc-core"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default
+    classdiagram 128048 "diagram_class"
+      draw_all_relations no hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+      size A4
+    end
+
+    class 128048 "snd_soc_device"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 128176 "machine"
+	protected explicit_type "snd_soc_machine"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 128304 "platform"
+	protected explicit_type "snd_soc_platform"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 128560 "codec_dev"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 128688 "codec_data"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      classrelation 128024 // <aggregation by value>
+	relation 128024 *---
+	  a role_name "" protected
+	    classrelation_ref 128024 // <aggregation by value>
+	  b role_name "" protected
+	    classrelation_ref 128152 // <aggregation by value>
+      end
+
+      classrelation 128280 // <aggregation>
+	relation 128152 o---
+	  a role_name "" protected
+	    classrelation_ref 128280 // <aggregation>
+	  b role_name "" protected
+	    classrelation_ref 128408 // <aggregation>
+      end
+
+      classrelation 128536 // <aggregation>
+	relation 128280 o---
+	  a role_name "" protected
+	    classrelation_ref 128536 // <aggregation>
+	  b role_name "" protected
+	    classrelation_ref 128664 // <aggregation>
+      end
+
+      classrelation 129048 // <aggregation>
+	relation 128536 o---
+	  a role_name "" protected
+	    classrelation_ref 129048 // <aggregation>
+	  b role_name "" protected
+	    classrelation_ref 129176 // <aggregation>
+      end
+    end
+
+    class 128176 "platform_device"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 128048 "drvdata"
+	protected explicit_type "void *"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      classrelation 128048 // <dependency>
+	relation 128048 -_->
+	  a default
+	    classrelation_ref 128048 // <dependency>
+	  b parent class_ref 128048 // snd_soc_device
+      end
+    end
+
+    class 128304 "tlv320aic23"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128176 // <realization>
+	relation 128176 -_-|>
+	  a public
+	    classrelation_ref 128176 // <realization>
+	  b parent class_ref 128048 // snd_soc_device
+      end
+    end
+
+    class 128432 "smdk6410_snd_devdata"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128304 // <realization>
+	relation 128304 -_-|>
+	  a public
+	    classrelation_ref 128304 // <realization>
+	  b parent class_ref 128048 // snd_soc_device
+      end
+    end
+
+    class 128560 "platform_driver"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 128048 "probe"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 128176 "remove"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 128304 "suspend"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 128432 "resume"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      classrelation 129200 // <directional aggregation by value>
+	relation 128816 *-->
+	  a role_name "" protected
+	    classrelation_ref 129200 // <directional aggregation by value>
+	  b parent class_ref 128176 // platform_device
+      end
+    end
+
+    class 128024 "snd_soc_machine"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 128024 "name"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      operation 128024 "probe"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      attribute 128152 "dai_link"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 128280 "num_links"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      classrelation 128152 // <aggregation by value>
+	relation_ref 128024 // <aggregation by value>
+      end
+
+      classrelation 128408 // <aggregation>
+	relation_ref 128152 // <aggregation>
+      end
+
+      classrelation 130584 // <aggregation by value>
+	relation 129304 *---
+	  a role_name "" protected
+	    classrelation_ref 130584 // <aggregation by value>
+	  b role_name "" protected
+	    classrelation_ref 130712 // <aggregation by value>
+      end
+
+      classrelation 128018 // <directional aggregation>
+	relation 128018 o-->
+	  a role_name "" protected
+	    classrelation_ref 128018 // <directional aggregation>
+	  b parent class_ref 128018 // snd_soc_dai_link
+      end
+    end
+
+    class 128152 "snd_soc_platform"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128664 // <aggregation>
+	relation_ref 128280 // <aggregation>
+      end
+
+      attribute 128408 "name"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 128536 "pcm_ops"
+	protected explicit_type "snd_pcm_ops *"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      classrelation 128792 // <aggregation by value>
+	relation 128408 *---
+	  a role_name "" protected
+	    classrelation_ref 128792 // <aggregation by value>
+	  b role_name "" protected
+	    classrelation_ref 128920 // <aggregation by value>
+      end
+
+      operation 129304 "pcm_new"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 129432 "pcm_free"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+    end
+
+    class 128280 "snd_pcm_ops"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 128152 "open"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 128280 "close"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 128408 "ioctl"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 128536 "hw_params"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 128664 "hw_free"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 128792 "prepare"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 128920 "trigger"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 129048 "pointer"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 129176 "mmap"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      classrelation 128920 // <aggregation by value>
+	relation_ref 128408 // <aggregation by value>
+      end
+    end
+
+    class 128408 "snd_soc_codec_device"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 129560 "probe"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 129688 "remove"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 129816 "suspend"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 129944 "resume"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      classrelation 129176 // <aggregation>
+	relation_ref 128536 // <aggregation>
+      end
+
+      classrelation 130968 // <dependency>
+	relation 129560 -_->
+	  a default
+	    classrelation_ref 130968 // <dependency>
+	  b parent class_ref 129176 // i2c_client
+      end
+    end
+
+    sequencediagram 128024 "diagram_sequence"
+      show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
+      overlapping_bars size A4
+    end
+
+    class 128536 "ALSA"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 128664 "snd_soc_cpu_dai"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 128664 "name"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 128792 "id"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 128920 "type"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      operation 130072 "probe"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 130200 "suspend"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 130328 "resume"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      attribute 129048 "playback"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 129176 "capture"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 129304 "ops"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 129432 "dai_ops"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      classrelation 129304 // <aggregation by value>
+	relation 128664 *---
+	  a role_name "" protected
+	    classrelation_ref 129304 // <aggregation by value>
+	  b role_name "" protected
+	    classrelation_ref 129432 // <aggregation by value>
+      end
+
+      classrelation 129560 // <aggregation by value>
+	relation 128792 *---
+	  a role_name "" protected
+	    classrelation_ref 129560 // <aggregation by value>
+	  b role_name "" protected
+	    classrelation_ref 129688 // <aggregation by value>
+      end
+
+      classrelation 129816 // <aggregation by value>
+	relation 128920 *---
+	  a role_name "" protected
+	    classrelation_ref 129816 // <aggregation by value>
+	  b role_name "" protected
+	    classrelation_ref 129944 // <aggregation by value>
+      end
+
+      classrelation 130072 // <aggregation by value>
+	relation 129048 *---
+	  a role_name "" protected
+	    classrelation_ref 130072 // <aggregation by value>
+	  b role_name "" protected
+	    classrelation_ref 130200 // <aggregation by value>
+      end
+
+      classrelation 130328 // <aggregation by value>
+	relation 129176 *---
+	  a role_name "" protected
+	    classrelation_ref 130328 // <aggregation by value>
+	  b role_name "" protected
+	    classrelation_ref 130456 // <aggregation by value>
+      end
+
+      classrelation 130712 // <aggregation by value>
+	relation_ref 129304 // <aggregation by value>
+      end
+
+      classrelation 128002 // <directional aggregation by value>
+	relation 128002 *-->
+	  a role_name "" protected
+	    classrelation_ref 128002 // <directional aggregation by value>
+	  b parent class_ref 128792 // snd_soc_pcm_stream
+      end
+    end
+
+    class 128792 "snd_soc_pcm_stream"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 129560 "stream_name"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 129688 "formats"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 129816 "rates"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 129944 "rate_min"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 130072 "rate_max"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 130200 "channels_min"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 130328 "channels_max"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      classrelation 129432 // <aggregation by value>
+	relation_ref 128664 // <aggregation by value>
+      end
+
+      classrelation 129688 // <aggregation by value>
+	relation_ref 128792 // <aggregation by value>
+      end
+
+      classrelation 129944 // <aggregation by value>
+	relation_ref 128920 // <aggregation by value>
+      end
+    end
+
+    class 128920 "snd_soc_ops"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 130456 "startup"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 130584 "shutdown"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 130712 "hw_params"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 130840 "hw_free"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 130968 "prepare"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 131096 "trigger"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      classrelation 130200 // <aggregation by value>
+	relation_ref 129048 // <aggregation by value>
+      end
+
+      classrelation 130456 // <aggregation by value>
+	relation_ref 129176 // <aggregation by value>
+      end
+    end
+
+    class 129048 "wm8987"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 130840 // <realization>
+	relation 129432 -_-|>
+	  a public
+	    classrelation_ref 130840 // <realization>
+	  b parent class_ref 128048 // snd_soc_device
+      end
+    end
+
+    class 129176 "i2c_client"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 130456 "name"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 130584 "driver"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      classrelation 131096 // <aggregation by value>
+	relation 129688 *---
+	  a role_name "" protected
+	    classrelation_ref 131096 // <aggregation by value>
+	  b role_name "" protected
+	    classrelation_ref 131224 // <aggregation by value>
+      end
+    end
+
+    class 129304 "i2c_driver"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 131224 // <aggregation by value>
+	relation_ref 129688 // <aggregation by value>
+      end
+
+      attribute 130712 "driver"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 130840 "id"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 130968 "attach_adapter"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 131096 "detach_client"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 131224 "command"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      classrelation 131352 // <dependency>
+	relation 129816 -_->
+	  a default
+	    classrelation_ref 131352 // <dependency>
+	  b parent class_ref 129432 // i2c_adapter
+      end
+    end
+
+    class 129432 "i2c_adapter"
+      visibility package stereotype "tlv320aic23.c"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 131224 "tlv320aic23_codec_probe"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 131352 "i2c_probe"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 131480 "tlv320aic23_init"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      classrelation 131480 // <dependency>
+	relation 129944 -_->
+	  a default
+	    classrelation_ref 131480 // <dependency>
+	  b parent class_ref 129560 // snd_soc_codec
+      end
+    end
+
+    class 129560 "snd_soc_codec"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 131352 "name"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      operation 131608 "read"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 131736 "write"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 131864 "set_bias_level"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      operation 131992 "dapm_event"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+      end
+
+      attribute 131480 "dai"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 131608 "num_dai"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 131736 "reg_cache"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 131864 "reg_cache_size"
+	protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+    end
+
+    class 128018 "snd_soc_dai_link"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128146 // <directional aggregation>
+	relation 128146 o-->
+	  a role_name "" protected
+	    classrelation_ref 128146 // <directional aggregation>
+	  b parent class_ref 128664 // snd_soc_cpu_dai
+      end
+
+      attribute 128018 "cpu_dai"
+	protected type class_ref 128664 // snd_soc_cpu_dai
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 128002 "codec_dai"
+	protected explicit_type "snd_soc_codec_dai"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      attribute 128130 "ops"
+	protected type class_ref 128920 // snd_soc_ops
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	idl_decl ""
+      end
+
+      operation 128002 "init"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "snd_soc_codec" explicit_type ""
+	
+	
+	
+	
+      end
+    end
+
+    classinstance 128002 "snd_soc_codec_device"
+      type class_ref 128408 // snd_soc_codec_device
+      attributes
+        end
+      relations
+        end
+    end
+  end
+end

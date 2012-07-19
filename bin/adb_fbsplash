@@ -1,0 +1,8 @@
+#!/bin/sh
+
+adb push ${1} /flashing.ppm.gz
+adb shell "ln -s /dev/graphics/fb0 /dev/fb0"
+adb shell "fbset -depth 16"
+adb shell "fbsplash -s /flashing.ppm.gz"
+echo "display ${1}"
+

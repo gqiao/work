@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# start camera
+#adb shell "am start -n com.android.camera/com.android.camera.Camera -a android.media.action.VIDEO_CAMERA -f 0x16000000"
+
+# shutter button: down up 
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0000 0x000001e6
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0001 0x000012aa
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0018 0x00000033
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x001c 0x00000001
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0001 0x014a 0x00000001
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0030 0x00000033
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0032 0x00000001
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0035 0x000001e6
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0036 0x000012aa
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0000 0x0002 0x00000000
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0000 0x0000 0x00000000
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0000 0x000001e2
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0001 0x000012b2
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0030 0x00000033
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0032 0x00000001
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0035 0x000001e2
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0036 0x000012b2
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0000 0x0002 0x00000000
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0000 0x0000 0x00000000
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0018 0x00000000
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x001c 0x00000000
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0001 0x014a 0x00000000
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0030 0x00000000
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0032 0x00000000
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0035 0x00000050
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0036 0x000014d8
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0000 0x0002 0x00000000
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0000 0x0000 0x00000000
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0030 0x00000000
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0032 0x00000000
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0035 0x00000050
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0003 0x0036 0x000014d8
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0000 0x0002 0x00000000
+printf "sendevent /dev/input/event2 %d %d %d\n" 0x0000 0x0000 0x00000000
+
+
+
+

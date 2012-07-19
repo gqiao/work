@@ -1,0 +1,158 @@
+format 48
+
+classcanvas 128018 class_ref 128018 // snd_soc_dai_link
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 467 353 2005
+  end
+classcanvas 128048 class_ref 128048 // snd_soc_device
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 327 589 2000
+  end
+classcanvas 128176 class_ref 128176 // platform_device
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 170 616 2000
+  end
+classcanvas 128432 class_ref 128304 // tlv320aic23
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 283 761 2000
+  end
+classcanvas 128920 class_ref 128024 // snd_soc_machine
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 463 475 2000
+  end
+classcanvas 129176 class_ref 128152 // snd_soc_platform
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 471 593 2000
+  end
+classcanvas 129328 class_ref 128560 // platform_driver
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 12 589 2000
+  end
+classcanvas 129560 class_ref 128280 // snd_pcm_ops
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 622 548 2000
+  end
+classcanvas 129816 class_ref 128408 // snd_soc_codec_device
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 464 709 2005
+  end
+note 130072 "[tlv320aic23.c]
+
+ASoC TLV320AIC23 driver"
+  xyzwh 583 828 2000 174 70
+note 130328 "[s3c-pcm.c]
+Samsung S3C24XX PCM DMA module"
+  xyzwh 589 476 2000 235 53
+note 130584 "[smdk6410_tlv320aic23.c]
+ALSA SoC TLV320AIC23 Neo1973"
+  xyzwh 208 520 2000 215 52
+classcanvas 130840 class_ref 128664 // snd_soc_cpu_dai
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 469 120 2000
+  end
+classcanvas 130968 class_ref 128792 // snd_soc_pcm_stream
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 607 105 2000
+  end
+classcanvas 131864 class_ref 128920 // snd_soc_ops
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 623 269 2000
+  end
+classcanvas 132632 class_ref 129048 // wm8987
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 381 758 2000
+  end
+classcanvas 133016 class_ref 129176 // i2c_client
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 506 862 2000
+  end
+classcanvas 133272 class_ref 129304 // i2c_driver
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 362 834 2005
+  end
+classcanvas 133528 class_ref 129432 // i2c_adapter
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 161 843 2000
+  end
+classcanvas 133784 class_ref 129560 // snd_soc_codec
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 190 989 2005
+  end
+note 134040 "snd_soc_register_card"
+  xyzwh 125 752 2000 145 35
+relationcanvas 128002 relation_ref 128002 // <directional aggregation by value>
+  from ref 130840 z 1999 to ref 130968
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128146 relation_ref 128018 // <directional aggregation>
+  from ref 128920 z 1999 to ref 128018
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128274 relation_ref 128146 // <directional aggregation>
+  from ref 128018 z 1999 to ref 130840
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128304 relation_ref 128048 // <dependency>
+  from ref 128176 z 1999 to ref 128048
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128688 relation_ref 128176 // <realization>
+  from ref 128432 z 1999 to ref 128048
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128792 relation_ref 128816 // <directional aggregation by value>
+  from ref 129328 z 1999 to ref 128176
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129304 relation_ref 128152 // <aggregation>
+  from ref 128048 z 1999 to ref 128920
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129432 relation_ref 128280 // <aggregation>
+  from ref 128048 z 1999 to ref 129176
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129688 relation_ref 128408 // <aggregation by value>
+  from ref 129176 z 1999 to ref 129560
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129944 relation_ref 128536 // <aggregation>
+  from ref 128048 z 1999 to ref 129816
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 132376 relation_ref 129176 // <aggregation by value>
+  from ref 130840 z 1999 to ref 131864
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 132760 relation_ref 129432 // <realization>
+  from ref 132632 z 1999 to ref 128048
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 133144 relation_ref 129560 // <dependency>
+  from ref 129816 z 1999 to ref 133016
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 133400 relation_ref 129688 // <aggregation by value>
+  from ref 133016 z 1999 to ref 133272
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 133656 relation_ref 129816 // <dependency>
+  from ref 133272 z 1999 to ref 133528
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 133912 relation_ref 129944 // <dependency>
+  from ref 133528 z 1999 to ref 133784
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+line 130200 -_-_
+  from ref 130072 z 1999 to ref 129816
+line 130456 -_-_
+  from ref 130328 z 1999 to ref 129176
+line 130712 -_-_
+  from ref 130584 z 1999 to ref 128920
+line 134168 -_-_
+  from ref 134040 z 1999 to point 195 818
+  line 134296 z 1999 to ref 133528
+line 134424 -_-_
+  from ref 128048 z 1999 to ref 134040
+end

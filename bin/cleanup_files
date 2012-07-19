@@ -1,0 +1,13 @@
+#!/bin/sh
+
+find . -name "cscope*"  | xargs rm -fr
+find . -name "*[~#]"    | xargs rm -fr
+find . -name "*.o"      | xargs rm -fr
+find . -name "*.bak"    | xargs rm -fr
+find . -name "*tags"    | xargs rm -fr
+find . -name "*TAGS"    | xargs rm -fr
+
+find . -name "*.[ch]" | xargs dos2unix 
+
+find . -name ".svn"    | xargs rm -fr
+

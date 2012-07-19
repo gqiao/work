@@ -1,0 +1,14 @@
+#!/bin/sh
+
+H=${PWD}
+
+for i in `find . -type d`
+do
+cd ${H}/${i}
+rm -fr CMakeCache.txt
+rm -fr CMakeFiles
+rm -fr cmake_install.cmake
+rm -fr Makefile
+rm -fr *~
+rm -fr *#
+done

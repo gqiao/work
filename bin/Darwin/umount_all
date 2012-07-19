@@ -1,0 +1,11 @@
+#!/bin/sh
+
+for i in `find $@ -d -maxdepth +0`; do
+    diskutil umount ${i}
+done
+
+
+
+
+
+

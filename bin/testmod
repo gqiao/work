@@ -1,0 +1,10 @@
+#!/bin/sh
+
+MOD=${1}
+
+sudo insmod ${MOD}
+
+sleep 3
+
+sudo rmmod ${MOD}
+

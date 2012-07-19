@@ -1,0 +1,13 @@
+#!/bin/sh
+
+S=
+D=/diag_work
+
+# diag_work_sync ${S} ${D}
+
+for i in `cat diag_work.txt`
+do  
+    echo "from  ${S}${i} to  ${D}${i}"
+    rsync -avz --delete ${S}${i}  ${D}${i}
+done
+

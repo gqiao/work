@@ -1,0 +1,44 @@
+#!/bin/sh
+
+H=${PWD}
+
+export TARGET_NAME=omap
+export SERVER_NAME="github.com"
+export BRANCH_NAME=ics
+export SSH_AUTH_SOCK=0
+
+export MYDROID=/work/src/${TARGET_NAME}.${BRANCH_NAME}.${SERVER_NAME}
+export KDIR=${MYDROID}/kernel/android-3.0
+export KLIB=${KDIR}
+export KLIB_BUILD=${KLIB}
+
+OS=`uname`
+
+if [ ${OS} = "Darwin" ]; then
+    export CROSS_COMPILE=arm-eabi-
+    export PATH=/work/toolchain/darwin-arm-eabi-4.4.3/bin:${PATH}
+else
+    export CROSS_COMPILE=arm-none-linux-gnueabi-
+    export PATH=/work/toolchain/arm-2010q1/bin:${PATH}
+fi
+export ARCH=arm
+
+
+alias go='cd ${MYDROID}'
+
+
+echo "================================================="
+echo "TARGET_NAME          = ${TARGET_NAME}"
+echo "SERVER_NAME          = ${SERVER_NAME}"
+echo "BRANCH_NAME          = ${BRANCH_NAME}"
+# echo "MYDROID              = ${MYDROID}"
+# echo "KDIR                 = ${KDIR}"
+# echo "KLIB                 = ${KLIB}"
+# echo "KLIB_BUILD           = ${KLIB_BUILD}"
+echo "CROSS_COMPILE        = ${CROSS_COMPILE}"
+echo "ARCH                 = ${ARCH}"
+echo "================================================="
+
+
+
+

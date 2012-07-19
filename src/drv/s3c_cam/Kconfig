@@ -1,0 +1,53 @@
+#
+# Multimedia Video device configuration
+#
+
+menuconfig VIDEO_CAPTURE_DRIVERS
+	bool "Video capture adapters"
+	depends on VIDEO_DEV
+	default y
+	---help---
+	  Say Y here to enable selecting the video adapters for
+	  webcams, analog TV, and hybrid analog/digital TV.
+	  Some of those devices also supports FM radio.
+
+config VIDEO_ADV_DEBUG
+	bool "Enable advanced debug functionality"
+	default n
+	---help---
+	  Say Y here to enable advanced debugging functionality on some
+	  V4L devices.
+	  In doubt, say N.
+
+config VIDEO_HELPER_CHIPS_AUTO
+	bool "Autoselect pertinent encoders/decoders and other helper chips"
+	default y
+	---help---
+	  Most video cards may require additional modules to encode or
+	  decode audio/video standards. This option will autoselect
+	  all pertinent modules to each selected video module.
+
+	  Unselect this only if you know exactly what you are doing, since
+	  it may break support on some boards.
+
+	  In doubt, say Y.
+
+config VIDEO_SAMSUNG
+       bool "S3C SMDK CAMERA support"
+       depends on I2C && VIDEO_V4L2 
+
+       default n
+       ---help---
+         TBA
+choice
+depends on VIDEO_SAMSUNG
+prompt "Select CIS module type"
+default VIDEO_SAMSUNG_S5K3BA
+
+config VIDEO_SAA7113
+       bool "SAA7113"
+       ---help---
+         TBA
+
+endchoice
+

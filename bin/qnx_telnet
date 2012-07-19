@@ -1,0 +1,14 @@
+#!/usr/bin/expect
+
+spawn telnet 10.80.104.239
+expect "login:" 
+send "user\r" 
+expect "Password:" 
+send "password\r" 
+expect ">" 
+send "time=`$(head -l date.sh)`" 
+send "\n" 
+send "mv tool $time" 
+send "\n" 
+expect ">" 
+interact

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+wget -c -nc  -r -nH  -l10 -k --cut-dirs=1 ${1}
+

@@ -1,0 +1,36 @@
+#!/bin/sh
+
+H=/work/prj/G1_froyo
+
+
+cd ${H}
+export PATH=${PWD}/prebuilt/linux-x86/toolchain/arm-eabi-4.4.0/bin:${PWD}/out/host/linux-x86/bin:${PATH}
+
+
+echo "adb shell reboot"
+
+cd out/target/product/dream-open
+fastboot erase boot
+fastboot flash boot boot.img
+
+fastboot erase system
+fastboot flash system system.img
+
+fastboot erase userdata
+fastboot flash userdata userdata.img
+
+# TODO: fastboot flash userdata /work/prj/g1/htc/signed-dream_devphone-img-147201/userdata.img
+fastboot erase cache
+fastboot reboot
+
+
+sleep 60
+
+# TODO: static to img
+# adb remount
+# adb push system/core/rootdir/etc/vold.fstab /etc/
+
+# app 2 sdcard first
+# adb shell
+# pm setInstallLocation 2
+

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+git init
+git add .
+git commit -m 'init version'
+git remote add origin https://github.com/gqiao/work.git
+git push -u origin master
+
+
+
+
+

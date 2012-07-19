@@ -1,0 +1,14 @@
+#!/bin/sh
+
+COMMIT_ID=${1}
+
+git branch   -D                bak
+git branch   -M ${BRANCH_NAME} bak
+
+git checkout -b ${BRANCH_NAME} bn/${BRANCH_NAME}
+git reset --hard ${COMMIT_ID}
+
+git push bn HEAD:refs/for/${BRANCH_NAME}
+
+
+

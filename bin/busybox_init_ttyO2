@@ -1,0 +1,62 @@
+#!/bin/sh
+export PATH=/usr/sbin:/usr/bin:/sbin:/bin
+echo Starting
+busybox mkdir -p proc dev mnt tmp sys /sbin usr/bin usr/sbin
+# busybox needs /proc to install itself
+busybox mount -t proc none /proc
+busybox --install
+# mdev needs /sys to create device nodes
+mount -t sysfs none /sys
+# Wait for the kernel to enumerate both SD/eMMC cards
+sleep 2
+mdev -s
+echo /sbin/mdev > /proc/sys/kernel/hotplug
+mount -t tmpfs none /tmp
+
+# The system is fully "up" at this point
+
+if grep -q '\<single\>' /proc/cmdline ; then
+	# Set up job control in the shell
+	exec setsid sh -c 'exec sh </dev/ttyO2 >/dev/ttyO2 2>&1'
+fi
+
+# Start a shell on the serial port while we work
+busybox setsid /bin/sh -c 'exec sh </dev/ttyO2 >/dev/ttyO2' &
+
+if [ -x /bin/start ] ; then
+	echo Running /bin/start
+	/bin/start 
+else
+	sh
+fi
+
+rc=$?
+sync
+# Busybox only supports writing to 16 bit displays
+fbset -depth 16
+if [ "$rc" -eq 0 ] ; then
+	fbsplash -s /images/success.ppm.gz
+	sleep 3
+else
+	fbsplash -s /images/failure.ppm.gz
+	sleep 30
+fi
+
+# If the user creates a file /noshutdown, shutdown is halted
+test -e /noshutdown && wait
+
+kill -TERM -1
+
+fbsplash -s /images/shutdown_5.ppm.gz
+sleep 5
+fbsplash -s /images/shutdown_0.ppm.gz
+sleep 1
+
+sync
+mount -o ro,remount /
+umount -a
+poweroff -f
+sleep 1
+# Force power off if the kernel doesn't do it
+echo 1 > /sys/kernel/twl6030_poweroff/poweroff
+sleep 1

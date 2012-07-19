@@ -1,0 +1,7 @@
+#!/bin/sh
+
+
+git branch   -D old
+git branch   -M ${BRANCH_NAME} old
+git checkout -b ${BRANCH_NAME} bn/${BRANCH_NAME}
+

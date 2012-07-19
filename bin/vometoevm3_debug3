@@ -1,0 +1,32 @@
+#!/bin/sh
+
+level=1
+
+H=/work/prj/g1/src
+
+adb_devices
+
+# if level == 1
+#for i in `find ${H}/Numen/voRelease/Customer/htc/g1/shared   -name "*.cfg"`; do adb push $i /system/etc/; done
+#for i in `find ${H}/Numen/voRelease/Customer/htc/g1/shared   -name "*.so"`;  do adb push $i /system/lib/; done
+
+#cd ${H}/Numen/voRelease/Customer/ti/zoom2/shared
+# adb push voMPEG4Dec.so      /system/lib/
+# adb push voH264Dec.so       /system/lib/
+# adb push voAACDec.so        /system/lib/
+# adb push voMMCCRRS.so       /system/lib/
+# adb push voConv420To422.so  /system/lib/
+
+
+cd ${H}/Numen_20091204-16_best_evm3_and_beagle/voRelease/Customer/ti/evm3/Customer/Google/so/v7
+adb push voOMXOne.so        /system/lib/
+adb push voOMXME.so         /system/lib/
+
+#cd ${H}/media4test
+#for i in `find -name "*"`; do adb push $i /sdcard/media4test/; done
+
+#cd /work/prj/beagle/rowboat_evm
+#adb push libvomemedia.so    /system/lib/
+
+#adb_install			# install apks
+

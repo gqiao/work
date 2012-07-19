@@ -1,0 +1,27 @@
+# cat /proc/meminfo 
+cat /proc/meminfo 
+MemTotal:        80588 kB
+MemFree:         66244 kB
+Buffers:             0 kB
+Cached:          10688 kB
+SwapCached:          0 kB
+Active:            848 kB
+Inactive:         9976 kB
+SwapTotal:           0 kB
+SwapFree:            0 kB
+Dirty:               0 kB
+Writeback:           0 kB
+AnonPages:         176 kB
+Mapped:            576 kB
+Slab:             1608 kB
+SReclaimable:      808 kB
+SUnreclaim:        800 kB
+PageTables:         36 kB
+NFS_Unstable:        0 kB
+Bounce:              0 kB
+CommitLimit:     40292 kB
+Committed_AS:      816 kB
+VmallocTotal:   434176 kB
+VmallocUsed:      6620 kB
+VmallocChunk:   420860 kB
+# 

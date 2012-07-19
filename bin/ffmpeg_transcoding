@@ -1,0 +1,8 @@
+#!/bin/sh
+
+IN=${1}
+OUT=${2}
+
+ffmpeg -i ${IN} -vcodec libx264 -vpre hq -b 1M -bt 1M -threads 0 ${OUT}
+
+

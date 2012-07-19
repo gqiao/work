@@ -1,0 +1,10 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("d2_0x02_Hacking_on_the_ext_of_future_GNU_System.txt"
+ (filename . "/work/src/lisp/doc/DNFWAH/2/d2_0x02_Hacking_on_the_ext_of_future_GNU_System.txt")
+ (front-context-string . "./hello.scm hack")
+ (rear-context-string . "od +x hello.scm\n")
+ (position . 24124))
+)

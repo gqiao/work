@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "usage: repo start new_branch . "
+
+repo start $@ .
+repo_sync .
+
+
+

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+git push bn HEAD:refs/for/${BRANCH_NAME}
+
+

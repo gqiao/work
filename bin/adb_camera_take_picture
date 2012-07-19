@@ -1,0 +1,66 @@
+#!/bin/sh
+
+# ifconfig tiwlan0
+#TARGET_IP=10.0.2.3
+TARGET_IP=${1}
+
+# for target device
+# cat > target_tcp.sh<<EOF
+# setprop service.adb.tcp.port 5555
+# stop adbd
+# start adbd
+# EOF
+# adb push ./target_tcp.sh /mnt/sdcard/target_tcp.sh
+# #TODO: adb shell "su"
+# adb shell "sh /mnt/sdcard/target_tcp.sh"
+
+
+# for host 
+adb connect ${TARGET_IP}:5555
+adb devices
+adb shell "am start -n com.android.camera/com.android.camera.Camera -a android.media.action.VIDEO_CAMERA -f 0x16000000"
+cat > events.sh <<EOF
+sendevent /dev/input/event2 3 0 486
+sendevent /dev/input/event2 3 1 4778
+sendevent /dev/input/event2 3 24 51
+sendevent /dev/input/event2 3 28 1
+sendevent /dev/input/event2 1 330 1
+sendevent /dev/input/event2 3 48 51
+sendevent /dev/input/event2 3 50 1
+sendevent /dev/input/event2 3 53 486
+sendevent /dev/input/event2 3 54 4778
+sendevent /dev/input/event2 0 2 0
+sendevent /dev/input/event2 0 0 0
+sendevent /dev/input/event2 3 0 482
+sendevent /dev/input/event2 3 1 4786
+sendevent /dev/input/event2 3 48 51
+sendevent /dev/input/event2 3 50 1
+sendevent /dev/input/event2 3 53 482
+sendevent /dev/input/event2 3 54 4786
+sendevent /dev/input/event2 0 2 0
+sendevent /dev/input/event2 0 0 0
+sendevent /dev/input/event2 3 24 0
+sendevent /dev/input/event2 3 28 0
+sendevent /dev/input/event2 1 330 0
+sendevent /dev/input/event2 3 48 0
+sendevent /dev/input/event2 3 50 0
+sendevent /dev/input/event2 3 53 80
+sendevent /dev/input/event2 3 54 5336
+sendevent /dev/input/event2 0 2 0
+sendevent /dev/input/event2 0 0 0
+sendevent /dev/input/event2 3 48 0
+sendevent /dev/input/event2 3 50 0
+sendevent /dev/input/event2 3 53 80
+sendevent /dev/input/event2 3 54 5336
+sendevent /dev/input/event2 0 2 0
+sendevent /dev/input/event2 0 0 0
+EOF
+
+adb push ./events.sh /mnt/sdcard/events.sh
+
+adb shell "rm -fr /mnt/sdcard/DCIM/Camera/*"
+sleep 5
+adb shell "sh /mnt/sdcard/events.sh"
+sleep 5
+adb pull /mnt/sdcard/DCIM/Camera ./
+

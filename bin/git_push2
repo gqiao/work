@@ -1,0 +1,9 @@
+#!/bin/sh
+
+COMMIT_ID=${1}
+
+git_cleanup
+git cherry-pick ${COMMIT_ID}
+git push bn HEAD:refs/for/${BRANCH_NAME}
+
+

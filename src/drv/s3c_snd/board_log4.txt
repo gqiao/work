@@ -1,0 +1,720 @@
+# insmod s3c_snd.ko
+insmod s3c_snd.ko
+D/soc-core.c -> 1493: snd_soc_init(): 
+I/soc-core.c -> 1495: snd_soc_init(): ASoC version 0.13.1
+# insmod s3c_tlv320aic23.ko
+insmod s3c_tlv320aic23.ko
+D/smdk6410_tlv320aic23.c -> 450: smdk6400_init(): 
+D/soc-core.c -> 1410: soc_probe(): 
+D/s3c6410_i2s-v32.c -> 363: s3c_i2s_probe(): 
+D/tlv320aic23.c -> 1162: tlv320aic23_probe(): 
+I/tlv320aic23.c -> 1163: tlv320aic23_probe(): Audio Codec Driver v0.12
+D/tlv320aic23.c -> 1131: tlv320aic23_i2c_attach(): 
+D/tlv320aic23.c -> 1089: tlv320aic23_codec_probe(): 
+D/tlv320aic23.c -> 1001: create_proc_led(): 
+E/tlv320aic23.c -> 1012: create_proc_led(): wireless1 led: Module loaded.
+E/tlv320aic23.c -> 1023: create_proc_led(): wireless2 led: Module loaded.
+E/tlv320aic23.c -> 1034: create_proc_led(): transfer led: Module loaded.
+E/tlv320aic23.c -> 1045: create_proc_led(): encoder led: Module loaded.
+D/tlv320aic23.c -> 709: tlv320aic23_init(): 
+D/tlv320aic23.c -> 113: tlv320aic23_write(): 
+D/tlv320aic23.c -> 100: tlv320aic23_write_reg_cache(): 
+D/soc-core.c -> 759: snd_soc_new_pcms(): 
+D/soc-core.c -> 556: soc_new_pcm(): 
+D/soc-core.c ->  50: get_dai_name(): 
+D/s3c-pcm.c  -> 447: s3c24xx_pcm_new(): 
+D/s3c-pcm.c  -> 404: s3c24xx_pcm_preallocate_dma_buffer(): 
+D/s3c-pcm.c  -> 404: s3c24xx_pcm_preallocate_dma_buffer(): 
+I/soc-core.c -> 601: soc_new_pcm(): asoc: TLV320AIC23 <-> s3c-i2s mapping ok
+D/tlv320aic23.c -> 113: tlv320aic23_write(): 
+D/tlv320aic23.c -> 100: tlv320aic23_write_reg_cache(): 
+D/tlv320aic23.c -> 605: tlv320aic23_set_bias_level(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/tlv320aic23.c -> 113: tlv320aic23_write(): 
+D/tlv320aic23.c -> 100: tlv320aic23_write_reg_cache(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/tlv320aic23.c -> 113: tlv320aic23_write(): 
+D/tlv320aic23.c -> 100: tlv320aic23_write_reg_cache(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/tlv320aic23.c -> 113: tlv320aic23_write(): 
+D/tlv320aic23.c -> 100: tlv320aic23_write_reg_cache(): 
+D/tlv320aic23.c -> 113: tlv320aic23_write(): 
+D/tlv320aic23.c -> 100: tlv320aic23_write_reg_cache(): 
+D/tlv320aic23.c -> 113: tlv320aic23_write(): 
+D/tlv320aic23.c -> 100: tlv320aic23_write_reg_cache(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/tlv320aic23.c -> 113: tlv320aic23_write(): 
+D/tlv320aic23.c -> 100: tlv320aic23_write_reg_cache(): 
+D/tlv320aic23.c -> 113: tlv320aic23_write(): 
+D/tlv320aic23.c -> 100: tlv320aic23_write_reg_cache(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/tlv320aic23.c -> 113: tlv320aic23_write(): 
+D/tlv320aic23.c -> 100: tlv320aic23_write_reg_cache(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/tlv320aic23.c -> 113: tlv320aic23_write(): 
+D/tlv320aic23.c -> 100: tlv320aic23_write_reg_cache(): 
+D/tlv320aic23.c -> 113: tlv320aic23_write(): 
+D/tlv320aic23.c -> 100: tlv320aic23_write_reg_cache(): 
+D/tlv320aic23.c -> 242: tlv320aic23_add_controls(): 
+D/soc-core.c -> 902: snd_soc_cnew(): 
+D/soc-core.c -> 902: snd_soc_cnew(): 
+D/soc-core.c -> 902: snd_soc_cnew(): 
+D/soc-core.c -> 902: snd_soc_cnew(): 
+D/soc-core.c -> 902: snd_soc_cnew(): 
+D/soc-core.c -> 902: snd_soc_cnew(): 
+D/soc-core.c -> 902: snd_soc_cnew(): 
+D/soc-core.c -> 902: snd_soc_cnew(): 
+D/tlv320aic23.c -> 324: tlv320aic23_add_widgets(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1006: snd_soc_dapm_add_routes(): 
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> Line Input
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> Output Mixer
+D/soc-dapm.c -> 199: dapm_connect_mixer(): 
+D/soc-dapm.c -> 205: dapm_connect_mixer(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 207: dapm_connect_mixer(): dest->sources name = Output Mixer
+D/soc-dapm.c -> 209: dapm_connect_mixer(): src->sinks name = Line Input
+D/soc-dapm.c -> 106: dapm_set_path_status(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> Output Mixer
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> DAC
+D/soc-dapm.c -> 199: dapm_connect_mixer(): 
+D/soc-dapm.c -> 205: dapm_connect_mixer(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 207: dapm_connect_mixer(): dest->sources name = Output Mixer
+D/soc-dapm.c -> 209: dapm_connect_mixer(): src->sinks name = DAC
+D/soc-dapm.c -> 106: dapm_set_path_status(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> Mic Input
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> Output Mixer
+D/soc-dapm.c -> 199: dapm_connect_mixer(): 
+D/soc-dapm.c -> 205: dapm_connect_mixer(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 207: dapm_connect_mixer(): dest->sources name = Output Mixer
+D/soc-dapm.c -> 209: dapm_connect_mixer(): src->sinks name = Mic Input
+D/soc-dapm.c -> 106: dapm_set_path_status(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> RHPOUT
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> Output Mixer
+D/soc-dapm.c -> 923: snd_soc_dapm_connect_input(): connect static paths
+D/soc-dapm.c -> 925: snd_soc_dapm_connect_input(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 927: snd_soc_dapm_connect_input(): wsink->sources name = RHPOUT
+D/soc-dapm.c -> 929: snd_soc_dapm_connect_input(): wsource->sinks name = Output Mixer
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> LHPOUT
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> Output Mixer
+D/soc-dapm.c -> 923: snd_soc_dapm_connect_input(): connect static paths
+D/soc-dapm.c -> 925: snd_soc_dapm_connect_input(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 927: snd_soc_dapm_connect_input(): wsink->sources name = LHPOUT
+D/soc-dapm.c -> 929: snd_soc_dapm_connect_input(): wsource->sinks name = Output Mixer
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> LOUT
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> Output Mixer
+D/soc-dapm.c -> 923: snd_soc_dapm_connect_input(): connect static paths
+D/soc-dapm.c -> 925: snd_soc_dapm_connect_input(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 927: snd_soc_dapm_connect_input(): wsink->sources name = LOUT
+D/soc-dapm.c -> 929: snd_soc_dapm_connect_input(): wsource->sinks name = Output Mixer
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> ROUT
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> Output Mixer
+D/soc-dapm.c -> 923: snd_soc_dapm_connect_input(): connect static paths
+D/soc-dapm.c -> 925: snd_soc_dapm_connect_input(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 927: snd_soc_dapm_connect_input(): wsink->sources name = ROUT
+D/soc-dapm.c -> 929: snd_soc_dapm_connect_input(): wsource->sinks name = Output Mixer
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> LLINEIN
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> Line Input
+D/soc-dapm.c -> 946: snd_soc_dapm_connect_input(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 948: snd_soc_dapm_connect_input(): wsink->sources name = Line Input
+D/soc-dapm.c -> 950: snd_soc_dapm_connect_input(): wsource->sinks name = LLINEIN
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> RLINEIN
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> Line Input
+D/soc-dapm.c -> 946: snd_soc_dapm_connect_input(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 948: snd_soc_dapm_connect_input(): wsink->sources name = Line Input
+D/soc-dapm.c -> 950: snd_soc_dapm_connect_input(): wsource->sinks name = RLINEIN
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> MICIN
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> Mic Input
+D/soc-dapm.c -> 946: snd_soc_dapm_connect_input(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 948: snd_soc_dapm_connect_input(): wsink->sources name = Mic Input
+D/soc-dapm.c -> 950: snd_soc_dapm_connect_input(): wsource->sinks name = MICIN
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> Line Input
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> Capture Source
+D/soc-dapm.c -> 173: dapm_connect_mux(): 
+D/soc-dapm.c -> 178: dapm_connect_mux(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 180: dapm_connect_mux(): dest->sources name = Capture Source
+D/soc-dapm.c -> 182: dapm_connect_mux(): src->sinks name = Line Input
+D/soc-dapm.c -> 106: dapm_set_path_status(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> Mic Input
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> Capture Source
+D/soc-dapm.c -> 173: dapm_connect_mux(): 
+D/soc-dapm.c -> 178: dapm_connect_mux(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 180: dapm_connect_mux(): dest->sources name = Capture Source
+D/soc-dapm.c -> 182: dapm_connect_mux(): src->sinks name = Mic Input
+D/soc-dapm.c -> 106: dapm_set_path_status(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> Capture Source
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> ADC
+D/soc-dapm.c -> 923: snd_soc_dapm_connect_input(): connect static paths
+D/soc-dapm.c -> 925: snd_soc_dapm_connect_input(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 927: snd_soc_dapm_connect_input(): wsink->sources name = ADC
+D/soc-dapm.c -> 929: snd_soc_dapm_connect_input(): wsource->sinks name = Capture Source
+D/soc-dapm.c -> 1037: snd_soc_dapm_new_widgets(): 
+D/soc-dapm.c -> 1118: snd_soc_dapm_new_widgets(): <<<<<<<<input
+D/soc-dapm.c -> 1150: snd_soc_dapm_new_widgets(): w->new = 1
+D/soc-dapm.c -> 1118: snd_soc_dapm_new_widgets(): <<<<<<<<input
+D/soc-dapm.c -> 1150: snd_soc_dapm_new_widgets(): w->new = 1
+D/soc-dapm.c -> 1118: snd_soc_dapm_new_widgets(): <<<<<<<<input
+D/soc-dapm.c -> 1150: snd_soc_dapm_new_widgets(): w->new = 1
+D/soc-dapm.c -> 1121: snd_soc_dapm_new_widgets(): <<<<<<<<output
+D/soc-dapm.c -> 1150: snd_soc_dapm_new_widgets(): w->new = 1
+D/soc-dapm.c -> 1121: snd_soc_dapm_new_widgets(): <<<<<<<<output
+D/soc-dapm.c -> 1150: snd_soc_dapm_new_widgets(): w->new = 1
+D/soc-dapm.c -> 1121: snd_soc_dapm_new_widgets(): <<<<<<<<output
+D/soc-dapm.c -> 1150: snd_soc_dapm_new_widgets(): w->new = 1
+D/soc-dapm.c -> 1121: snd_soc_dapm_new_widgets(): <<<<<<<<output
+D/soc-dapm.c -> 1150: snd_soc_dapm_new_widgets(): w->new = 1
+D/soc-dapm.c -> 1103: snd_soc_dapm_new_widgets(): <<<<<<<<pga
+E/soc-dapm.c -> 1106: snd_soc_dapm_new_widgets(): asoc: mux Mic Input has no controls
+D/soc-dapm.c -> 1150: snd_soc_dapm_new_widgets(): w->new = 1
+D/soc-dapm.c -> 1103: snd_soc_dapm_new_widgets(): <<<<<<<<pga
+E/soc-dapm.c -> 1106: snd_soc_dapm_new_widgets(): asoc: mux Line Input has no controls
+D/soc-dapm.c -> 1150: snd_soc_dapm_new_widgets(): w->new = 1
+D/soc-dapm.c -> 1053: snd_soc_dapm_new_widgets(): <<<<<<<<mixer
+D/soc-dapm.c -> 310: dapm_new_mixer(): 
+D/soc-core.c -> 902: snd_soc_cnew(): 
+D/soc-core.c -> 902: snd_soc_cnew(): 
+D/soc-core.c -> 902: snd_soc_cnew(): 
+D/soc-dapm.c -> 1150: snd_soc_dapm_new_widgets(): w->new = 1
+D/soc-dapm.c -> 1058: snd_soc_dapm_new_widgets(): <<<<<<<<mux
+D/soc-core.c -> 902: snd_soc_cnew(): 
+D/soc-dapm.c -> 1150: snd_soc_dapm_new_widgets(): w->new = 1
+D/soc-dapm.c -> 1077: snd_soc_dapm_new_widgets(): <<<<<<<<adc
+E/soc-dapm.c -> 1079: snd_soc_dapm_new_widgets(): asoc: mux ADC has no controls
+D/soc-dapm.c -> 1150: snd_soc_dapm_new_widgets(): w->new = 1
+D/soc-dapm.c -> 1090: snd_soc_dapm_new_widgets(): <<<<<<<<dac
+E/soc-dapm.c -> 1092: snd_soc_dapm_new_widgets(): asoc: mux DAC has no controls
+D/soc-dapm.c -> 1150: snd_soc_dapm_new_widgets(): w->new = 1
+D/soc-dapm.c -> 462: dapm_power_widgets(): 
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = MICIN
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = MICIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = RLINEIN
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = RLINEIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = LLINEIN
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = LLINEIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = ROUT
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = ROUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = LOUT
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = RHPOUT
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = RHPOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = LHPOUT
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LHPOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 511: dapm_power_widgets(): >>>>>>>>pga>>>>w->name = Mic Input
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = MICIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 261: dapm_set_pga(): 
+D/soc-dapm.c -> 225: dapm_update_bits(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/tlv320aic23.c -> 113: tlv320aic23_write(): 
+D/tlv320aic23.c -> 100: tlv320aic23_write_reg_cache(): 
+D/soc-dapm.c -> 251: dapm_update_bits(): reg old 1 new 3 change 1
+D/soc-dapm.c -> 511: dapm_power_widgets(): >>>>>>>>pga>>>>w->name = Line Input
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = RLINEIN
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = LLINEIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 261: dapm_set_pga(): 
+D/soc-dapm.c -> 225: dapm_update_bits(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/soc-dapm.c -> 251: dapm_update_bits(): reg old 3 new 3 change 0
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = Output Mixer
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = ROUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LOUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LHPOUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = RHPOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = Capture Source
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = MICIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = ADC
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = MICIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = DAC
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = ROUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LOUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LHPOUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = RHPOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-core.c -> 804: snd_soc_register_card(): 
+D/smdk6410_tlv320aic23.c -> 274: smdk6400_tlv320aic23_init(): 
+D/smdk6410_tlv320aic23.c -> 170: set_scenario_endpoints(): 
+D/smdk6410_tlv320aic23.c -> 175: set_scenario_endpoints(): SMDK6400_AUDIO_OFF
+D/soc-dapm.c -> 1497: snd_soc_dapm_set_endpoint(): endpoint = Headphone Jack
+D/soc-dapm.c -> 1497: snd_soc_dapm_set_endpoint(): endpoint = Mic Bias
+D/soc-dapm.c -> 1497: snd_soc_dapm_set_endpoint(): endpoint = Line In Jack
+D/soc-dapm.c -> 850: snd_soc_dapm_sync_endpoints(): 
+D/soc-dapm.c -> 462: dapm_power_widgets(): 
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = MICIN
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = MICIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = RLINEIN
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = RLINEIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = LLINEIN
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = LLINEIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = ROUT
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = ROUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = LOUT
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = RHPOUT
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = RHPOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = LHPOUT
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LHPOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 511: dapm_power_widgets(): >>>>>>>>pga>>>>w->name = Mic Input
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = MICIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 261: dapm_set_pga(): 
+D/soc-dapm.c -> 225: dapm_update_bits(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/soc-dapm.c -> 251: dapm_update_bits(): reg old 3 new 3 change 0
+D/soc-dapm.c -> 511: dapm_power_widgets(): >>>>>>>>pga>>>>w->name = Line Input
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = RLINEIN
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = LLINEIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 261: dapm_set_pga(): 
+D/soc-dapm.c -> 225: dapm_update_bits(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/soc-dapm.c -> 251: dapm_update_bits(): reg old 3 new 3 change 0
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = Output Mixer
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = ROUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LOUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LHPOUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = RHPOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = Capture Source
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = MICIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = ADC
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = MICIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = DAC
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = ROUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LOUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LHPOUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = RHPOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-dapm.c -> 1372: snd_soc_dapm_new_control(): 
+D/soc-dapm.c ->  97: dapm_cnew_widget(): 
+D/soc-core.c -> 902: snd_soc_cnew(): 
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> Headphone Jack
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> Headphone Jack
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> Mic Bias
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 882: snd_soc_dapm_connect_input(): strcmp(w->name, sink) >>>> Mic Bias
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> Line In Jack
+D/soc-dapm.c -> 876: snd_soc_dapm_connect_input(): 
+D/soc-dapm.c -> 887: snd_soc_dapm_connect_input(): strcmp(w->name, source) >>>> Line In Jack
+D/soc-dapm.c -> 1497: snd_soc_dapm_set_endpoint(): endpoint = Mic Bias
+D/soc-dapm.c -> 1497: snd_soc_dapm_set_endpoint(): endpoint = Headphone Jack
+D/soc-dapm.c -> 1497: snd_soc_dapm_set_endpoint(): endpoint = Line In Jack
+D/soc-dapm.c -> 850: snd_soc_dapm_sync_endpoints(): 
+D/soc-dapm.c -> 462: dapm_power_widgets(): 
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = Line In Jack
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 430: is_connected_input_ep(): id == snd_soc_dapm_mic || widget->id == snd_soc_dapm_line >>> name = Line In Jack
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 380: is_connected_output_ep(): id == snd_soc_dapm_hp || id == snd_soc_dapm_spk || id == snd_soc_dapm_line >>> id=11, name = Line In Jack
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 225: dapm_update_bits(): 
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = Mic Bias
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 430: is_connected_input_ep(): id == snd_soc_dapm_mic || widget->id == snd_soc_dapm_line >>> name = Mic Bias
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = Headphone Jack
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 380: is_connected_output_ep(): id == snd_soc_dapm_hp || id == snd_soc_dapm_spk || id == snd_soc_dapm_line >>> id=9, name = Headphone Jack
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = MICIN
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = MICIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = RLINEIN
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = RLINEIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = LLINEIN
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = LLINEIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = ROUT
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = ROUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = LOUT
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = RHPOUT
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = RHPOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = LHPOUT
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LHPOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 511: dapm_power_widgets(): >>>>>>>>pga>>>>w->name = Mic Input
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = MICIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 261: dapm_set_pga(): 
+D/soc-dapm.c -> 225: dapm_update_bits(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/soc-dapm.c -> 251: dapm_update_bits(): reg old 3 new 3 change 0
+D/soc-dapm.c -> 511: dapm_power_widgets(): >>>>>>>>pga>>>>w->name = Line Input
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = RLINEIN
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = LLINEIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 261: dapm_set_pga(): 
+D/soc-dapm.c -> 225: dapm_update_bits(): 
+D/tlv320aic23.c ->  84: tlv320aic23_read_reg_cache(): 
+D/soc-dapm.c -> 251: dapm_update_bits(): reg old 3 new 3 change 0
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = Output Mixer
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = ROUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LOUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LHPOUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = RHPOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = Capture Source
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = MICIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = ADC
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 418: is_connected_input_ep(): id == snd_soc_dapm_input >>> name = MICIN
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 560: dapm_power_widgets(): >>>>>>>>>>other>>>>>w->name = DAC
+D/soc-dapm.c -> 407: is_connected_input_ep(): 
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = ROUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LOUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = LHPOUT
+D/soc-dapm.c -> 363: is_connected_output_ep(): 
+D/soc-dapm.c -> 373: is_connected_output_ep(): id == snd_soc_dapm_output >>> name = RHPOUT
+D/soc-dapm.c -> 348: dapm_clear_walk(): codec->name = TLV320AIC23
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 1081: snd_soc_info_volsw(): 
+D/soc-core.c -> 1192: snd_soc_info_volsw_2r(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-core.c -> 929: snd_soc_info_enum_double(): 
+D/soc-dapm.c -> 803: snd_soc_dapm_sys_add(): 
+# 

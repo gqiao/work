@@ -1,0 +1,8 @@
+#!/bin/sh
+
+export ADBHOST=10.2.64.44
+
+adb kill-server
+adb devices
+
+

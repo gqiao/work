@@ -1,0 +1,1 @@
+dists/quicklisp/software/cl-vectors-20101006-git/cl-aa-misc.asd

@@ -1,0 +1,38 @@
+#!/bin/sh
+
+env_path=/work/bin
+
+cd ${env_path}
+
+idx=0
+for i in `find ${env_path}/ -name "env_*"`; do 
+    echo "${idx}\t${i}"
+    idx=$((${idx} + 1))
+done
+
+
+K=0
+echo -n "?" 
+read K
+
+if [ -z ${K} ]; then
+    echo "${TARGET_NAME}.${BRANCH_NAME}" | figlet
+    return
+fi
+
+idx=0
+for i in `find ${env_path}/ -name "env_*"`; do 
+    if [ ${K} = ${idx} ]; then
+        break
+    fi
+    idx=$((${idx} + 1))
+done
+
+. "${i}"
+echo "${TARGET_NAME}.${BRANCH_NAME}" | figlet
+
+
+#env
+
+
+

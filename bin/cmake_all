@@ -1,0 +1,12 @@
+#!/bin/sh
+
+H=${PWD}
+
+rm -fr build; mkdir build
+
+cd ${H}/build
+cmake ..; make
+
+
+
+

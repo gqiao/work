@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd / && sudo /usr/libexec/locate.updatedb
+

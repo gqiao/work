@@ -1,0 +1,4 @@
+lisp-implementation-type: SBCL
+lisp-implementation-version: 1.0.54
+machine-type: X86-64
+machine-version: Intel(R) Core(TM) i7-2635QM CPU @ 2.00GHz

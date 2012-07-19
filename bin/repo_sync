@@ -1,0 +1,34 @@
+#!/bin/sh
+
+OS=`uname`
+if [ ${OS} = "Darwin" ]; then
+    THREADS=32
+else
+    THREADS=$((`grep ^processor /proc/cpuinfo -c` * 2))
+fi
+
+R=/work/src/${TARGET_NAME}.${BRANCH_NAME}.${SERVER_NAME}
+X=${R}/bootable/bootloader/x-loader
+U=${R}/bootable/bootloader/u-boot
+K=${R}/kernel/android-3.0
+
+cd ${R}/device/ti/common-open/
+git reset --hard HEAD
+
+cd ${X}
+git reset --hard HEAD
+
+
+cd ${R}
+echo "\"repo sync $@\" using ${THREADS} threads ..."
+repo sync -j${THREADS} $@ | tee repo_sync.log
+if cat repo_sync.log | grep -q "\.[ch]"; then
+    etag_all
+else
+    echo "repo_sync: no change :-) "
+fi
+
+
+
+
+

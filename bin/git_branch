@@ -1,0 +1,32 @@
+#!/bin/sh
+
+R=/work/src/${TARGET_NAME}.${BRANCH_NAME}.${SERVER_NAME}
+X=${R}/bootable/bootloader/x-loader
+U=${R}/bootable/bootloader/u-boot
+K=${R}/kernel/android-3.0
+if [ -z $@ ]; then
+
+    cd ${X}
+    echo ${PWD}
+    git_branch -a
+    echo
+
+    cd ${U}
+    echo ${PWD}
+    git_branch -a
+    echo
+
+    cd ${K}
+    echo ${PWD}
+    git_branch -a
+    echo
+
+    exit 0
+fi
+
+
+echo "git branch $@"
+git branch $@
+
+
+

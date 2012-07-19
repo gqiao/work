@@ -1,0 +1,139 @@
+cscope 15 /local_work/src/drv/module_address               0000000787
+	@__module_address.c
+
+1 
+	#LOG_TAG
+ "__moduË_add»ss.c"
+
+	)
+
+3 
+	~"o§l.h
+"
+
+5 
+	$a_moduË
+()
+
+8 
+	}
+}
+
+10 
+__š™
+ 
+	$__moduË_add»ss_š™
+()
+
+12 
+moduË
+ *
+»t
+;
+
+13 
+addr
+ = (
+	`ty³of
+×ddr))
+a_moduË
+;
+
+15 
+	`´“m±_di§bË
+();
+
+16 
+»t
+ = 
+	`__moduË_add»ss
+(
+addr
+);
+
+17 
+	`´“m±_’abË
+();
+
+19 if(
+»t
+ !ğ
+NULL
+) {
+
+20 
+	`__I
+("»t->Çme: % \n", 
+»t
+->
+Çme
+);
+
+21 
+	`__I
+("»t->¡©e: %d \n", 
+»t
+->
+¡©e
+);
+
+22 
+	`__I
+("»t->cÜe_size: %d \n", 
+»t
+->
+cÜe_size
+);
+
+23 
+	`__I
+("»f oà% i %d \n", 
+»t
+->
+Çme
+, 
+	`moduË_»fcouÁ
+(ret));
+
+25 
+	`__I
+("return NULL ! \n");
+
+29 
+	}
+}
+
+31 
+__ex™
+ 
+	$__moduË_add»ss_ex™
+()
+
+33 
+	`__I
+("exit ok! \n");
+
+34 
+	}
+}
+
+37 
+moduË_š™
+(
+__moduË_add»ss_š™
+);
+
+38 
+moduË_ex™
+(
+__moduË_add»ss_ex™
+);
+
+	@
+1
+.
+1
+/usr/include
+1
+19
+__module_address.c

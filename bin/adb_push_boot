@@ -1,0 +1,19 @@
+#!/bin/sh
+
+
+if [ $# -lt 1 ]; then
+    echo "Usage: $prog <your data>"
+    echo "<your data> is your data in your host."
+    echo "Make sure you get the right one"
+    exit 1
+fi
+
+ADB='sudo /work/tool/android_tools/adb'
+
+${ADB} shell /system/bin/mount /dev/block/mmcblk0p1 /boot
+${ADB} push  ${1} /boot/
+${ADB} push  ls -lt /boot/
+${ADB} shell /system/bin/umount /boot
+
+
+

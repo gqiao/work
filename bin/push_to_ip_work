@@ -1,0 +1,13 @@
+#!/bin/sh
+
+#I=192.168.1.1
+I=${1}
+
+ssh ${USER}@${I} "mkdir -p ${PWD}"
+rsync -avz ${PWD}/  root@${I}:${PWD}/
+
+
+
+
+
+

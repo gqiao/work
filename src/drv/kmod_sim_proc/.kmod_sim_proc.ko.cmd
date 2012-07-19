@@ -1,0 +1,1 @@
+cmd_/work/prj/teclong/src/drv/kmod_sim_proc/kmod_sim_proc.ko := arm-none-linux-gnueabi-ld -EL -r   -o /work/prj/teclong/src/drv/kmod_sim_proc/kmod_sim_proc.ko /work/prj/teclong/src/drv/kmod_sim_proc/kmod_sim_proc.o /work/prj/teclong/src/drv/kmod_sim_proc/kmod_sim_proc.mod.o

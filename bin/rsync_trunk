@@ -1,0 +1,3 @@
+#!/bin/sh
+rsync -vzrtopg --progress $1 --port=873 diag@10.237.60.21::diag_trunk /home/work/trunk --password-file=/etc/rsync/rsync.secrets
+#chown -R george.george trunk

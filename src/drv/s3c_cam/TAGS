@@ -1,0 +1,2126 @@
+
+s3c_camif.c,2208
+#define LOG_TAG 1,0
+#define TOMTOM_INTERLACE_MODE41,998
+#define SW_IPC42,1028
+static s3c_syscon_t  __iomem  *syscon syscon45,1051
+static s3c_cam_t     __iomem  *base base46,1106
+static dma_addr_t shared_buffer_addr;48,1161
+const char *camif_version camif_version59,1604
+#define CAMDIV_val 62,1692
+int s3c_camif_set_clock 64,1719
+static inline  int camif_malloc(95,2462
+static int camif_demalloc(177,4629
+int camif_g_frame_num(195,5046
+static int camif_pp_codec(215,5542
+#define  TRY 257,6685
+static int camif_pp_preview(313,9145
+static int camif_pp_codec_rgb(367,10493
+static int camif_pp_preview_msdma(419,11856
+static int camif_setup_memory_output(476,13368
+static int camif_setup_lcd_fifo_output(489,13571
+u8 * camif_g_frame(501,13745
+int camif_source_fmt(520,14171
+static int camif_target_fmt(540,14647
+void camif_change_flip(582,15879
+void camif_change_image_effect(602,16327
+int camif_capture_start(644,17095
+int camif_capture_stop(701,18576
+int camif_start_postprocessing(743,19580
+int camif_set_codec_msdma(768,20056
+int camif_codec_msdma_start(837,21963
+int camif_set_preview_msdma(853,22216
+int camif_preview_msdma_start(930,24377
+void camif_last_irq_en(941,24618
+static int camif_scaler_internal(954,24884
+int camif_g_fifo_status(983,25454
+int camif_win_offset(1018,26403
+static void camif_polarity(1053,27369
+int camif_setup_fimc_controller(1071,27719
+int inline camif_dynamic_close(1098,28229
+static int camif_setup_intput_path(1110,28409
+static int camif_setup_camera_input(1122,28636
+static int camif_setup_msdma_input(1140,29153
+static int camif_setup_output_path(1151,29384
+static int camif_target_area(1163,29579
+static int inline camif_hw_reg(1178,29823
+static int camif_setup_scaler(1236,31626
+static void camif_g_bsize(1303,33876
+#define BURST_ERR 1353,34554
+static int camif_dma_burst(1354,34575
+void camif_reset(1431,36703
+void clear_camif_irq(1474,37564
+void camif_setup_sensor(1488,37843
+static s3c_priority_t *priority priority1520,38940
+static s3c_priority_t irq_old_priority;1521,38988
+void camif_hw_close(1523,39030
+void camif_hw_open(1529,39153
+void camif_register_cis(1540,39409
+void camif_unregister_cis(1554,39727
+
+osal.h,211
+#define _OSAL_H_2,45
+#define __E(49,1202
+#define __W(50,1323
+#define __I(51,1444
+#define __D(54,1583
+#define __D(57,1742
+#define __D(62,1829
+#define __E(63,1856
+#define __W(64,1883
+#define __I(65,1910
+
+videodev2_s3c.h,2370
+#define __VIDEODEV2_S3C_H_2,27
+#define V4L2_INPUT_TYPE_MSDMA	6,85
+#define V4L2_INPUT_TYPE_INTERLACE	7,118
+#define V4L2_CID_ORIGINAL	14,358
+#define V4L2_CID_ARBITRARY	15,413
+#define V4L2_CID_NEGATIVE 16,469
+#define V4L2_CID_ART_FREEZE	17,525
+#define V4L2_CID_EMBOSSING	18,582
+#define V4L2_CID_SILHOUETTE	19,638
+#define V4L2_CID_ROTATE_90	22,715
+#define V4L2_CID_ROTATE_180	23,771
+#define V4L2_CID_ROTATE_270	24,828
+#define V4L2_CID_ROTATE_BYPASS	25,885
+#define	V4L2_CID_ZOOMIN	28,970
+#define V4L2_CID_ZOOMOUT	29,1025
+#define VIDIOC_S_CAMERA_START 35,1299
+#define VIDIOC_S_CAMERA_STOP	36,1367
+#define VIDIOC_MSDMA_START	37,1433
+#define VIDIOC_MSDMA_STOP	38,1523
+#define VIDIOC_S_MSDMA	39,1612
+#define VIDIOC_S_INTERLACE_MODE 40,1699
+#define	S3C_VIDEO_DECODER_PAL	45,1828
+#define	S3C_VIDEO_DECODER_NTSC	46,1889
+#define	S3C_VIDEO_DECODER_SECAM	47,1945
+#define	S3C_VIDEO_DECODER_AUTO	48,2003
+#define	S3C_VIDEO_DECODER_CCIR	49,2062
+#define S3C_DECODER_INIT	51,2175
+#define	S3C_DECODER_GET_CAPABILITIES	52,2307
+#define	S3C_DECODER_GET_STATUS 53,2418
+#define	S3C_DECODER_SET_NORM	54,2495
+#define	S3C_DECODER_SET_INPUT	55,2567
+#define	S3C_DECODER_SET_OUTPUT	56,2671
+#define	S3C_DECODER_ENABLE_OUTPUT	57,2778
+#define	S3C_DECODER_SET_PICTURE 58,2894
+#define	S3C_DECODER_SET_GPIO	59,2988
+#define	S3C_DECODER_SET_VBI_BYPASS	60,3097
+#define	S3C_DECODER_DUMP	61,3202
+enum v4l2_msdma_input 63,3287
+	V4L2_MSDMA_CODEC 64,3311
+	V4L2_MSDMA_PREVIEW 65,3334
+struct v4l2_msdma_format68,3363
+	__u32         		width;70,3390
+	__u32			height;71,3449
+	__u32			pixelformat;72,3501
+	enum v4l2_msdma_input  	input_path;73,3523
+struct v4l2_interlace_format76,3564
+	__u32 width;78,3595
+	__u32 height;79,3647
+struct s3c_video_decoder_init 82,3704
+	unsigned char len;83,3736
+	const unsigned char *data;data84,3756
+struct s3c_video_decoder_capability 87,3788
+	__u32	flags;88,3854
+	int	inputs;89,3868
+	int	outputs;90,3906
+static struct v4l2_input fimc_inputs[fimc_inputs94,3955
+static struct v4l2_output fimc_outputs[fimc_outputs115,4381
+const struct v4l2_fmtdesc fimc_codec_formats[fimc_codec_formats134,4667
+const struct v4l2_fmtdesc fimc_preview_formats[fimc_preview_formats166,5410
+#define NUMBER_OF_PREVIEW_FORMATS 205,6326
+#define NUMBER_OF_CODEC_FORMATS	206,6395
+#define NUMBER_OF_INPUTS	207,6466
+#define NUMBER_OF_OUTPUTS	208,6523
+
+s3c_cam.mod.c,60
+struct module __this_module7,124
+__attribute_used__18,385
+
+tuner-simple.h,118
+#define __TUNER_SIMPLE_H__18,738
+static inline struct dvb_frontend *simple_tuner_attach(simple_tuner_attach37,1180
+
+s3c_camif_fsm.c,649
+ssize_t camif_start_1fsm(46,1137
+ssize_t camif_start_2fsm(60,1439
+ssize_t camif_start_preview(72,1701
+ssize_t camif_pc_stop(89,2066
+ssize_t camif_stop_preview(107,2433
+ssize_t camif_stop_codec(116,2631
+void camif_start_c_with_p 129,2964
+static void camif_start_p_with_c(136,3123
+static void camif_auto_restart(166,3759
+static int camif_check_global(177,3998
+#define CHECK_FREQ 204,4638
+int camif_enter_p_4fsm(206,4660
+int camif_enter_c_4fsm(273,6476
+int camif_enter_2fsm(346,8328
+int camif_enter_1fsm(404,9838
+int camif_callback_start(451,10931
+int camif_check_codec_in_PREVIEW(468,11339
+int camif_check_preview_in_CODEC(489,11882
+
+s3c_camif_fsm.h,32
+#define S3C_CAMIF_FSM_H19,1145
+
+saa7113h.c,2696
+#define VRES_60HZ	53,1892
+#define SAA7113H_VERSION_ID_REG 54,1919
+#define SAA7113H_I2C_VERSION_ID 55,1953
+camif_cis_t msdma_input 68,2363
+camif_cis_t interlace_input 79,2699
+camif_cis_t saa7113_input 91,3062
+camif_cis_t* get_initialized_cis(102,3423
+static unsigned short normal_addr[normal_addr110,3589
+struct saa711x_state 115,3681
+	v4l2_std_id std;116,3704
+	int input;117,3722
+	int output;118,3734
+	int enable;119,3747
+	int radio;120,3760
+	int bright;121,3772
+	int contrast;122,3785
+	int hue;123,3800
+	int sat;124,3810
+	int width;125,3820
+	int height;126,3832
+	int ident;127,3845
+	u32 audclk_freq;128,3857
+	u32 crystal_freq;129,3875
+	u8 ucgc;130,3894
+	u8 cgcdiv;131,3904
+	u8 apll;132,3916
+static unsigned short ignore[ignore134,3929
+static unsigned short *forces[forces135,3982
+static struct i2c_client_address_data addr_data 136,4026
+static inline int saa711x_write(144,4257
+static int saa711x_has_reg(151,4509
+static int saa711x_writeregs(182,5764
+static inline int saa711x_read(203,6328
+static const unsigned char saa7111_init[saa7111_init211,6560
+static const unsigned char saa7113_init[saa7113_init251,8035
+static const unsigned char saa7115_init_auto_input[saa7115_init_auto_input284,8995
+static const unsigned char saa7115_cfg_reset_scaler[saa7115_cfg_reset_scaler321,10758
+static const unsigned char saa7115_cfg_60hz_video[saa7115_cfg_60hz_video331,11159
+static const unsigned char saa7115_cfg_50hz_video[saa7115_cfg_50hz_video404,13402
+static const unsigned char saa7115_cfg_vbi_on[saa7115_cfg_vbi_on484,16127
+static const unsigned char saa7115_cfg_vbi_off[saa7115_cfg_vbi_off494,16490
+static const unsigned char saa7115_init_misc[saa7115_init_misc505,16858
+static int saa711x_odd_parity(647,21000
+static int saa711x_decode_vps(656,21105
+static int saa711x_decode_wss(703,23022
+static int saa711x_set_audio_clock_freq(730,23439
+static int saa711x_set_v4lctrl(787,25248
+static int saa711x_get_v4lctrl(839,26527
+static int saa711x_set_size(863,26996
+static void saa711x_set_v4lstd(969,30292
+static v4l2_std_id saa711x_get_v4lstd(1034,32459
+static void saa711x_log_status(1041,32609
+static void saa711x_set_lcr(1091,34251
+static int saa711x_get_v4lfmt(1173,36151
+static int saa711x_set_v4lfmt(1202,36987
+static void saa711x_decode_vbi_line(1220,37652
+static int saa711x_command(1285,39262
+static struct i2c_driver i2c_driver_saa711x;1506,45028
+static int saa711x_attach(1508,45074
+static int saa711x_probe(1655,48598
+static int saa711x_detach(1660,48708
+static struct i2c_driver i2c_driver_saa711x 1678,49046
+static int __init saa711x_init_module(1689,49263
+static void __exit saa711x_cleanup_module(1694,49357
+
+saa7113h.h,12928
+#define __SAA7113H_H2,21
+#define SAA7113H_DEVICE_NAME 10,181
+#define SAA7113H_NR_REGISTER	17,442
+	__u8 ID;20,492
+} saa7113h_r00_t, saa7113h_chip_version_t;21,521
+	__u8 IDEL 24,582
+	__u8 _X_ 28,700
+} saa7113h_r01_t, saa7113h_increment_delay_t;29,717
+	__u8 MODE 32,781
+	__u8 GULD 51,1627
+	__u8 FUSE 53,1707
+} saa7113h_r02_t, saa7113h_analog_input_control_1_t;60,1901
+	__u8 GAI1_MSB 64,1973
+	__u8 GAI2_MSB 65,2044
+	__u8 GAFIX 66,2115
+	__u8 HOLDG 72,2262
+	__u8 WPOFF 78,2374
+	__u8 VBSL 84,2497
+	__u8 HLNRS 91,2746
+	__u8 _X_ 97,2939
+} saa7113h_r03_t, saa7113h_analog_input_control_2_t;98,2959
+	__u8 GAI1 102,3031
+} saa7113h_r04_t, saa7113h_analog_input_control_3_t;109,3188
+	__u8 GAI2 112,3259
+} saa7113h_r05_t, saa7113h_analog_input_control_4_t;119,3416
+	__u8 HSB 122,3487
+} saa7113h_r06_t, saa7113h_horizontal_sync_start_t;127,3639
+	__u8 HSS 130,3709
+} saa7113h_r07_t, saa7113h_horizontal_sync_stop_t;135,3860
+	__u8 VNOI 138,3929
+#define SAA7113H_HPLL_CLOSED 146,4170
+#define SAA7113H_HPLL_OPEN 147,4201
+	__u8 HPLL 149,4233
+#define SAA7113H_HTC_TV 155,4340
+#define SAA7113H_HTC_VTR 156,4368
+#define SAA7113H_HTC_FAST 157,4396
+	__u8 HTC 159,4425
+	__u8 FOET 168,4700
+#define SAA7113H_FSEL_50HZ 174,4891
+#define SAA7113H_FSEL_60HZ 175,4920
+	__u8 FSEL 177,4950
+#define SAA7113H_AUFD_AUTO 183,5075
+#define SAA7113H_AUFD_FIXED 184,5105
+	__u8 AUFD 186,5136
+} saa7113h_r08_t, saa7113h_sync_control_t;191,5304
+	__u8 APER 194,5365
+	__u8 UPTCV 202,5516
+	__u8 VBLB 208,5670
+	__u8 BPSS 215,5883
+	__u8 PREF 223,6170
+	__u8 BYPS 224,6216
+} saa7113h_r09_t, saa7113h_luminance_control_t;229,6370
+#define SAA7113H_BRIG_NTSCJ 232,6436
+#define SAA7113H_BRIG_CCIR 233,6469
+	__u8 BRIG 234,6502
+} saa7113h_r0a_t, saa7113h_luminance_brightness_t;235,6546
+#define SAA7113H_CONT_NTSCJ 238,6615
+	__u8 CONT 239,6648
+} saa7113h_r0b_t, saa7113h_luminance_contrast_t;247,6879
+	__u8 SATN 250,6946
+} saa7113h_r0c_t, saa7113h_chrominance_saturation_t;257,7164
+	__u8 HUE 260,7235
+} saa7113h_r0d_t, saa7113h_chrominance_hue_control_t;265,7358
+	__u8 CHBW 268,7430
+	__u8 FCTC 276,7643
+	__u8 DCCF 282,7768
+#define SAA7113H_CSTD_PALB 288,7927
+#define SAA7113H_CSTD_NTSCM 289,7958
+#define SAA7113H_CSTD_NTSCJ 290,7989
+#define SAA7113H_CSTD_NTSC50 291,8020
+#define SAA7113H_CSTD_PAL60 292,8051
+#define SAA7113H_CSTD_PALN 293,8082
+#define SAA7113H_CSTD_NTSC60 294,8113
+#define SAA7113H_CSTD_NTSCN 295,8144
+#define SAA7113H_CSTD_PALM 296,8175
+#define SAA7113H_CSTD_SECAM 297,8206
+	__u8 CSTD 299,8238
+	__u8 CDT0 310,8611
+} saa7113h_r0e_t, saa7113h_chrominance_control_t;317,8860
+	__u8 CGAIN 320,8928
+	__u8 ACGC 325,9034
+} saa7113h_r0f_t, saa7113h_chrominance_gain_control_t;330,9143
+	__u8 YDEL 333,9216
+	__u8 VRLN 335,9283
+	__u8 HDEL 343,9589
+	__u8 OFTS 345,9643
+} saa7113h_r10_t, saa7113h_format_delay_control_t;352,9852
+	__u8 COLO 355,9921
+	__u8 VIPB 357,9965
+#define SAA7113H_OERT_DISABLE 363,10121
+#define SAA7113H_OERT_ENABLE 364,10153
+	__u8 OERT 366,10186
+#define SAA7113H_OEYC_DISABLE 372,10356
+#define SAA7113H_OEYC_ENABLE 373,10388
+	__u8 OEYC 375,10421
+	__u8 HLSEL 381,10559
+	__u8 GPSW0 389,10792
+	__u8 CM99 391,10868
+	__u8 GPSW1 397,11002
+} saa7113h_r11_t, saa7113h_output_control_1_t;398,11077
+	__u8 RTSE0 401,11142
+	__u8 RTSE1 413,11492
+} saa7113h_r12_t, saa7113h_output_control_2_t;414,11509
+	__u8 AOSL 417,11574
+	__u8 _X_ 424,11736
+	__u8 FIDP 425,11753
+	__u8 OLDSB 430,11867
+	__u8 _XX_ 431,11928
+	__u8 ADLSB 432,11945
+} saa7113h_r13_t, saa7113h_output_control_3_t;433,12021
+typedef __u8 saa7113h_r14_t;435,12069
+	__u8 VSTA 438,12131
+} saa7113h_r15_t, saa7113h_VGATE_start_t;439,12147
+	__u8 VSTO 442,12207
+} saa7113h_r16_t, saa7113h_VGATE_stop_t;443,12223
+	__u8 VSTA_MSB 446,12282
+	__u8 VSTO_MSB 447,12325
+	__u8 _X_ 448,12368
+} saa7113h_r17_t, saa7113h_VGATE_MSB_t;449,12388
+typedef __u8 saa7113h_r18_t;451,12429
+typedef __u8 saa7113h_r19_t;452,12458
+typedef __u8 saa7113h_r1a_t;453,12487
+typedef __u8 saa7113h_r1b_t;454,12516
+typedef __u8 saa7113h_r1c_t;455,12545
+typedef __u8 saa7113h_r1d_t;456,12574
+typedef __u8 saa7113h_r1e_t;457,12603
+	__u8 RDCAP 460,12650
+	__u8 COPRO 461,12717
+	__u8 WIPA 462,12784
+	__u8 GLIMB 463,12844
+	__u8 GLIMT 464,12918
+	__u8 FIDT 465,12992
+	__u8 HLVLN 466,13066
+	__u8 INTL 467,13127
+} saa7113h_r1f_t, saa7113h_decoder_status_t;468,13183
+typedef __u8 saa7113h_r20_t;470,13229
+typedef __u8 saa7113h_r21_t;471,13258
+typedef __u8 saa7113h_r22_t;472,13287
+typedef __u8 saa7113h_r23_t;473,13316
+typedef __u8 saa7113h_r24_t;474,13345
+typedef __u8 saa7113h_r25_t;475,13374
+typedef __u8 saa7113h_r26_t;476,13403
+typedef __u8 saa7113h_r27_t;477,13432
+typedef __u8 saa7113h_r28_t;478,13461
+typedef __u8 saa7113h_r29_t;479,13490
+typedef __u8 saa7113h_r2a_t;480,13519
+typedef __u8 saa7113h_r2b_t;481,13548
+typedef __u8 saa7113h_r2c_t;482,13577
+typedef __u8 saa7113h_r2d_t;483,13606
+typedef __u8 saa7113h_r2e_t;484,13635
+typedef __u8 saa7113h_r2f_t;485,13664
+typedef __u8 saa7113h_r30_t;486,13693
+typedef __u8 saa7113h_r31_t;487,13722
+typedef __u8 saa7113h_r32_t;488,13751
+typedef __u8 saa7113h_r33_t;489,13780
+typedef __u8 saa7113h_r34_t;490,13809
+typedef __u8 saa7113h_r35_t;491,13838
+typedef __u8 saa7113h_r36_t;492,13867
+typedef __u8 saa7113h_r37_t;493,13896
+typedef __u8 saa7113h_r38_t;494,13925
+typedef __u8 saa7113h_r39_t;495,13954
+typedef __u8 saa7113h_r3a_t;496,13983
+typedef __u8 saa7113h_r3b_t;497,14012
+typedef __u8 saa7113h_r3c_t;498,14041
+typedef __u8 saa7113h_r3d_t;499,14070
+typedef __u8 saa7113h_r3e_t;500,14099
+typedef __u8 saa7113h_r3f_t;501,14128
+	__u8 _X_ 504,14175
+	__u8 _SLCK_ 505,14193
+	__u8 _AMPS_ 513,14350
+	__u8 _XX_ 515,14405
+	__u8 FCE 517,14424
+	__u8 HAM_N 523,14566
+	__u8 FISET 529,14714
+} saa7113h_r40_t, saa7113h_slicer_control_1_t;534,14804
+	__u8 LCR 556,15277
+} saa7113h_r41_t, saa7113h_line_control_2_t;557,15292
+	__u8 LCR 560,15355
+} saa7113h_r42_t, saa7113h_line_control_3_t;561,15370
+	__u8 LCR 564,15433
+} saa7113h_r43_t, saa7113h_line_control_4_t;565,15448
+	__u8 LCR 568,15511
+} saa7113h_r44_t, saa7113h_line_control_5_t;569,15526
+	__u8 LCR 572,15589
+} saa7113h_r45_t, saa7113h_line_control_6_t;573,15604
+	__u8 LCR 576,15667
+} saa7113h_r46_t, saa7113h_line_control_7_t;577,15682
+	__u8 LCR 580,15745
+} saa7113h_r47_t, saa7113h_line_control_8_t;581,15760
+	__u8 LCR 584,15823
+} saa7113h_r48_t, saa7113h_line_control_9_t;585,15838
+	__u8 LCR 588,15901
+} saa7113h_r49_t, saa7113h_line_control_10_t;589,15916
+	__u8 LCR 592,15980
+} saa7113h_r4a_t, saa7113h_line_control_11_t;593,15995
+	__u8 LCR 596,16059
+} saa7113h_r4b_t, saa7113h_line_control_12_t;597,16074
+	__u8 LCR 600,16138
+} saa7113h_r4c_t, saa7113h_line_control_13_t;601,16153
+	__u8 LCR 604,16217
+} saa7113h_r4d_t, saa7113h_line_control_14_t;605,16232
+	__u8 LCR 608,16296
+} saa7113h_r4e_t, saa7113h_line_control_15_t;609,16311
+	__u8 LCR 612,16375
+} saa7113h_r4f_t, saa7113h_line_control_16_t;613,16390
+	__u8 LCR 616,16454
+} saa7113h_r50_t, saa7113h_line_control_17_t;617,16469
+	__u8 LCR 620,16533
+} saa7113h_r51_t, saa7113h_line_control_18_t;621,16548
+	__u8 LCR 624,16612
+} saa7113h_r52_t, saa7113h_line_control_19_t;625,16627
+	__u8 LCR 628,16691
+} saa7113h_r53_t, saa7113h_line_control_20_t;629,16706
+	__u8 LCR 632,16770
+} saa7113h_r54_t, saa7113h_line_control_21_t;633,16785
+	__u8 LCR 636,16849
+} saa7113h_r55_t, saa7113h_line_control_22_t;637,16864
+	__u8 LCR 640,16928
+} saa7113h_r56_t, saa7113h_line_control_23_t;641,16943
+	__u8 LCR 644,17007
+} saa7113h_r57_t, saa7113h_line_control_24_t;645,17022
+	__u8 FC 648,17086
+} saa7113h_r58_t, saa7113h_programmable_framming_code_t;649,17100
+	__u8 HOFF 652,17175
+} saa7113h_r59_t, saa7113h_slicer_horizontal_offset_t;653,17191
+	__u8 VOFF 656,17264
+} saa7113h_r5a_t, saa7113h_slicer_vertical_offset_t;657,17280
+	__u8 HOFF_MSB 660,17351
+	__u8 _X_ 661,17371
+	__u8 VOFF_MSB 662,17391
+	__u8 _XX_ 663,17411
+	__u8 FOFF 664,17431
+} saa7113h_r5b_t, saa7113h_slicer_extra_offsets_t;665,17451
+typedef __u8 saa7113h_r5c_t;667,17503
+typedef __u8 saa7113h_r5d_t;668,17532
+	__u8 SDID 671,17579
+	__u8 _X_ 672,17595
+} saa7113h_r5e_t, saa7113h_sliced_data_id_code_t;673,17611
+typedef __u8 saa7113h_r5f_t;675,17662
+	__u8 _X_ 678,17709
+	__u8 CV	679,17725
+	__u8 PPV 680,17741
+	__u8 VPSV 681,17757
+	__u8 FC7V 682,17773
+	__u8 FC8V 683,17789
+	__u8 _XX_ 684,17805
+} saa7113h_r60_t, saa7113h_slicer_status_1_t;685,17821
+	__u8 LNHI 688,17885
+	__u8 F21_N 689,17902
+	__u8 _X_ 690,17919
+} saa7113h_r61_t, saa7113h_slicer_status_2_t;691,17936
+	__u8 DT	694,18000
+	__u8 LNLO 695,18016
+} saa7113h_r62_t, saa7113h_slicer_status_3_t;696,18032
+	saa7113h_r00_t chip_version;701,18112
+	saa7113h_r01_t increment_delay;702,18142
+	saa7113h_r02_t analog_input_control_1;703,18175
+	saa7113h_r03_t analog_input_control_2;704,18215
+	saa7113h_r04_t analog_input_control_3;705,18255
+	saa7113h_r05_t analog_input_control_4;706,18295
+	saa7113h_r06_t horizontal_sync_start;707,18335
+	saa7113h_r07_t horizontal_sync_stop;708,18374
+	saa7113h_r08_t sync_control;709,18412
+	saa7113h_r09_t luminance_control;710,18442
+	saa7113h_r0a_t luminance_brightness;711,18477
+	saa7113h_r0b_t luminance_contrast;712,18515
+	saa7113h_r0c_t chrominance_saturation;713,18551
+	saa7113h_r0d_t chrominance_hue_control;714,18591
+	saa7113h_r0e_t chrominance_control;715,18632
+	saa7113h_r0f_t chrominance_gain_control;716,18669
+	saa7113h_r10_t format_delay_control;717,18711
+	saa7113h_r11_t output_control_1;718,18749
+	saa7113h_r12_t output_control_2;719,18783
+	saa7113h_r13_t output_control_3;720,18817
+	saa7113h_r14_t reserved_r14;721,18851
+	saa7113h_r15_t VGATE_start;722,18881
+	saa7113h_r16_t VGATE_stop;723,18910
+	saa7113h_r17_t VGATE_MSB;724,18938
+	saa7113h_r18_t reserved_r18;725,18965
+	saa7113h_r19_t reserved_r19;726,18995
+	saa7113h_r1a_t reserved_r1a;727,19025
+	saa7113h_r1b_t reserved_r1b;728,19055
+	saa7113h_r1c_t reserved_r1c;729,19085
+	saa7113h_r1d_t reserved_r1d;730,19115
+	saa7113h_r1e_t reserved_r1e;731,19145
+	saa7113h_r1f_t decoder_status;732,19175
+	saa7113h_r20_t reserved_r20;735,19222
+	saa7113h_r21_t reserved_r21;736,19252
+	saa7113h_r22_t reserved_r22;737,19282
+	saa7113h_r23_t reserved_r23;738,19312
+	saa7113h_r24_t reserved_r24;739,19342
+	saa7113h_r25_t reserved_r25;740,19372
+	saa7113h_r26_t reserved_r26;741,19402
+	saa7113h_r27_t reserved_r27;742,19432
+	saa7113h_r28_t reserved_r28;743,19462
+	saa7113h_r29_t reserved_r29;744,19492
+	saa7113h_r2a_t reserved_r2a;745,19522
+	saa7113h_r2b_t reserved_r2b;746,19552
+	saa7113h_r2c_t reserved_r2c;747,19582
+	saa7113h_r2d_t reserved_r2d;748,19612
+	saa7113h_r2e_t reserved_r2e;749,19642
+	saa7113h_r2f_t reserved_r2f;750,19672
+	saa7113h_r30_t reserved_r30;751,19702
+	saa7113h_r31_t reserved_r31;752,19732
+	saa7113h_r32_t reserved_r32;753,19762
+	saa7113h_r33_t reserved_r33;754,19792
+	saa7113h_r34_t reserved_r34;755,19822
+	saa7113h_r35_t reserved_r35;756,19852
+	saa7113h_r36_t reserved_r36;757,19882
+	saa7113h_r37_t reserved_r37;758,19912
+	saa7113h_r38_t reserved_r38;759,19942
+	saa7113h_r39_t reserved_r39;760,19972
+	saa7113h_r3a_t reserved_r3a;761,20002
+	saa7113h_r3b_t reserved_r3b;762,20032
+	saa7113h_r3c_t reserved_r3c;763,20062
+	saa7113h_r3d_t reserved_r3d;764,20092
+	saa7113h_r3e_t reserved_r3e;765,20122
+	saa7113h_r3f_t reserved_r3f;766,20152
+	saa7113h_r40_t slicer_control_1;769,20197
+	saa7113h_r41_t line_control_2;770,20231
+	saa7113h_r42_t line_control_3;771,20263
+	saa7113h_r43_t line_control_4;772,20295
+	saa7113h_r44_t line_control_5;773,20327
+	saa7113h_r45_t line_control_6;774,20359
+	saa7113h_r46_t line_control_7;775,20391
+	saa7113h_r47_t line_control_8;776,20423
+	saa7113h_r48_t line_control_9;777,20455
+	saa7113h_r49_t line_control_10;778,20487
+	saa7113h_r4a_t line_control_11;779,20520
+	saa7113h_r4b_t line_control_12;780,20553
+	saa7113h_r4c_t line_control_13;781,20586
+	saa7113h_r4d_t line_control_14;782,20619
+	saa7113h_r4e_t line_control_15;783,20652
+	saa7113h_r4f_t line_control_16;784,20685
+	saa7113h_r50_t line_control_17;785,20718
+	saa7113h_r51_t line_control_18;786,20751
+	saa7113h_r52_t line_control_19;787,20784
+	saa7113h_r53_t line_control_20;788,20817
+	saa7113h_r54_t line_control_21;789,20850
+	saa7113h_r55_t line_control_22;790,20883
+	saa7113h_r56_t line_control_23;791,20916
+	saa7113h_r57_t line_control_24;792,20949
+	saa7113h_r58_t programmable_framming_code;793,20982
+	saa7113h_r59_t slicer_horizontal_offset;794,21026
+	saa7113h_r5a_t slicer_vertical_offset;795,21068
+	saa7113h_r5b_t slicer_extra_offsets;796,21108
+	saa7113h_r5c_t reserved_r5c;797,21146
+	saa7113h_r5d_t reserved_r5d;798,21176
+	saa7113h_r5e_t sliced_data_id_code;799,21206
+	saa7113h_r5f_t reserved_r5f;800,21243
+	saa7113h_r60_t slicer_status_1;801,21273
+	saa7113h_r61_t slicer_status_2;802,21306
+	saa7113h_r61_t slicer_status_3;803,21339
+} saa7113h_reg_map_t;804,21372
+
+s3c.h,24051
+#define __HAL_S3C_H__2,22
+typedef volatile u32 v32;27,647
+	v32 APLL_SEL 30,691
+		MPLL_SEL 31,718
+		EPLL_SEL 32,742
+		RESERVED 33,766
+		MFCCLK_SEL 34,790
+		UHOST_SEL 35,814
+		AUDIO0_SEL 36,840
+		AUDIO1_SEL 37,866
+		UART_SEL 38,894
+		SPI0_SEL 39,919
+		SPI1_SEL 40,947
+		MMC0_SEL 41,975
+		MMC1_SEL 42,1003
+		MMC2_SEL 43,1031
+		IRDA_SEL 44,1059
+		LCD_SEL 45,1087
+		SCALER_SEL 46,1115
+		DAC27_SEL 47,1143
+		TV27_SEL 48,1168
+}s3c_clk_src_t;s3c_clk_src_t49,1193
+		v32 InYCbCrFormat_LSB 53,1237
+			InRGBFormat 54,1275
+			INTERLEAVE 55,1310
+			InRGB 56,1345
+			OutRGBFormat 57,1380
+			IRQ_Level 58,1415
+			POSTINT 59,1450
+			INTEN 60,1485
+			SRC420 61,1520
+			reserved1 62,1555
+			Wide_Narrow 63,1590
+			Interlace 64,1629
+			LCDPathEnable 65,1665
+			AutoLoadEnable 66,1701
+			InYCbCrFormat_MSB 67,1737
+			R2YSel 68,1773
+			DST420 69,1809
+			OutRGB 70,1845
+			OutYCbCrFormat 71,1881
+			CLKSEL_F 72,1920
+			CLKDIR 73,1959
+			CLKVAL_F 74,1995
+			CLKVALUP 75,2034
+			ExtFIFOIn 76,2070
+	}MODE;MODE77,2106
+		v32 PreScale_H_Ratio 80,2126
+			PreScale_V_Ratio 81,2166
+			reserved1 82,2204
+	}PreScale_Ratio;PreScale_Ratio83,2243
+		v32 PreScale_DSTWidth 86,2272
+			PreScale_DSTHeight 87,2314
+			reserved1 88,2354
+	}PreScaleImgSize;PreScaleImgSize89,2394
+		v32 SRCWidth 92,2426
+			SRCHeight 93,2468
+			reserved1 94,2508
+	}SRCImgSize;SRCImgSize95,2548
+	v32 MainScale_H_Ratio;97,2564
+	v32 MainScale_V_Ratio;98,2600
+		v32 DSTWidth 101,2647
+			DSTHeight 102,2689
+			reserved1 103,2729
+	} DSTImgSize;104,2769
+	v32 PreScale_SHFactor;106,2785
+	v32 ADDRStart_Y;107,2820
+	v32 ADDRStart_Cb;108,2856
+	v32 ADDRStart_Cr;109,2892
+	v32 ADDRStart_RGB;110,2928
+	v32 ADDREnd_Y;111,2964
+	v32 ADDREnd_Cb;112,3000
+	v32 ADDREnd_Cr;113,3036
+	v32 ADDREnd_RGB;114,3072
+	v32 Offset_Y;115,3108
+	v32 Offset_Cb;116,3144
+	v32 Offset_Cr;117,3180
+	v32 Offset_RGB;118,3216
+	v32 reserved1;119,3252
+	v32 NxtADDRStart_Y;120,3268
+	v32 NxtADDRStart_Cb;121,3304
+	v32 NxtADDRStart_Cr;122,3340
+	v32 NxtADDRStart_RGB;123,3376
+	v32 NxtADDREnd_Y;124,3412
+	v32 NxtADDREnd_Cb;125,3448
+	v32 NxtADDREnd_Cr;126,3484
+	v32 NxtADDREnd_RGB;127,3520
+	v32 ADDRStart_oCb;128,3556
+	v32 ADDRStart_oCr;129,3592
+	v32 ADDREnd_oCb;130,3628
+	v32 ADDREnd_oCr;131,3664
+	v32 Offset_oCb;132,3700
+	v32 Offset_oCr;133,3736
+	v32 NxtADDRStart_oCb;134,3772
+	v32 NxtADDRStart_oCr;135,3808
+	v32 NxtADDREnd_oCb;136,3844
+	v32 NxtADDREnd_oCr;137,3880
+		v32 reserved1 140,3927
+			enable 141,3960
+	}POSTENVID;POSTENVID142,3985
+		v32 hardware_trigger 145,4009
+			BC_SEL 146,4051
+			ADDR_CH_DIS 147,4088
+			FIFO_OUT_PATH 148,4125
+			reserved 149,4164
+	}MODE_2;MODE_2150,4204
+} s3c_tvscaler_t;152,4215
+		v32 TVONOFF 156,4261
+			reserved1 157,4301
+			TVOUTFMT 158,4340
+			reserved2 159,4379
+			TVOUTTYPE 160,4416
+			reserved3 161,4453
+			INTStatus 162,4493
+			reserved4 163,4531
+			INTFIFOUR 164,4572
+			reserved5 165,4610
+	}TVCTRL;TVCTRL166,4651
+		v32 VOFBPD 169,4673
+			reserved1 170,4715
+			VEFBPD 171,4755
+			reserved2 172,4796
+	}VBPORCH;VBPORCH173,4837
+		v32 HBPD 175,4858
+			reserved1 176,4901
+			HSPW 177,4942
+			reserved2 178,4983
+	}HBPORCH;HBPORCH179,5024
+		v32 HEOV 181,5045
+			reserved1 182,5087
+			DTOffset 183,5126
+			reserved2 184,5166
+			HACTWinCenCTRL 185,5207
+			VACTWinCenCTRL 186,5248
+			reserved3 187,5289
+	}HEnhOffset;HEnhOffset188,5330
+		v32 VDWSP 190,5354
+			reserved1 191,5396
+			VDWS 192,5436
+			reserved2 193,5477
+	}VDemoWinSize;VDemoWinSize194,5518
+		v32 HDWSP 196,5544
+			reserved1 197,5587
+			HDWEP 198,5628
+			reserved2 199,5669
+	}HDemoWinSize;HDemoWinSize200,5710
+		v32 ImageWidth 203,5738
+			reserved1 204,5781
+			ImageHeight 205,5822
+			reserved2 206,5863
+	}InImageSize;InImageSize207,5904
+	v32 PEDCTRL;208,5919
+		v32 CBW 210,5953
+			reserved1 211,6010
+			YBW 212,6049
+			reserved2 213,6112
+	}YCFilterBW;YCFilterBW214,6152
+	v32 HUECTRL;216,6167
+	v32 FscCTRL;218,6243
+		v32 FscDTOManual 221,6312
+			FscMEn 222,6355
+	}FscDTOManCTRL;FscDTOManCTRL223,6393
+	v32 reserved1;225,6412
+		v32 BGYOFS 227,6438
+			BGCS 228,6480
+			reserved1 229,6519
+			SME 230,6556
+	}BGCTRL;BGCTRL231,6593
+		v32 BGVS 234,6615
+			BGVL 235,6657
+			BGHS 236,6697
+			BGHL 237,6738
+	}BGHVAVCTRL;BGHVAVCTRL238,6779
+	v32 reserved2[reserved2240,6795
+		v32 CONTRAST 243,6825
+			reserved1 244,6867
+			BRIGHT 245,6907
+	}ContraBright;ContraBright246,6948
+		v32 CBGAIN 249,6976
+			reserved1 250,7018
+			CRGAIN 251,7058
+	}CbCrGainCTRL;CbCrGainCTRL252,7099
+		v32 BSGn 255,7127
+			reserved1 256,7169
+			WStOff 257,7208
+			reserved2 258,7245
+			BStOff 259,7285
+			reserved3 260,7323
+			FreshEn 261,7364
+			reserved4 262,7402
+			MVDemo 263,7443
+	}DemoWinCTRL;DemoWinCTRL264,7481
+		v32 FTCAS 267,7508
+			reserved1 268,7550
+			FTCAC 269,7590
+	}FTCA;FTCA270,7631
+	v32 reserved3;272,7641
+		v32 BGain 274,7667
+			WGain 275,7709
+	}BWGAIN;BWGAIN276,7748
+	v32 reserved4;278,7760
+		v32 DShpGn 280,7786
+			reserved1 281,7828
+			DShpF0 282,7867
+			reserved2 283,7906
+			SDhCor 284,7947
+			reserved3 285,7988
+			SHARPT 286,8029
+	}SharpCTRL;SharpCTRL287,8070
+		v32 DCTRAN 290,8095
+			reserved1 291,8137
+			GamMode 292,8176
+			Reserved2 293,8215
+			GamEn 294,8256
+	}GammaCTRL;GammaCTRL295,8294
+		v32 Fdrst 298,8319
+			reserved1 299,8359
+			Phalt 300,8398
+	}FscAuxCTRL;FscAuxCTRL301,8435
+	v32 SyncSizeCTRL;303,8451
+		v32 BuSt 306,8522
+			reserved1 307,8564
+			BuEnd 308,8605
+	}BurstCTRL;BurstCTRL309,8646
+	v32 MacroBurstCTRL;311,8661
+		v32 AvonSt 314,8720
+			reserved1 315,8762
+			AvonEnd 316,8803
+	}ActVidPoCTRL;ActVidPoCTRL317,8844
+	v32 EncCTRL;319,8862
+		v32 MuteOnOff 322,8917
+			reserved1 323,8957
+			MuteY 324,8996
+			MuteCb 325,9036
+			MuteCr 326,9077
+	}MuteCTRL;MuteCTRL327,9118
+} s3c_tvenc_t;328,9130
+		v32 SrcVsize_CAM 335,9230
+			reserved1 336,9274
+			Order422_CAM 337,9313
+			SrcHsize_CAM 338,9355
+			reserved2 339,9397
+			UVOffset 340,9436
+			ITU601_656n 341,9475
+	} CISRCFMT;342,9514
+		v32 WinVerOfst 345,9578
+			reserved1 346,9622
+			ClrOvPrFiCr 347,9661
+			ClrOvPrFiCb 348,9777
+			ClrOvCoFiCr 349,9893
+			ClrOvCoFiCb 350,10007
+			WinHorOfst 351,10121
+			ClrOvPrFiY 352,10163
+			ClrOvRLB_Pr 353,10202
+			reserved2 354,10241
+			ClrOvCoFiY 355,10280
+			WinOfsEn 356,10393
+	} CIWDOFST;357,10432
+		v32 Cam_Interface 361,10493
+			InvPolFIELD 362,10534
+			FIELDMODE 363,10572
+			reserved1 364,10610
+			IRQ_CLR_p 365,10651
+			IRQ_CLR_c 366,10690
+			IRQ_Level 367,10729
+			Href_mask 368,10768
+			IRQ_Ovfen 369,10807
+			reserved2 370,10846
+			InvPolHREF 371,10885
+			InvPolVSYNC 372,10969
+			InvPolPCLK 373,11054
+			TestPattern 374,11139
+			reserved3 375,11181
+			CamRst 376,11220
+			SwRst 377,11259
+	} CIGCTRL;378,11298
+	v32 reserved1[reserved1381,11339
+		v32 WinVerOfst2 385,11382
+			reserved1 386,11426
+			WinHorOfst2 387,11468
+	} CIWDOFST2;388,11510
+	v32 CICOYSA[CICOYSA394,11611
+	v32 CICOCBSA[CICOCBSA400,11789
+	v32 CICOCRSA[CICOCRSA406,11916
+		v32 TargetVsize_Co 410,12014
+			reserved1 411,12132
+			FlipMd_Co 412,12171
+			TargetHsize_Co 413,12340
+			OutFormat_Co 414,12466
+	} CICOTRGFMT;415,12766
+		v32 Order422_Co 419,12840
+			LastIRQEn_Co 420,12883
+			Reserved1 421,13049
+			Cburst2_Co 422,13087
+			Cburst1_Co 423,13174
+			Yburst2_Co 424,13257
+			Yburst1_Co 425,13340
+	} CICOCTRL;426,13419
+		v32 PreVerRatio_Co 430,13485
+			reserved1 431,13565
+			PreHorRatio_Co 432,13606
+			reserved2 433,13685
+			SHfactor_Co 434,13727
+	} CICOSCPRERATIO;435,13803
+		v32 PreDstHeight_Co 439,13879
+			reserved1 440,13964
+			PreDstWidth_Co 441,14007
+	} CICOSCPREDST;442,14088
+		v32 MainVerRatio_Co 446,14128
+			One2One_Co 447,14216
+			Ext_RGB_Co 448,14254
+			OutRGB_FMT_Co 449,14293
+			InRGB_FMT_Co 450,14426
+			CoScalerStart 451,14468
+			MainHorRatio_Co 452,14547
+			Interlace_Co 453,14634
+			LCDPathEn_Co 454,14673
+			CSCY2R_c 455,14712
+			CSCR2Y_c 456,14751
+			ScaleUp_V_Co 457,14790
+			ScaleUp_H_Co 458,14938
+			ScalerBypass_Co 459,15088
+	} CICOSCCTRL;460,15214
+	v32 CICOTAREA;463,15271
+	v32 reserved2;466,15336
+		v32 reserved1 470,15376
+			FrameEnd_Co 471,15420
+			reserved2 472,15459
+			VSYNC_A 473,15501
+			ImgCptEn_CoSC 474,15540
+			ImgCptEn 475,15579
+			FlipMd_Co 476,15618
+			WinOfstEn_Co 477,15660
+			FrameCnt_Co 478,15699
+			VSYNC 479,15800
+			OvFiCr_Co 480,15981
+			OvFiCb_Co 481,16056
+			OvFiY_Co 482,16131
+	} CICOSTATUS;483,16205
+	v32 reserved3;486,16233
+	v32 CIPRYSA[CIPRYSA491,16287
+	v32 CIPRCBSA[CIPRCBSA496,16439
+	v32 CIPRCRSA[CIPRCRSA501,16495
+		v32 TargetVsize_Pr 505,16536
+			Rot90_Pr 506,16750
+			FlipMd_Pr 507,16835
+			TargetHsize_Pr 508,16988
+			OutFormat_Pr 509,17103
+	} CIPRTRGFMT;510,17144
+		v32 Order422_Pr 514,17182
+			LastIRQEn_Pr 515,17224
+			reserved1 516,17335
+			Cburst2_Pr 517,17372
+			Cburst1_Pr 518,17411
+			Yburst2_Pr 519,17451
+			Yburst1_Pr 520,17492
+	} CIPRCTRL;521,17533
+		v32 PreVerRatio_Pr 525,17569
+			reserved1 526,17650
+			PreHorRatio_Pr 527,17690
+			reserved2 528,17770
+			SHfactor_Pr 529,17811
+	} CIPRSCPRERATIO;530,17888
+		v32 PreDstHeight_Pr 534,17958
+			reserved1 535,18045
+			PreDstWidth_Pr 536,18087
+	} CIPRSCPREDST;537,18170
+		v32 MainVerRatio_Pr 541,18251
+			One2One_Pr 542,18293
+			Ext_RGB_Pr 543,18330
+			OutRGB_FMT_Pr 544,18368
+			InRGB_FMT_Pr 545,18501
+			PrScalerStart 546,18542
+			MainHorRatio_Pr 547,18667
+			Interlace_Pr 548,18755
+			LCDPathEn_Pr 549,18793
+			CSCY2R_Pr 550,18831
+			CSCR2Y_Pr 551,18869
+			ScaleUp_V_Pr 552,18907
+			ScaleUp_H_Pr 553,19056
+			ScalerBypass_Pr 554,19207
+	} CIPRSCCTRL;555,19245
+	v32 CIPRTAREA;558,19303
+	v32 reserved5;561,19362
+		v32 reserved1 565,19402
+			FrameEnd_Pr 566,19445
+			OvRLB_Pr 567,19483
+			ImgCptEn_PrSC 568,19521
+			reserved2 569,19559
+			FlipMd_Pr 570,19597
+			reserved3 571,19638
+			FrameCnt_Pr 572,19676
+			reserved4 573,19745
+			OvFiCr_Pr 574,19783
+			OvFiCb_Pr 575,19859
+			OvFiY_Pr 576,19935
+	} CIPRSTATUS;577,20010
+	v32 reserved6;580,20038
+		v32 reserved1 584,20078
+			Cpt_FrCnt 585,20120
+			Cpt_FrMod 586,20161
+			Cpt_FrPtr 587,20199
+			Cpt_FrEn_pr 588,20240
+			Cpt_FrEn_Co 589,20417
+			reserved2 590,20593
+			ImgCptEn_PrSc 591,20634
+			ImgCptEn_CoSc 592,20754
+			ImgCptEn 593,20869
+	} CIIMGCPT;594,20949
+	v32 CICPTSEQ;597,20975
+	v32 reserved7[reserved7600,21044
+		v32 PAT_Cr 604,21087
+			reserved1 605,21128
+			PAT_Cb 606,21167
+			reserved2 607,21207
+			FIN 608,21247
+			IE_AFTER_SC 609,21464
+			IE_ON_Co 610,21501
+			IE_ON_Pr 611,21600
+	} CIIMGEFF;612,21700
+	v32 MSCOY0SA;615,21726
+	v32 MSCOCB0SA;618,21898
+	v32 MSCOCR0SA;621,22009
+	v32 MSCOY0END;624,22120
+	v32 MSCOCB0END;627,22288
+	v32 MSCOCR0END;630,22397
+	v32 MSCOYOFF;633,22506
+	v32 MSCOCBOFF;636,22706
+	v32 MSCOCROFF;639,22830
+		v32 MSCOWIDTH 643,22964
+			reserved1 644,23118
+			MSCOHEIGHT 645,23152
+			reserved2 646,23270
+			ADDR_CH_DIS 647,23304
+			AutoLoadEnable 648,23504
+	} MSCOWIDTH;649,23751
+		v32 ENVID_M_C 653,23788
+			InFormat_M_C 654,24207
+			SEL_DMA_CAM_C 655,24403
+			Order422_M_C 656,24534
+			EOF_M_C 657,24566
+	} MSCOCTRL;658,24596
+	v32 MSPRY0SA;661,24623
+	v32 MSPRCB0SA;664,24826
+	v32 MSPRCR0SA;667,24970
+	v32 MSPRY0END;670,25114
+	v32 MSPRCB0END;673,25311
+	v32 MSPRCR0END;676,25452
+	v32 MSPRYOFF;679,25593
+	v32 MSPRCBOFF;682,25634
+	v32 MSPRCROFF;685,25675
+		v32 MSPRWIDTH 689,25726
+			reserved1 690,25888
+			MSPRHEIGHT 691,25924
+			reserved2 692,26149
+			ADDR_CH_DIS 693,26185
+			AutoLoadEnable 694,26218
+	} MSPRWIDTH;695,26251
+		v32 ENVID_M_P 699,26289
+			InFormat_M_P 700,26517
+			SEL_DMA_CAM_P 701,26551
+			Order422_M_P 702,26583
+			EOF_M_P 703,26617
+	} MSPRCTRL;704,26733
+		v32 Line_Yoffset_Co 708,26770
+			reserved1 709,26811
+			Initial_Yoffset_Co 710,26850
+	} CICOSCOSY;711,26889
+		v32 Line_Cboffset_Co 715,26927
+			reserved1 716,26968
+			Initial_Cboffset_Co 717,27007
+	} CICOSCOSCB;718,27046
+		v32 Line_Croffset_Co 722,27085
+			reserved1 723,27126
+			Initial_Croffset_Co 724,27165
+	} CICOSCOSCR;725,27204
+		v32 Line_Yoffset_Pr 729,27243
+			reserved1 730,27284
+			Initial_Yoffset_Pr 731,27323
+	} CIPRSCOSY;732,27362
+		v32 Line_Cboffset_Pr 736,27400
+			reserved1 737,27441
+			Initial_Cboffset_Pr 738,27480
+	} CIPRSCOSCB;739,27519
+		v32 Line_Croffset_Pr 743,27558
+			reserved1 744,27599
+			Initial_Croffset_Pr 745,27638
+	} CIPRSCOSCR;746,27677
+} s3c_cam_t;748,27694
+	v32 ARB_MODE0 752,27774
+		ARB_MODE1 753,27815
+		ARB_MODE2 754,27853
+		ARB_MODE3 755,27891
+		ARB_MODE4 756,27929
+		ARB_MODE5 757,27967
+		ARB_MODE6 758,28005
+		ARB_SEL0 759,28043
+		ARB_SEL1 760,28083
+		ARB_SEL2 761,28124
+		ARB_SEL3 762,28166
+		ARB_SEL4 763,28208
+		ARB_SEL5 764,28250
+		ARB_SEL6 765,28292
+} s3c_priority_t;766,28334
+	v32 APLL_LOCK;770,28382
+	v32 MPLL_LOCK;773,28488
+	v32 EPLL_LOCK;776,28593
+		v32 SDIV 780,28709
+			reserved1 781,28770
+			PDIV 782,28807
+			reserved2 783,28865
+			MDIV 784,28904
+			reserved3 785,28962
+			ENABLE 786,29001
+	} APLL_CON;787,29083
+		v32 SDIV 791,29119
+			reserved1 792,29180
+			PDIV 793,29217
+			reserved2 794,29275
+			MDIV 795,29314
+			reserved3 796,29372
+			ENABLE 797,29411
+	} MPLL_CON;798,29493
+		v32 SDIV 802,29529
+			reserved1 803,29590
+			PDIV 804,29627
+			reserved2 805,29685
+			MDIV 806,29724
+			reserved3 807,29782
+			ENABLE 808,29821
+	} EPLL_CON0;809,29903
+	v32 EPLL_CON1;812,29930
+		v32 APLL_SEL 816,30007
+			MPLL_SEL 817,30089
+			EPLL_SEL 818,30168
+			reserved1 819,30247
+			MFCCLK_SEL 820,30282
+			UHOST_SEL 821,30370
+			AUDIO0_SEL 822,30465
+			AUDIO1_SEL 823,30574
+			UART_SEL 824,30683
+			SPI0_SEL 825,30774
+			SPI1_SEL 826,30864
+			MMC0_SEL 827,30954
+			MMC1_SEL 828,31044
+			MMC2_SEL 829,31134
+			IRDA_SEL 830,31224
+			LCD_SEL 831,31314
+			SCALER_SEL 832,31402
+			DAC27_SEL 833,31498
+			TV27_SEL 834,31593
+	} CLK_SRC;835,31689
+		v32 ARM_RATIO 839,31724
+			MPLL_RATIO 840,31802
+			reserved1 841,31880
+			HCLK_RATIO 842,31917
+			HCLKX2_RATIO 843,31989
+			PCLK_RATIO 844,32067
+			reserved2 845,32231
+			SECUR_RATIO 846,32270
+			CAM_RATIO 847,32402
+			JPEG_RATIO 848,32475
+			MFC_RATIO 849,32642
+	} CLK_DIV0;850,32717
+		v32 MMC0_RATIO 854,32753
+			MMC1_RATIO 855,32834
+			MMC2_RATIO 856,32912
+			LCD_RATIO 857,32990
+			SCALER_RATIO 858,33065
+			UHOST_RATIO 859,33149
+			FIMC_RATIO 860,33230
+	} CLK_DIV1;861,33303
+		v32 SPI0_RATIO 865,33339
+			SPI1_RATIO 866,33420
+			AUDIO0_RATIO 867,33498
+			AUDIO1_RATIO 868,33582
+			UART_RATIO 869,33666
+			IRDA_RATIO 870,33744
+			AUDIO2_RATIO 871,33822
+	} CLK_DIV2;872,33906
+		v32 DCLKEN 876,33942
+			DCLKSEL 877,34018
+			reserved1 878,34100
+			DCLKDIV 879,34137
+			DCLKCMP 880,34222
+			CLKSEL 881,34428
+			DIVVAL 882,34562
+	} CLK_OUT;883,34627
+		v32 HCLK_MFC 887,34662
+			HCLK_INTC 888,34739
+			HCLK_TZIC 889,34827
+			HCLK_LCD 890,34912
+			HCLK_ROT 891,34985
+			HCLK_POST0 892,35051
+			reserved1 893,35115
+			HCLK_TV 894,35150
+			HCLK_2D 895,35219
+			HCLK_SCALER 896,35280
+			HCLK_CAMIF 897,35345
+			HCLK_JPEG 898,35421
+			HCLK_DMA0 899,35485
+			HCLK_DMA1 900,35549
+			HCLK_IHOST 901,35613
+			HCLK_DHOST 902,35696
+			HCLK_MDP 903,35777
+			HCLK_HSMMC0 904,35840
+			HCLK_HSMMC1 905,35906
+			HCLK_HSMMC2 906,35972
+			HCLK_USB 907,36038
+			HCLK_MEM0 908,36105
+			HCLK_MEM1 909,36191
+			reserved2 910,36255
+			HCLK_DDR1 911,36291
+			HCLK_IROM 912,36355
+			HCLK_SDMA0 913,36419
+			HCLK_SDMA1 914,36484
+			HCLK_SECUR 915,36549
+			HCLK_UHOST 916,36628
+			reserved3 917,36693
+			HCLK_3DSE 918,36729
+	} HCLK_GATE;919,36791
+		v32 PCLK_MFC 923,36828
+			PCLK_UART0 924,36905
+			PCLK_UART1 925,36969
+			PCLK_UATR2 926,37033
+			PCLK_UART3 927,37097
+			PCLK_WDT 928,37161
+			PCLK_RTC 929,37235
+			PCLK_PWM 930,37297
+			PCLK_PCM0 931,37359
+			PCLK_PCM1 932,37422
+			PCLK_IRDA 933,37485
+			PCLK_KEYPAD 934,37549
+			PCLK_TSADC 935,37616
+			PCLK_TZPC 936,37692
+			PCLK_AC97 937,37756
+			PCLK_IIS0 938,37820
+			PCLK_IIS1 939,37884
+			PCLK_IIC0 940,37948
+			PCLK_GPIO 941,38012
+			PCLK_HSITX 942,38076
+			PCLK_HSIRX 943,38151
+			PCLK_SPI0 944,38223
+			PCLK_SPI1 945,38287
+			PCLK_CHIPID 946,38351
+		    PCLK_SKEY 947,38418
+			reserved1 948,38493
+			PCLK_IIS2 949,38529
+			PCLK_IIC1 950,38593
+	} PCLK_GATE;951,38657
+		v32 reserved1 955,38694
+			SCLK_JPEG 956,38731
+			SCLK_CAM 957,38814
+			SCLK_MFC 958,38888
+			reserved2 959,38949
+			SCLK_UART 960,38984
+			SCLK_IRDA 961,39049
+			SCLK_SECUR 962,39111
+			SCLK_AUDIO0 963,39183
+			SCLK_AUDIO1 964,39251
+			SCLK_POST0 965,39319
+			SCLK_AUDIO2 966,39383
+			SCLK_POST0_27 967,39446
+			SCLK_FIMC 968,39510
+			SCLK_LCD 969,39581
+			SCLK_LCD27 970,39654
+			SCLK_SCALER 971,39727
+			SCLK_SCALER27 972,39792
+			SCLK_TV27 973,39859
+			SCLK_DAC27 974,39928
+			SCLK_SPI0 975,39990
+			SCLK_SPI1 976,40052
+			SCLK_SPI0_48 977,40114
+			SCLK_SPI1_48 978,40176
+			SCLK_MMC0 979,40238
+			SCLK_MMC1 980,40301
+			SCLK_MMC2 981,40364
+			SCLK_MMC0_48 982,40427
+			SCLK_MMC1_48 983,40490
+			SCLK_MMC2_48 984,40553
+			SCLK_UHOST 985,40616
+			reserved3 986,40683
+	} SCLK_GATE;987,40718
+		v32 reserved1 991,40755
+			HCLK_SROM 992,40792
+			HCLK_NFCON 993,40875
+			HCLK_OneNAND0 994,40938
+			HCLK_OneNAND1 995,41004
+			HCLK_CFCON 996,41070
+	} MEMO_CLK_GATE;997,41133
+	v32 reserved1[reserved11000,41171
+		v32 FIX_PRIOR_F 1004,41215
+			reserved1 1005,41287
+			PRIOR_TYPE_F 1006,41321
+			reserved2 1007,41386
+			DISABLE_HLOCK_F 1008,41420
+			FIX_PRIOR_X 1009,41509
+			reserved3 1010,41578
+			PRIOR_TYPE_X 1011,41613
+			reserved4 1012,41678
+			DISABLE_HLOCK_X 1013,41713
+			FIX_PRIOR_P 1014,41800
+			reserved5 1015,41869
+			PRIOR_TYPE_P 1016,41904
+			reserved6 1017,41969
+			DISABLE_HLOCK_P 1018,42004
+			FIX_PRIOR_I 1019,42091
+			reserved7 1020,42160
+			PRIOR_TYPE_I 1021,42195
+			reserved8 1022,42260
+			DISABLE_HLOCK_I 1023,42295
+	} AHB_CON0;1024,42382
+		v32 FIX_PRIOR_T0 1028,42419
+			reserved1 1029,42492
+			PRIOR_TYPE_T0 1030,42526
+			reserved2 1031,42592
+			FIX_PRIOR_T1 1032,42628
+			reserved3 1033,42698
+			PRIOR_TYPE_T1 1034,42733
+			reserved4 1035,42799
+			DISABLE_HLOCK_T 1036,42834
+			FIX_PRIOR_M0 1037,42921
+			reserved5 1038,42991
+			PRIOR_TYPE_M0 1039,43026
+			reserved6 1040,43092
+			FIX_PRIOR_M1 1041,43130
+			reserved7 1042,43200
+			PRIOR_TYPE_M1 1043,43235
+			reserved8 1044,43301
+			DISABLE_HLOCK_M 1045,43336
+	} AHB_CON1;1046,43423
+		v32 FIX_PRIOR_S0 1050,43461
+			reserved1 1051,43533
+			PRIOR_TYPE_S0 1052,43567
+			reserved2 1053,43632
+			FIX_PRIOR_S1 1054,43668
+			reserved3 1055,43737
+			PRIOR_TYPE_S1 1056,43772
+			reserved4 1057,43837
+			DISABLE_HLOCK_S 1058,43872
+			reserved5 1059,43959
+			DISABLE_HLOCK_R 1060,43997
+			reserved6 1061,44084
+	} AHB_CON2;1062,44122
+	v32 CLK_SRC2;1065,44149
+		v32 UART0_0 1069,44267
+			UART0_1 1070,44354
+			UART1_0 1071,44423
+			UART1_1 1072,44492
+			UART2_0 1073,44561
+			UART2_1 1074,44630
+			UART3_0 1075,44699
+			UART3_1 1076,44768
+			PCM0_TX 1077,44837
+			PCM0_RX 1078,44908
+			I2S0_TX 1079,44979
+			I2S0_RX 1080,45050
+			SPI0_TX 1081,45121
+			SPI0_RX 1082,45192
+			HSI_TX 1083,45263
+			HSI_RX 1084,45333
+			PCM1_TX 1085,45403
+			PCM1_RX 1086,45475
+			I2S1_TX 1087,45547
+			I2S1_RX 1088,45619
+			SPI1_TX 1089,45691
+			SPI1_RX 1090,45763
+			AC_PCMOUT 1091,45835
+			AC_PCMIN 1092,45910
+			AC_MICIN 1093,45984
+			PWM 1094,46053
+			IRDA 1095,46122
+			EXTERNAL 1096,46191
+			reserved1 1097,46264
+			SECURITY_RX 1098,46302
+			SECURITY_TX 1099,46413
+	} SDMA_SEL;1100,46524
+	v32 reserved2;1103,46551
+		v32 Pass 1107,46591
+			Revision 1108,46648
+			ID 1109,46709
+	} SYS_ID;1110,46750
+		v32 MODEM_TX0_SDMA_SEL 1114,46785
+			MODEM_TX1_SDMA_SEL 1115,46870
+			MODEM_RX0_SDMA_SEL 1116,46952
+			MODEM_RX1_SDMA_SEL 1117,47034
+			reserved1 1118,47117
+			PMU_IRQ_ENABLE 1119,47151
+	} SYS_OTHERS;1120,47269
+		v32 MP0_CS_CFG 1124,47308
+			reserved1 1125,47411
+			ADDR_EXPAND 1126,47445
+			EBI_FIX_PRI 1127,47516
+			EBI_PRI 1128,47585
+			BUS_WIDTH 1129,47647
+			reserved2 1130,47781
+			INDEP_CF 1131,47816
+	} MEM_SYS_CFG;1132,47956
+	v32 reserved3;1135,47986
+	v32 QOS_OVERRIDE1;1138,48016
+		v32 reserved1 1142,48125
+			CFG_BUS_WIDTH,1143,48162
+			reserved2 1144,48268
+			CFG_ADDR_EXPAND 1145,48304
+			CFG_BOOT_LOC 1146,48415
+			reserved3 1147,48509
+			CFG_NOR_BOOT 1148,48543
+			CFG_MUX_FLASH 1149,48667
+			CFG_INDEP_CF 1150,48769
+			reserved4 1151,48839
+			CFG_FIX_PRI_TYPE 1152,48874
+			CFG_PRI_TYPE 1153,48998
+	} MEM_CFG_STAT;1154,49114
+	v32 reserved4[reserved41157,49145
+		v32 OSC27_EN 1161,49190
+			reserved1 1162,49302
+			CFG_BATF_WKUP 1163,49336
+			CFG_BATFLT 1164,49476
+			CFG_STANDBYWFI 1165,49633
+			BATF_WAKEUP_MASK 1166,49758
+			KEY_WAKEUP_MASK 1167,49885
+			MSM_WAKEUP_MASK 1168,49986
+			ALARM_WAKEUP_MASK 1169,50089
+			TICK_WAKEUP_MASK 1170,50192
+			TS_WAKEUP_MASK 1171,50294
+			HSI_WAKEUP_MASK 1172,50400
+			MMC0_WAKEUP_MASK 1173,50497
+			MMC1_WAKEUP_MASK 1174,50595
+			MMC2_WAKEUP_MASK 1175,50693
+			OSCotg_DISABLE 1176,50791
+	} PWR_CFG;1177,50890
+	v32 EINT_MASK;1180,50916
+	v32 reserved5;1183,51161
+		v32 reserved1 1187,51201
+			DOMAIN_V 1188,51240
+			DOMAIN_G 1189,51312
+			reserved2 1190,51384
+			DOMAIN_I 1191,51419
+			DOMAIN_P 1192,51491
+			DOMAIN_F 1193,51563
+			DOMAIN_S 1194,51635
+			DOMAIN_ETM 1195,51707
+			reserved3 1196,51779
+			IROM 1197,51817
+	} NORMAL_CFG;1198,51889
+		v32 OSC_EN 1202,51928
+			reserved1 1203,52035
+			TOP_LOGIC 1204,52071
+			reserved2 1205,52194
+			ARM_LOGIC 1206,52231
+			reserved3 1207,52305
+			TOP_MEMORY 1208,52343
+			reserved4 1209,52378
+			MEMORY_ARM 1210,52416
+	} STOP_CFG;1211,52451
+	v32 SLEEP_CFG;1214,52478
+		v32 NFCON_CFG 1218,52602
+			IrDA_CFG 1219,52684
+			IROM_CFG 1220,52762
+			HSMMC_CFG 1221,52833
+			OTG_CFG 1222,52912
+			HOSTIF_CFG 1223,52989
+			MODEMIF_CFG 1224,53076
+	} STOP_MEM_CFG;1225,53164
+	v32 OSC_FREQ;1228,53195
+		v32 OSC_CNT_VALUE 1232,53344
+			OSC_CNT_VALUE_1 1233,53442
+	} OSC_STABLE;1234,53660
+		v32 PWR_CNT_VALUE 1238,53699
+			PWR_CNT_VALUE_1 1239,53787
+	} PWR_STABLE;1240,54004
+	v32 reserved6;1243,54033
+		v32 DOMAIN_TOP 1247,54073
+			DOMAIN_V 1248,54164
+			DOMAIN_I 1249,54250
+			DOMAIN_P 1250,54336
+			DOMAIN_F 1251,54422
+			DOMAIN_S 1252,54508
+			DOMAIN_ETM 1253,54594
+			DOMAIN_G 1254,54682
+	} MTC_STABLE;1255,54768
+	v32 reserved7;1258,54797
+		v32	CACHEABLE_AHB_I 1262,54837
+			CACHEABLE_AHB_F 1263,54984
+			CACHEABLE_AHB_P 1264,55128
+			CACHEABLE_AHB_AXI_V 1265,55272
+			CACHEABLE_AHB_X 1266,55421
+			CACHEABLE_AHB_T 1267,55565
+			CACHEABLE_AHB_M 1268,55709
+			CACHEABLE_AHB_S 1269,55853
+			reserved1 1270,55997
+			CACHEABLE_AHB_CF 1271,56035
+			reserved2 1272,56177
+			STOP_EXIT_CKE_L 1273,56216
+			SYNC667 1274,56296
+	} MISC_CON;1275,56372
+	v32 reserved8[reserved81278,56407
+		v32 CP15DISABLE 1282,56451
+			reserved1 1283,56593
+			SYNCMUXSEL 1284,56630
+			SYNCMODE 1285,56665
+			SYNCACK 1286,56700
+			CLEAR_BATF_INT 1287,56773
+			CLEAR_DBGACK 1288,56873
+			reserved2 1289,57127
+			USB_SIG_MASK 1290,57166
+			reserved3 1291,57293
+			STABLE_COUNTER_TYPE 1292,57332
+	} OTHERS;1293,57453
+		v32 HW_RESET 1297,57489
+			reserved1 1298,57553
+			WDT_RESET 1299,57588
+			SLEEP_WAKEUP 1300,57655
+			ESLEEP_WAKEUP 1301,57718
+			reserved2 1302,57782
+			DEEP_STOP_WAKEUP 1303,57817
+	} RST_STAT;1304,57884
+		v32 EINT_WAKEUP 1308,57921
+			RTC_ALARM_WAKEUP 1309,58021
+			RTC_TICK_WAKEUP 1310,58109
+			TS_WAKEUP 1311,58201
+			KEY_WAKEUP 1312,58291
+			MSM_WAKEUP 1313,58376
+			BATFLT_WAKEUP 1314,58463
+			reserved1 1315,58554
+			HSI_WAKEUP 1316,58589
+			MMC0_WAKEUP 1317,58670
+			MMC1_WAKEUP 1318,58752
+			MMC2_WAKEUP 1319,58834
+	} WAKEUP_STAT;1320,58919
+		v32 BLK_TOP 1324,58959
+			BLK_V 1325,59019
+			BLK_I 1326,59074
+			BLK_P 1327,59129
+			BLK_F 1328,59184
+			BLK_S 1329,59239
+			BLK_ETM 1330,59294
+			BLK_G 1331,59351
+	} BLK_PWR_STAT;1332,59406
+	v32 reserved9[reserved91335,59437
+	v32 INFORM[INFORM1338,59480
+} s3c_syscon_t;1340,59615
+
+saa7113h.mod.c,60
+struct module __this_module7,124
+__attribute_used__18,385
+
+saa711x_regs.h,7541
+#define R_00_CHIP_VERSION 16,647
+#define R_01_INC_DELAY 19,763
+#define R_02_INPUT_CNTL_1 20,822
+#define R_03_INPUT_CNTL_2 21,881
+#define R_04_INPUT_CNTL_3 22,940
+#define R_05_INPUT_CNTL_4 23,999
+#define R_06_H_SYNC_START 25,1094
+#define R_07_H_SYNC_STOP 26,1153
+#define R_08_SYNC_CNTL 27,1212
+#define R_09_LUMA_CNTL 28,1271
+#define R_0A_LUMA_BRIGHT_CNTL 29,1330
+#define R_0B_LUMA_CONTRAST_CNTL 30,1389
+#define R_0C_CHROMA_SAT_CNTL 31,1448
+#define R_0D_CHROMA_HUE_CNTL 32,1507
+#define R_0E_CHROMA_CNTL_1 33,1566
+#define R_0F_CHROMA_GAIN_CNTL 34,1625
+#define R_10_CHROMA_CNTL_2 35,1684
+#define R_11_MODE_DELAY_CNTL 36,1743
+#define R_12_RT_SIGNAL_CNTL 37,1802
+#define R_13_RT_X_PORT_OUT_CNTL 38,1861
+#define R_14_ANAL_ADC_COMPAT_CNTL 39,1920
+#define R_15_VGATE_START_FID_CHG 40,1979
+#define R_16_VGATE_STOP 41,2038
+#define R_17_MISC_VGATE_CONF_AND_MSB 42,2097
+#define R_18_RAW_DATA_GAIN_CNTL 43,2156
+#define R_19_RAW_DATA_OFF_CNTL 44,2215
+#define R_1A_COLOR_KILL_LVL_CNTL 45,2274
+#define R_1B_MISC_TVVCRDET 46,2333
+#define R_1C_ENHAN_COMB_CTRL1 47,2392
+#define R_1D_ENHAN_COMB_CTRL2 48,2451
+#define R_1E_STATUS_BYTE_1_VD_DEC 49,2510
+#define R_1F_STATUS_BYTE_2_VD_DEC 50,2569
+#define R_23_INPUT_CNTL_5 53,2683
+#define R_24_INPUT_CNTL_6 54,2742
+#define R_25_INPUT_CNTL_7 55,2801
+#define R_29_COMP_DELAY 56,2860
+#define R_2A_COMP_BRIGHT_CNTL 57,2919
+#define R_2B_COMP_CONTRAST_CNTL 58,2978
+#define R_2C_COMP_SAT_CNTL 59,3037
+#define R_2D_INTERRUPT_MASK_1 60,3096
+#define R_2E_INTERRUPT_MASK_2 61,3155
+#define R_2F_INTERRUPT_MASK_3 62,3214
+#define R_30_AUD_MAST_CLK_CYCLES_PER_FIELD 65,3307
+#define R_34_AUD_MAST_CLK_NOMINAL_INC 66,3366
+#define R_38_CLK_RATIO_AMXCLK_TO_ASCLK 67,3425
+#define R_39_CLK_RATIO_ASCLK_TO_ALRCLK 68,3484
+#define R_3A_AUD_CLK_GEN_BASIC_SETUP 69,3543
+#define R_40_SLICER_CNTL_1 72,3646
+#define R_41_LCR_BASE 73,3705
+#define R_58_PROGRAM_FRAMING_CODE 74,3764
+#define R_59_H_OFF_FOR_SLICER 75,3823
+#define R_5A_V_OFF_FOR_SLICER 76,3882
+#define R_5B_FLD_OFF_AND_MSB_FOR_H_AND_V_OFF 77,3941
+#define R_5D_DID 78,4000
+#define R_5E_SDID 79,4059
+#define R_60_SLICER_STATUS_BYTE_0 80,4118
+#define R_61_SLICER_STATUS_BYTE_1 81,4177
+#define R_62_SLICER_STATUS_BYTE_2 82,4236
+#define R_80_GLOBAL_CNTL_1 86,4377
+#define R_81_V_SYNC_FLD_ID_SRC_SEL_AND_RETIMED_V_F 87,4436
+#define R_83_X_PORT_I_O_ENA_AND_OUT_CLK 88,4495
+#define R_84_I_PORT_SIGNAL_DEF 89,4554
+#define R_85_I_PORT_SIGNAL_POLAR 90,4613
+#define R_86_I_PORT_FIFO_FLAG_CNTL_AND_ARBIT 91,4672
+#define R_87_I_PORT_I_O_ENA_OUT_CLK_AND_GATED 92,4731
+#define R_88_POWER_SAVE_ADC_PORT_CNTL 93,4790
+#define R_8F_STATUS_INFO_SCALER 94,4849
+#define R_90_A_TASK_HANDLING_CNTL 97,4990
+#define R_91_A_X_PORT_FORMATS_AND_CONF 98,5049
+#define R_92_A_X_PORT_INPUT_REFERENCE_SIGNAL 99,5108
+#define R_93_A_I_PORT_OUTPUT_FORMATS_AND_CONF 100,5167
+#define R_94_A_HORIZ_INPUT_WINDOW_START 101,5226
+#define R_95_A_HORIZ_INPUT_WINDOW_START_MSB 102,5285
+#define R_96_A_HORIZ_INPUT_WINDOW_LENGTH 103,5344
+#define R_97_A_HORIZ_INPUT_WINDOW_LENGTH_MSB 104,5403
+#define R_98_A_VERT_INPUT_WINDOW_START 105,5462
+#define R_99_A_VERT_INPUT_WINDOW_START_MSB 106,5521
+#define R_9A_A_VERT_INPUT_WINDOW_LENGTH 107,5580
+#define R_9B_A_VERT_INPUT_WINDOW_LENGTH_MSB 108,5639
+#define R_9C_A_HORIZ_OUTPUT_WINDOW_LENGTH 109,5698
+#define R_9D_A_HORIZ_OUTPUT_WINDOW_LENGTH_MSB 110,5757
+#define R_9E_A_VERT_OUTPUT_WINDOW_LENGTH 111,5816
+#define R_9F_A_VERT_OUTPUT_WINDOW_LENGTH_MSB 112,5875
+#define R_A0_A_HORIZ_PRESCALING 114,5971
+#define R_A1_A_ACCUMULATION_LENGTH 115,6030
+#define R_A2_A_PRESCALER_DC_GAIN_AND_FIR_PREFILTER 116,6089
+#define R_A4_A_LUMA_BRIGHTNESS_CNTL 117,6148
+#define R_A5_A_LUMA_CONTRAST_CNTL 118,6207
+#define R_A6_A_CHROMA_SATURATION_CNTL 119,6266
+#define R_A8_A_HORIZ_LUMA_SCALING_INC 121,6358
+#define R_A9_A_HORIZ_LUMA_SCALING_INC_MSB 122,6417
+#define R_AA_A_HORIZ_LUMA_PHASE_OFF 123,6476
+#define R_AC_A_HORIZ_CHROMA_SCALING_INC 124,6535
+#define R_AD_A_HORIZ_CHROMA_SCALING_INC_MSB 125,6594
+#define R_AE_A_HORIZ_CHROMA_PHASE_OFF 126,6653
+#define R_AF_A_HORIZ_CHROMA_PHASE_OFF_MSB 127,6712
+#define R_B0_A_VERT_LUMA_SCALING_INC 129,6796
+#define R_B1_A_VERT_LUMA_SCALING_INC_MSB 130,6855
+#define R_B2_A_VERT_CHROMA_SCALING_INC 131,6914
+#define R_B3_A_VERT_CHROMA_SCALING_INC_MSB 132,6973
+#define R_B4_A_VERT_SCALING_MODE_CNTL 133,7032
+#define R_B8_A_VERT_CHROMA_PHASE_OFF_00 134,7091
+#define R_B9_A_VERT_CHROMA_PHASE_OFF_01 135,7150
+#define R_BA_A_VERT_CHROMA_PHASE_OFF_10 136,7209
+#define R_BB_A_VERT_CHROMA_PHASE_OFF_11 137,7268
+#define R_BC_A_VERT_LUMA_PHASE_OFF_00 138,7327
+#define R_BD_A_VERT_LUMA_PHASE_OFF_01 139,7386
+#define R_BE_A_VERT_LUMA_PHASE_OFF_10 140,7445
+#define R_BF_A_VERT_LUMA_PHASE_OFF_11 141,7504
+#define R_C0_B_TASK_HANDLING_CNTL 144,7645
+#define R_C1_B_X_PORT_FORMATS_AND_CONF 145,7704
+#define R_C2_B_INPUT_REFERENCE_SIGNAL_DEFINITION 146,7763
+#define R_C3_B_I_PORT_FORMATS_AND_CONF 147,7822
+#define R_C4_B_HORIZ_INPUT_WINDOW_START 148,7881
+#define R_C5_B_HORIZ_INPUT_WINDOW_START_MSB 149,7940
+#define R_C6_B_HORIZ_INPUT_WINDOW_LENGTH 150,7999
+#define R_C7_B_HORIZ_INPUT_WINDOW_LENGTH_MSB 151,8058
+#define R_C8_B_VERT_INPUT_WINDOW_START 152,8117
+#define R_C9_B_VERT_INPUT_WINDOW_START_MSB 153,8176
+#define R_CA_B_VERT_INPUT_WINDOW_LENGTH 154,8235
+#define R_CB_B_VERT_INPUT_WINDOW_LENGTH_MSB 155,8294
+#define R_CC_B_HORIZ_OUTPUT_WINDOW_LENGTH 156,8353
+#define R_CD_B_HORIZ_OUTPUT_WINDOW_LENGTH_MSB 157,8412
+#define R_CE_B_VERT_OUTPUT_WINDOW_LENGTH 158,8471
+#define R_CF_B_VERT_OUTPUT_WINDOW_LENGTH_MSB 159,8530
+#define R_D0_B_HORIZ_PRESCALING 161,8626
+#define R_D1_B_ACCUMULATION_LENGTH 162,8685
+#define R_D2_B_PRESCALER_DC_GAIN_AND_FIR_PREFILTER 163,8744
+#define R_D4_B_LUMA_BRIGHTNESS_CNTL 164,8803
+#define R_D5_B_LUMA_CONTRAST_CNTL 165,8862
+#define R_D6_B_CHROMA_SATURATION_CNTL 166,8921
+#define R_D8_B_HORIZ_LUMA_SCALING_INC 168,9013
+#define R_D9_B_HORIZ_LUMA_SCALING_INC_MSB 169,9072
+#define R_DA_B_HORIZ_LUMA_PHASE_OFF 170,9131
+#define R_DC_B_HORIZ_CHROMA_SCALING 171,9190
+#define R_DD_B_HORIZ_CHROMA_SCALING_MSB 172,9249
+#define R_DE_B_HORIZ_PHASE_OFFSET_CRHOMA 173,9308
+#define R_E0_B_VERT_LUMA_SCALING_INC 175,9392
+#define R_E1_B_VERT_LUMA_SCALING_INC_MSB 176,9451
+#define R_E2_B_VERT_CHROMA_SCALING_INC 177,9510
+#define R_E3_B_VERT_CHROMA_SCALING_INC_MSB 178,9569
+#define R_E4_B_VERT_SCALING_MODE_CNTL 179,9628
+#define R_E8_B_VERT_CHROMA_PHASE_OFF_00 180,9687
+#define R_E9_B_VERT_CHROMA_PHASE_OFF_01 181,9746
+#define R_EA_B_VERT_CHROMA_PHASE_OFF_10 182,9805
+#define R_EB_B_VERT_CHROMA_PHASE_OFF_11 183,9864
+#define R_EC_B_VERT_LUMA_PHASE_OFF_00 184,9923
+#define R_ED_B_VERT_LUMA_PHASE_OFF_01 185,9982
+#define R_EE_B_VERT_LUMA_PHASE_OFF_10 186,10041
+#define R_EF_B_VERT_LUMA_PHASE_OFF_11 187,10100
+#define R_F0_LFCO_PER_LINE 190,10215
+#define R_F1_P_I_PARAM_SELECT 191,10274
+#define R_F2_NOMINAL_PLL2_DTO 192,10333
+#define R_F3_PLL_INCREMENT 193,10392
+#define R_F4_PLL2_STATUS 194,10451
+#define R_F5_PULSGEN_LINE_LENGTH 195,10510
+#define R_F6_PULSE_A_POS_LSB_AND_PULSEGEN_CONFIG 196,10569
+#define R_F7_PULSE_A_POS_MSB 197,10628
+#define R_F8_PULSE_B_POS 198,10687
+#define R_F9_PULSE_B_POS_MSB 199,10746
+#define R_FA_PULSE_C_POS 200,10805
+#define R_FB_PULSE_C_POS_MSB 201,10864
+#define R_FF_S_PLL_MAX_PHASE_ERR_THRESH_NUM_LINES 202,10923
+struct saa711x_reg_descr 206,11055
+	u8 reg;207,11082
+	int count;208,11091
+	char *name;name209,11103
+struct saa711x_reg_descr saa711x_regs[saa711x_regs212,11120
+
+s3c_camif.h,7691
+#define __FIMC3X_CAMIF_H_15,362
+#define O_NONCAP 29,608
+#define MEM_SIZE 34,703
+#define MEM_SIZE 36,805
+#define P_DEDICATED_MEM 39,848
+#define C_DEDICATED_MEM 40,875
+#define RESERVE_MEM 41,902
+#define YUV_MEM 42,967
+#define RGB_MEM 43,1002
+#define CAMIF_NUM 45,1049
+#define CAMIF_STARTED	48,1111
+#define CAMIF_STOPPED	49,1142
+#define CAMIF_INT_HAPPEN	50,1173
+#define CAMIF_1st_INT 53,1247
+#define CAMIF_Xth_INT 54,1285
+#define CAMIF_Yth_INT 55,1323
+#define CAMIF_Zth_INT 56,1362
+#define CAMIF_NORMAL_INT 57,1401
+#define CAMIF_DUMMY_INT 58,1440
+#define CAMIF_PENDING_INT 59,1479
+#define CAMIF_RESET 63,1542
+#define CAMIF_EX_RESET_AL 64,1580
+#define CAMIF_EX_RESET_AH 65,1636
+#define SENSOR_INIT 67,1693
+#define USER_ADD 68,1725
+#define USER_EXIT 69,1757
+#define SENSOR_VGA 70,1789
+#define SENSOR_SVGA 71,1821
+#define SENSOR_SXGA 72,1854
+#define SENSOR_UXGA 73,1886
+#define SENSOR_ZOOMIN 74,1919
+#define SENSOR_ZOOMOUT 75,1951
+#define SENSOR_MIRROR 76,1983
+#define SENSOR_AF 77,2015
+#define SENSOR_WB 78,2047
+#define SENSOR_QVGA 79,2079
+enum camif_itu_fmt 82,2130
+	CAMIF_ITU601 83,2151
+	CAMIF_ITU656 84,2183
+enum camif_dma_type 88,2258
+	CAMIF_PREVIEW 89,2280
+	CAMIF_CODEC 90,2306
+enum camif_order422 93,2336
+	CAMIF_YCBYCR 95,2364
+	CAMIF_YCRYCB 96,2383
+	CAMIF_CBYCRY 97,2409
+	CAMIF_CRYCBY 98,2435
+	CAMIF_YCBYCR 100,2474
+	CAMIF_YCRYCB 101,2493
+	CAMIF_CBYCRY 102,2512
+	CAMIF_CRYCBY 103,2531
+enum flip_mode 107,2562
+	CAMIF_FLIP 108,2579
+	CAMIF_ROTATE_90 109,2598
+	CAMIF_FLIP_X 110,2627
+	CAMIF_FLIP_Y 111,2653
+	CAMIF_FLIP_MIRROR 112,2679
+	CAMIF_FLIP_ROTATE_270 113,2718
+enum camif_fmt 116,2773
+	CAMIF_YCBCR420 117,2790
+	CAMIF_YCBCR422 118,2855
+	CAMIF_RGB16 120,2891
+	CAMIF_RGB24 121,2922
+	CAMIF_RGB32 122,2953
+enum camif_capturing 125,2988
+	CAMIF_BOTH_DMA_ON 126,3011
+	CAMIF_DMA_ON 127,3042
+	CAMIF_BOTH_DMA_OFF 128,3073
+	CAMIF_DMA_OFF 129,3104
+	CAMIF_DMA_OFF_L_IRQ=132,3167
+enum image_effect 135,3202
+	CAMIF_BYPASS 136,3222
+	CAMIF_ARBITRARY_CB_CR,137,3243
+	CAMIF_NEGATIVE,138,3267
+	CAMIF_ART_FREEZE,139,3284
+	CAMIF_EMBOSSING 140,3303
+	CAMIF_SILHOUETTE,141,3322
+enum input_channel{input_channel145,3346
+	CAMERA_INPUT 146,3366
+	MSDMA_FROM_CODEC=147,3387
+	MSDMA_FROM_PREVIEW 148,3409
+enum output_channel{output_channel151,3438
+	CAMIF_OUT_PP 152,3459
+	CAMIF_OUT_FIFO=153,3478
+enum field_status 156,3502
+	FIELD_EVEN 157,3522
+	FIELD_ODD 158,3539
+typedef struct camif_performance161,3560
+	int	frames;163,3595
+	int	framesdropped;164,3608
+	__u64	bytesin;165,3628
+	__u64	bytesout;166,3644
+	__u32	reserved[reserved167,3661
+} camif_perf_t;168,3681
+	dma_addr_t  phys_y;172,3716
+	dma_addr_t  phys_cb;173,3737
+	dma_addr_t  phys_cr;174,3759
+	u8          *virt_y;virt_y175,3781
+	u8          *virt_cb;virt_cb176,3805
+	u8          *virt_cr;virt_cr177,3828
+	dma_addr_t  phys_rgb;178,3851
+	u8          *virt_rgb;virt_rgb179,3874
+}img_buf_t;img_buf_t180,3898
+	u32 modified_src_x;185,3995
+	u32 modified_src_y;186,4056
+	u32 hfactor;187,4077
+	u32 vfactor;188,4091
+	u32 shfactor;189,4105
+	u32 prehratio;190,4169
+	u32 prevratio;191,4185
+	u32 predst_x;192,4201
+	u32 predst_y;193,4216
+	u32 scaleup_h;194,4231
+	u32 scaleup_v;195,4254
+	u32 mainhratio;196,4270
+	u32 mainvratio;197,4287
+	u32 scalerbypass;198,4304
+	u32 zoom_in_cnt;199,4340
+} scaler_t;200,4358
+enum v4l2_status 203,4372
+	CAMIF_V4L2_INIT 204,4391
+	CAMIF_v4L2_DIRTY 205,4422
+#define PWANT2START 210,4489
+#define CWANT2START 211,4520
+#define BOTH_STARTED 212,4551
+#define P_NOT_WORKING 213,4600
+#define C_WORKING 214,4631
+#define P_WORKING 215,4662
+#define C_NOT_WORKING 216,4691
+#define FORMAT_FLAGS_DITHER 219,4725
+#define FORMAT_FLAGS_PACKED 220,4764
+#define FORMAT_FLAGS_PLANAR 221,4803
+#define FORMAT_FLAGS_RAW 222,4842
+#define FORMAT_FLAGS_CrCb 223,4881
+	struct mutex 		     lock;227,4939
+	enum camif_itu_fmt       ITU;228,4966
+	enum camif_order422      order422_CAM;229,5022
+	u32                      win_hor_ofst;230,5078
+	u32                      win_ver_ofst;231,5118
+	u32                      win_hor_ofst2;232,5158
+	u32                      win_ver_ofst2;233,5199
+	u32                      camclk;234,5240
+	u32                      source_x;236,5327
+	u32                      source_y;237,5363
+	u32                      polarity_pclk;238,5399
+	u32                      polarity_vsync;239,5440
+	u32                      polarity_href;240,5482
+	struct i2c_client       *sensor;sensor241,5523
+	u32                      user;242,5557
+	u32    			         irq_old_priority;243,5630
+	u32                      status;244,5696
+	u32                      init_sensor;245,5730
+	u32			             reset_type;246,5800
+	u32		                 reset_udelay;247,5869
+	u32 			         zoom_in_cnt;248,5907
+} camif_cis_t;249,5937
+typedef struct v4l2 256,6110
+	struct v4l2_fmtdesc     *fmtdesc;fmtdesc257,6132
+	struct v4l2_framebuffer  frmbuf;258,6167
+	struct v4l2_input        *input;input259,6228
+	struct v4l2_input        *output;output260,6262
+	enum v4l2_status         status;261,6297
+} v4l2_t;262,6331
+typedef struct camif_c_t 265,6343
+	struct video_device      *v;v266,6370
+	v4l2_t                    v2;268,6439
+	camif_cis_t               *cis;cis269,6470
+	wait_queue_head_t        waitq;271,6576
+	u32                      status;272,6609
+	u32                      fsm;273,6668
+	u32                      open_count;274,6727
+	int                      irq;275,6786
+	char                     shortname[shortname276,6817
+	u32                      target_x;277,6858
+	u32                      target_y;278,6894
+	scaler_t                 sc;279,6930
+	enum flip_mode           flip;280,6960
+	enum image_effect        effect;281,6992
+	enum camif_dma_type      dma_type;282,7026
+	u8                       *pp_virt_buf;pp_virt_buf284,7093
+	dma_addr_t               pp_phys_buf;285,7133
+	u32                      pp_totalsize;286,7172
+	u32                      pp_num;287,7212
+	img_buf_t                img_buf[img_buf288,7288
+	enum camif_fmt     	 src_fmt;289,7326
+	enum camif_fmt     	 dst_fmt;290,7357
+	enum camif_capturing     capture_enable;291,7388
+	camif_perf_t             perf;292,7430
+	u32			 now_frame_num;293,7462
+	u32                      auto_restart;294,7485
+	int			 input_channel;295,7550
+	int			 output_channel;296,7573
+	void	  		 *other;other297,7597
+	u32			interlace_capture;298,7655
+	enum field_status	check_even_odd;299,7735
+	u32			msdma_status;300,7843
+} camif_cfg_t;301,7900
+#define CAMIF_DEBUG304,7917
+#define DPRINTK(307,8042
+#define DPRINTK(309,8138
+#define assert(314,8196
+#define assert(320,8365
+#define CMD_CAMERA_INIT 328,8443
+#define CMD_SENSOR_VGA_MODE 329,8478
+#define CMD_SENSOR_SXGA_MODE 330,8525
+#define CMD_SENSOR_SVGA_MODE 331,8567
+#define CMD_SENSOR_UXGA_MODE 332,8609
+#define CMD_PICTURE_MODE 333,8651
+#define CMD_CAMCODER_MODE 334,8692
+#define CMD_SENSOR_ZOOMIN 335,8733
+#define CMD_SENSOR_ZOOMOUT 336,8774
+#define CMD_SENSOR_MIRROR 337,8815
+#define CMD_SENSOR_AF 338,8856
+#define CMD_SENSOR_WB 339,8897
+#define CMD_SENSOR_IMAGE_EFFECT 340,8938
+#define CMD_POSTPROCESSING_INIT 341,8985
+	int src_x;346,9081
+	int src_y;347,9093
+	int dst_x;348,9105
+	int dst_y;349,9117
+	int src_fmt;350,9129
+	int dst_fmt;351,9143
+	int flip;352,9157
+	int awb;353,9168
+	int effect;354,9178
+	int input_channel;355,9191
+	int output_channel;356,9211
+	unsigned int h_offset;357,9232
+	unsigned int v_offset;358,9256
+	unsigned int h_offset2;359,9280
+	unsigned int v_offset2;360,9305
+} camif_param_t;361,9330
+#define INSTANT_SKIP 397,10470
+#define INSTANT_GO 398,10495
+#define VID_HARDWARE_SAMSUNG_FIMC3X 418,11105
+
+videocodec.h,3765
+#define __LINUX_VIDEOCODEC_H145,6039
+#define CODEC_DO_COMPRESSION 150,6142
+#define CODEC_DO_EXPANSION 151,6173
+#define CODEC_FLAG_JPEG 155,6302
+#define CODEC_FLAG_MPEG 156,6357
+#define CODEC_FLAG_DIVX 157,6417
+#define CODEC_FLAG_WAVELET 158,6472
+#define CODEC_FLAG_MAGIC 161,6562
+#define CODEC_FLAG_HARDWARE 162,6627
+#define CODEC_FLAG_VFE 163,6691
+#define CODEC_FLAG_ENCODER 164,6761
+#define CODEC_FLAG_DECODER 165,6828
+#define CODEC_FLAG_NEEDIRQ 166,6897
+#define CODEC_FLAG_RDWRPIC 167,6960
+#define CODEC_MODE_BJPG 170,7090
+#define CODEC_MODE_LJPG 171,7143
+#define CODEC_MODE_MPEG1 172,7196
+#define CODEC_MODE_MPEG2 173,7242
+#define CODEC_MODE_MPEG4 174,7288
+#define CODEC_MODE_MSDIVX 175,7334
+#define CODEC_MODE_ODIVX 176,7381
+#define CODEC_MODE_WAVELET 177,7430
+#define CODEC_TYPE_NONE 181,7571
+#define CODEC_TYPE_L64702 182,7600
+#define CODEC_TYPE_ZR36050 183,7629
+#define CODEC_TYPE_ZR36016 184,7658
+#define CODEC_TYPE_ZR36060 185,7687
+#define CODEC_G_STATUS 189,7873
+#define CODEC_S_CODEC_MODE 190,7943
+#define CODEC_G_CODEC_MODE 191,8024
+#define CODEC_S_VFE 192,8062
+#define CODEC_G_VFE 193,8138
+#define CODEC_S_MMAP 194,8176
+#define CODEC_S_JPEG_TDS_BYTE 196,8247
+#define CODEC_G_JPEG_TDS_BYTE 197,8317
+#define CODEC_S_JPEG_SCALE 198,8355
+#define CODEC_G_JPEG_SCALE 199,8432
+#define CODEC_S_JPEG_HDT_DATA 200,8470
+#define CODEC_G_JPEG_HDT_DATA 201,8529
+#define CODEC_S_JPEG_QDT_DATA 202,8567
+#define CODEC_G_JPEG_QDT_DATA 203,8629
+#define CODEC_S_JPEG_APP_DATA 204,8667
+#define CODEC_G_JPEG_APP_DATA 205,8722
+#define CODEC_S_JPEG_COM_DATA 206,8760
+#define CODEC_G_JPEG_COM_DATA 207,8815
+#define CODEC_S_PRIVATE 209,8854
+#define CODEC_G_PRIVATE 210,8928
+#define CODEC_G_FLAG 212,8967
+#define CODEC_TRANSFER_KERNEL 216,9198
+#define CODEC_TRANSFER_USER 217,9250
+struct vfe_polarity 224,9407
+	unsigned int vsync_pol:vsync_pol225,9429
+	unsigned int hsync_pol:hsync_pol226,9456
+	unsigned int field_pol:field_pol227,9483
+	unsigned int blank_pol:blank_pol228,9510
+	unsigned int subimg_pol:subimg_pol229,9537
+	unsigned int poe_pol:poe_pol230,9565
+	unsigned int pvalid_pol:pvalid_pol231,9590
+	unsigned int vclk_pol:vclk_pol232,9618
+struct vfe_settings 235,9648
+	__u32 x,236,9670
+	__u32 x, y;236,9670
+	__u32 width,237,9709
+	__u32 width, height;237,9709
+	__u16 decimation;238,9753
+	__u16 flags;239,9797
+	__u16 quality;244,9965
+struct tvnorm 247,10013
+	u16 Wt,248,10029
+	u16 Wt, Wa,248,10029
+	u16 Wt, Wa, HStart,248,10029
+	u16 Wt, Wa, HStart, HSyncStart,248,10029
+	u16 Wt, Wa, HStart, HSyncStart, Ht,248,10029
+	u16 Wt, Wa, HStart, HSyncStart, Ht, Ha,248,10029
+	u16 Wt, Wa, HStart, HSyncStart, Ht, Ha, VStart;248,10029
+struct jpeg_com_marker 251,10082
+	int len;252,10107
+	char data[data253,10154
+struct jpeg_app_marker 256,10174
+	int appn;257,10199
+	int len;258,10235
+	char data[data259,10282
+struct videocodec 262,10302
+	struct module *owner;owner263,10322
+	char name[name265,10400
+	unsigned long magic;266,10416
+	unsigned long flags;267,10486
+	unsigned int type;268,10534
+	struct videocodec_master *master_data;master_data272,10639
+	void *data;data276,10750
+	int (*setup)setup279,10844
+	int (*unset)unset280,10887
+	int (*set_mode)set_mode284,11057
+	int (*set_video)set_video287,11182
+	int (*control)control292,11369
+	int (*setup_interrupt)setup_interrupt299,11582
+	int (*handle_interrupt)handle_interrupt301,11650
+	long (*put_image)put_image305,11768
+	long (*get_image)get_image312,11924
+struct videocodec_master 321,12084
+	char name[name323,12168
+	unsigned long magic;324,12184
+	unsigned long flags;325,12254
+	unsigned int type;326,12302
+	void *data;data328,12341
+	 __u32(*readreg)readreg330,12382
+	void (*writereg)writereg332,12445
+
+s3c_camera_driver.c,2876
+#define LOG_TAG 1,0
+#define S3C_V4L2_SUPPORT	20,542
+#define CODEC_MINOR 23,625
+#define PREVIEW_MINOR 24,650
+#define FSM_Drived26,678
+#undef FSM_Drived27,697
+#define TOMTOM_INTERLACE_MODE30,791
+#define SW_IPC31,821
+typedef int (*camif_handle)camif_handle39,968
+static camif_handle camif_enter_c 40,1017
+static camif_handle camif_start_c 41,1073
+static int pre_src_x,42,1130
+static int pre_src_x, pre_src_y,42,1130
+static int pre_src_x, pre_src_y, pre_ver,42,1130
+static int pre_src_x, pre_src_y, pre_ver, pre_hor;42,1130
+static camif_cis_t msdma_input;45,1282
+camif_cfg_t *get_camif(get_camif62,1858
+static int camif_start_codec(82,2099
+ssize_t camif_write(101,2468
+ssize_t camif_p_read(137,3195
+camif_c_read(161,3729
+static irqreturn_t camif_f_irq(188,4388
+static irqreturn_t camif_c_irq(220,5026
+static irqreturn_t camif_p_irq(268,6091
+static void camif_release_irq(285,6494
+static int camif_irq_request(308,6988
+static void camif_init_sensor(330,7510
+static void camif_init_sensor(365,8387
+int camif_release(399,9283
+static void camif_2_pic_mode(454,10852
+static void camif_2_camcoder_mode(490,11773
+static void codec_uses_2pp(531,12894
+static void codec_uses_4pp(544,13122
+static void fimc_config(560,13426
+#define ZOOM_AT_A_TIME_IN_PIXELS 664,15302
+#define ZOOM_IN_MAX	665,15339
+static int camif_make_underzoom_out_check(667,15364
+static int camif_make_overzoom_in_check(679,15621
+static int camif_cis_control(689,15994
+static int camif_change_zoom(695,16157
+camif_ioctl(713,16464
+static struct v4l2_input fimc_inputs[fimc_inputs890,20369
+static struct v4l2_output fimc_outputs[fimc_outputs921,21093
+const struct v4l2_fmtdesc fimc_codec_formats[fimc_codec_formats947,21596
+const struct v4l2_fmtdesc fimc_preview_formats[fimc_preview_formats985,22621
+#define NUMBER_OF_PREVIEW_FORMATS 1018,23408
+#define NUMBER_OF_CODEC_FORMATS	1019,23477
+#define NUMBER_OF_INPUTS	1020,23548
+#define NUMBER_OF_OUTPUTS	1021,23605
+static int pixfmt2depth(1038,23965
+static int camif_s_v4l2_pixfmt(1081,24735
+static int camif_s_input(1096,25222
+static int camif_s_output(1114,25616
+static int camif_s_v4l2(1120,25751
+static int camif_g_fmt(1149,26418
+static int camif_convert_into_camif_cfg_t(1171,26919
+static int camif_s_fmt(1184,27221
+static int camif_set_v4l2_control(1224,28169
+int camif_do_ioctl(1301,30040
+static int camif_ioctl_v4l2(1716,39109
+int camif_p_mmap(1726,39384
+int camif_c_mmap(1754,40049
+int camif_open(1781,40714
+static struct file_operations camif_c_fops 1823,41642
+static struct file_operations camif_p_fops 1833,41876
+static void camif_vdev_release 1843,42110
+static struct video_device codec_template 1847,42190
+static struct video_device preview_template 1857,42541
+camif_cfg_t fimc[fimc1867,42898
+static int s3c_camera_driver_init(1913,44235
+static void s3c_camera_driver_exit(1956,45413

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+D=${1}
+
+cp -fr bootable/bootloader/x-loader/MLO                   ${D}/
+cp -fr bootable/bootloader/u-boot/u-boot.bin              ${D}/
+cp -fr kernel/android-2.6.35/arch/arm/boot/uImage         ${D}/
+
+
+
+
+

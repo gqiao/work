@@ -1,0 +1,16 @@
+#!/bin/sh
+
+S=$((${1}))
+E=$((${S} + 1))
+
+if [ ! -z ${2} ];then
+    E=$((${S} + ${2} - 1))
+fi
+
+while [ ${S} -le ${E} ];do 
+    printf "0x%8x: " ${S}
+    devmem ${S} 32
+    S=$((${S} + 4))
+done
+
+

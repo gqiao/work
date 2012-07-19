@@ -1,0 +1,89 @@
+* top level
+
+** the second level 1
+
+*** the third level 1
+    DEADLINE: <2011-02-28 Mon>
+My favorite scenes are (in this order)
+1. The attack of the Rohirrim
+2. Eowyn's fight with the witch king
+   * this was already my favorite scene in the book
+   * I really like Miranda Qiao.
+3. Peter being shot by ...
+4. on DVD only
+He makes a really funny face when it happens.
+But in the end. no individual as a whole.
+Important actors in this film are:
+- Elijah Wood :: He plays Frodo
+- Sean Austin :: He plays Sam, I still remember
+him very well from his role ...
+
+The Org homepage[1] now looks a lot better than it used to.
+The [fn:orghome] now looks a lot.
+
+
+*** the third level 2: footnote
+[1] The link is: http://orgmode.org
+[fn:orghome] The link is: http://orgmode.org
+
+
+*** TODO the third level 3: table
+|---+---------------------------------------------|
+| 1 | one                                         |
+|---+---------------------------------------------|
+| 2 | two hahaha                                  |
+|---+---------------------------------------------|
+| 3 | hello world!!                               |
+|---+---------------------------------------------|
+| 4 | done!                                       |
+|---+---------------------------------------------|
+| 5 | [file:/work/video/迷踪拳_books/迷踪拳0.pdf] |
+|---+---------------------------------------------|
+
+
+
+*** DONE the third level 4: table
+|---+---+-----|
+| a | b |   x |
+|---+---+-----|
+| 3 | 6 |  81 |
+|---+---+-----|
+| 4 | 8 | 144 |
+|---+---+-----|
+#+TBLFM: $3=($1+$2)^2
+
+
+
+
+
+somethings to write
+
+** the second level 2
+
+
+
+*** the third level
+#+begin_src ditaa :file ascii.png :cmdline  -r -s 0.8
+
+    +------------+ edit    +-------------+ input   +-----------+ compile  +------------+
+    |  refined   |<--------+   h, cpp    +-------->+  compiler +--------->+ Executable |
+    |  h, cpp    |         |             |     	   |  linker   |       	  | File       |
+    +------------+         +------+------+     	   +-----------+      	  +------------+
+				  |
+				  v
+    +------------+	 +------------+	     +-------------+
+    |            |	 |            |	     |             |
+    |   hello    |------>|     h      |----->| fdf         |
+    |            |	 |            |	     |             |
+    +------------+	 +------------+	     +-+-----------+
+
+
+#+end_src
+
+*** the third level
+
+
+*** the third level
+
+
+

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+git checkout $@
+
+git branch -a
+

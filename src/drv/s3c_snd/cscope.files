@@ -1,0 +1,15 @@
+codecs/tlv320aic23_28.h
+codecs/tlv320aic23.c
+codecs/wm8987.c
+codecs/wm8987.h
+s3c64xx/s3c6410-i2s-v32.c
+s3c64xx/smdk6410_tlv320aic23.c
+s3c64xx/smdk6410_wm8987.c
+s3c-i2s.h
+s3c-pcm.c
+s3c-pcm.h
+s3c_snd.mod.c
+s3c_tlv320aic23.mod.c
+soc-core.c
+soc-dapm_bak.c
+soc-dapm.c

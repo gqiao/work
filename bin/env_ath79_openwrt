@@ -1,0 +1,32 @@
+#!/bin/sh
+
+H=${PWD}
+OS=`uname`
+
+
+export TARGET_NAME=ath79
+export SERVER_NAME="github.com"
+export BRANCH_NAME=openwrt
+export SSH_AUTH_SOCK=0
+
+
+if [ ${OS} = "Darwin" ]; then
+    export CROSS_COMPILE=arm-eabi-
+    export PATH=/work/src/${TARGET_NAME}.${BRANCH_NAME}.${SERVER_NAME}/prebuilt/darwin-x86/toolchain/arm-eabi-4.4.3/bin:${PATH}
+    ulimit -S -n 1024
+else
+    export CROSS_COMPILE=mips-openwrt-linux-
+    export PATH=/work/bin/toolchain-mips_gcc-4.6/bin:${PATH}
+fi
+
+
+# {omap4, mips}
+export CPU=mips
+# {arm, mips}
+export ARCH=mips
+#export STAGING_DIR=/work/src/ath79.openwrt.github.com/staging_dir
+export STAGING_DIR=/work/bin/toolchain-mips_gcc-4.6
+
+alias go='cd /work/src/${TARGET_NAME}.${BRANCH_NAME}.${SERVER_NAME}'
+
+

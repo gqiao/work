@@ -1,0 +1,656 @@
+
+s3c_tlv320aic23.mod.c,60
+struct module __this_module7,124
+__attribute_used__18,385
+
+s3c_snd.mod.c,60
+struct module __this_module7,124
+__attribute_used__18,385
+
+soc-core.c,1620
+#define LOG_TAG 1,0
+static int pmdown_time 24,612
+static int run_delayed_work(31,818
+static inline const char* get_dai_name(48,1165
+static int soc_pcm_open(69,1632
+static void close_delayed_work(198,5635
+static int soc_codec_close(239,6855
+static int soc_pcm_prepare(302,8772
+static int soc_pcm_hw_params(405,11834
+static int soc_pcm_hw_free(468,13497
+static int soc_pcm_trigger(505,14580
+static struct snd_pcm_ops soc_pcm_ops 535,15397
+static int soc_new_pcm(545,15638
+static ssize_t codec_reg_show(606,17613
+int snd_soc_new_ac97_codec(638,18435
+void snd_soc_free_ac97_codec(672,19147
+int snd_soc_update_bits(695,19614
+int snd_soc_test_bits(727,20321
+int snd_soc_new_pcms(753,20897
+int snd_soc_register_card(798,22094
+void snd_soc_free_pcms(845,23543
+int snd_soc_set_runtime_hwparams(868,24061
+struct snd_kcontrol *snd_soc_cnew(snd_soc_cnew898,24919
+int snd_soc_info_enum_double(924,25573
+int snd_soc_get_enum_double(953,26413
+int snd_soc_put_enum_double(983,27266
+int snd_soc_info_enum_ext(1020,28371
+int snd_soc_info_volsw_ext(1049,29189
+int snd_soc_info_volsw(1076,29824
+int snd_soc_get_volsw(1109,30559
+int snd_soc_put_volsw(1148,31654
+int snd_soc_info_volsw_2r(1189,32805
+int snd_soc_get_volsw_2r(1216,33466
+int snd_soc_put_volsw_2r(1252,34543
+static int soc_suspend(1288,35523
+static int soc_resume(1345,37405
+#define soc_suspend	1396,39017
+#define soc_resume	1397,39042
+static int soc_probe(1401,39100
+static int soc_remove(1450,40284
+static struct platform_driver soc_driver 1481,41009
+static int __devinit snd_soc_init(1491,41195
+static void snd_soc_exit(1499,41345
+
+s3c-pcm.h,389
+#define _S3C24XX_PCM_H13,371
+#define ST_RUNNING	15,395
+#define ST_OPENED	16,422
+struct s3c24xx_pcm_dma_params 18,449
+	struct s3c2410_dma_client *client;client19,481
+	int channel;20,541
+	dma_addr_t dma_addr;21,575
+	int dma_size;22,597
+#define S3C24XX_DAI_I2S	25,649
+#define S3CPCM_DCON 28,744
+#define S3CPCM_HWCFG	29,767
+#define S3CPCM_DCON 32,824
+#define S3CPCM_HWCFG 33,891
+
+s3c-pcm.c,1192
+#define LOG_TAG 1,0
+#define MAIN_DMA_CH 47,1200
+#define MAIN_DMA_CH 49,1246
+static const struct snd_pcm_hardware s3c24xx_pcm_hardware 52,1276
+struct s3c24xx_runtime_data 72,1853
+	spinlock_t lock;73,1883
+	int state;74,1901
+	unsigned int dma_loaded;75,1913
+	unsigned int dma_limit;76,1939
+	unsigned int dma_period;77,1964
+	dma_addr_t dma_start;78,1990
+	dma_addr_t dma_pos;79,2013
+	dma_addr_t dma_end;80,2034
+	struct s3c24xx_pcm_dma_params *params;params81,2055
+static void s3c24xx_pcm_enqueue(89,2198
+static void s3c24xx_audio_buffdone(120,2896
+static int s3c24xx_pcm_hw_params(148,3483
+static int s3c24xx_pcm_hw_free(231,5970
+static int s3c24xx_pcm_prepare(248,6346
+static int s3c24xx_pcm_trigger(266,6743
+static snd_pcm_uframes_t s3c24xx_pcm_pointer(300,7454
+static int s3c24xx_pcm_open(339,8477
+static int s3c24xx_pcm_close(357,8890
+static int s3c24xx_pcm_mmap(372,9204
+static struct snd_pcm_ops s3c24xx_pcm_ops 386,9535
+static int s3c24xx_pcm_preallocate_dma_buffer(398,9870
+static void s3c24xx_pcm_free_dma_buffers(418,10448
+static u64 s3c24xx_pcm_dmamask 440,10897
+static int s3c24xx_pcm_new(442,10947
+struct snd_soc_platform s3c24xx_soc_platform 469,11556
+
+s3c64xx/smdk6410_tlv320aic23.c,1763
+#define LOG_TAG 1,0
+#define SMDK6400_AUDIO_OFF	55,1447
+#define SMDK6400_CAPTURE_MIC1	56,1477
+#define SMDK6400_STEREO_TO_HEADPHONES	57,1510
+#define SMDK6400_CAPTURE_LINE_IN	58,1550
+static s3c_iis_t     __iomem  *base;base60,1586
+static s3c_syscon_t  __iomem  *syscon syscon61,1623
+static struct snd_soc_machine smdk6400;63,1679
+static int smdk6400_hifi_hw_params(65,1720
+static int smdk6400_hifi_hw_free(141,3833
+static struct snd_soc_ops smdk6400_hifi_ops 152,4008
+static int smdk6400_scenario 157,4136
+static int smdk6400_get_scenario(159,4171
+static int set_scenario_endpoints(168,4367
+static int smdk6400_set_scenario(206,5625
+static const struct snd_soc_dapm_widget tlv320aic23_dapm_widgets[tlv320aic23_dapm_widgets221,6005
+static const char* audio_map[audio_map228,6241
+static const char *smdk_scenarios[smdk_scenarios244,6575
+static const struct soc_enum smdk_scenario_enum[smdk_scenario_enum251,6679
+static const struct snd_kcontrol_new tlv320aic23_smdk6400_controls[tlv320aic23_smdk6400_controls255,6802
+static int smdk6400_tlv320aic23_init(265,7180
+static int smdk6400_probe(301,8224
+static struct snd_soc_dai_link smdk6400_dai[smdk6400_dai311,8500
+static struct snd_soc_machine smdk6400 323,8838
+static struct tlv320aic23_setup_data smdk6400_tlv320aic23_setup 330,9009
+static struct snd_soc_device smdk6400_snd_devdata 334,9103
+static struct platform_device *smdk6400_snd_device;smdk6400_snd_device341,9312
+static int aud_proc_read(345,9403
+static int aud_proc_write(374,10085
+#define	MAX_BUFLEN	379,10207
+#define	AUD_PROC_ENTRY	413,10932
+static int __init aud_proc_init(415,10974
+static void __exit aud_proc_exit(433,11393
+static int __init smdk6400_init(441,11533
+static void __exit smdk6400_exit(463,12015
+
+s3c64xx/s3c6410-i2s-v32.c,1266
+#define LOG_TAG 1,0
+static s3c_iis_t    __iomem *base;base53,1354
+static s3c_syscon_t __iomem *syscon;syscon54,1389
+static int extclk 57,1484
+static struct s3c2410_dma_client s3c24xx_dma_client_out 61,1606
+static struct s3c2410_dma_client s3c24xx_dma_client_in 65,1700
+static struct s3c24xx_pcm_dma_params s3c24xx_i2s_pcm_stereo_out 69,1792
+static struct s3c24xx_pcm_dma_params s3c24xx_i2s_pcm_stereo_in 76,1991
+struct s3c24xx_i2s_info 83,2189
+	void __iomem	*regs;regs84,2215
+	struct clk	*iis_clk;iis_clk85,2236
+	int master;86,2258
+static struct s3c24xx_i2s_info s3c24xx_i2s;88,2274
+static void s3c24xx_snd_txctrl(90,2319
+static void s3c24xx_snd_rxctrl(115,3034
+static int s3c24xx_snd_lrsync(142,3875
+static inline int s3c24xx_snd_is_clkmaster(162,4162
+static int s3c_i2s_set_fmt(172,4306
+static int s3c_i2s_hw_params(179,4414
+static int s3c_i2s_trigger(249,6295
+static void s3c64xx_i2s_shutdown(287,7055
+static int s3c_i2s_set_sysclk(313,7510
+static int s3c_i2s_set_clkdiv(337,7886
+static int s3c_i2s_probe(361,8404
+static int s3c_i2s_suspend(373,8583
+static int s3c_i2s_resume(380,8705
+#define s3c_i2s_suspend	388,8832
+#define s3c_i2s_resume	389,8861
+#define S3C24XX_I2S_RATES 393,8898
+struct snd_soc_cpu_dai s3c_i2s_dai 398,9140
+
+s3c64xx/smdk6410_wm8987.c,1667
+#define LOG_TAG 1,0
+#define SMDK6400_AUDIO_OFF	54,1392
+#define SMDK6400_CAPTURE_MIC1	55,1422
+#define SMDK6400_STEREO_TO_HEADPHONES	56,1455
+#define SMDK6400_CAPTURE_LINE_IN	57,1495
+static struct snd_soc_machine smdk6400;59,1531
+static int smdk6400_hifi_hw_params(61,1572
+static int smdk6400_hifi_hw_free(137,3930
+static struct snd_soc_ops smdk6400_hifi_ops 148,4100
+static int smdk6400_scenario 153,4226
+static int smdk6400_get_scenario(155,4261
+static int set_scenario_endpoints(164,4456
+static int smdk6400_set_scenario(202,5713
+static const struct snd_soc_dapm_widget wm8987_dapm_widgets[wm8987_dapm_widgets217,6093
+static const char* audio_map[audio_map225,6325
+static const char *smdk_scenarios[smdk_scenarios241,6659
+static const struct soc_enum smdk_scenario_enum[smdk_scenario_enum248,6763
+static const struct snd_kcontrol_new wm8987_smdk6400_controls[wm8987_smdk6400_controls252,6886
+static int smdk6400_wm8987_init(262,7254
+static int smdk6400_probe(296,8256
+static struct snd_soc_dai_link smdk6400_dai[smdk6400_dai306,8527
+static struct snd_soc_machine smdk6400 318,8862
+static struct wm8987_setup_data smdk6400_wm8987_setup 325,9023
+static struct snd_soc_device smdk6400_snd_devdata 329,9107
+static struct platform_device *smdk6400_snd_device;smdk6400_snd_device336,9300
+static int proc_run_delayed_work(341,9450
+static int aud_proc_read(358,9797
+static int aud_proc_write(384,10459
+#define	MAX_BUFLEN	387,10567
+#define	AUD_PROC_ENTRY	418,11283
+static int __init aud_proc_init(420,11325
+static void __exit aud_proc_exit(439,11749
+static int __init smdk6400_init(448,11887
+static void __exit smdk6400_exit(472,12399
+
+soc-dapm_bak.c,1740
+#define LOG_TAG 1,0
+#define DAPM_DEBUG 58,1908
+#define dump_dapm(60,1944
+#define dbg(61,2006
+#define dump_dapm(63,2063
+#define dbg(64,2096
+#define POP_DEBUG 67,2132
+#define POP_TIME 69,2166
+#define pop_wait(70,2237
+#define pop_dbg(71,2317
+#define pop_dbg(73,2398
+#define pop_wait(74,2430
+static int dapm_up_seq[dapm_up_seq78,2524
+static int dapm_down_seq[dapm_down_seq83,2762
+static int dapm_status 89,3003
+static inline struct snd_soc_dapm_widget *dapm_cnew_widget(dapm_cnew_widget94,3157
+static void dapm_set_path_status(103,3369
+static int dapm_connect_mux(165,4929
+static int dapm_connect_mixer(190,5644
+static int dapm_update_bits(213,6287
+static int dapm_set_pga(250,7317
+static int dapm_new_mixer(296,8556
+static inline void dapm_clear_walk(337,9546
+static int is_connected_output_ep(351,9865
+static int is_connected_input_ep(388,10700
+static int dapm_power_widgets(435,11727
+static void dbg_dump_dapm(582,15364
+static int dapm_mux_update_power(636,16755
+static int dapm_mixer_update_power(674,17712
+static ssize_t dapm_widget_show(712,18567
+int snd_soc_dapm_sys_add(769,19799
+static void snd_soc_dapm_sys_remove(781,19966
+static void dapm_free_widgets(790,20151
+int snd_soc_dapm_sync_endpoints(818,20755
+int snd_soc_dapm_connect_input(839,21336
+int snd_soc_dapm_add_routes(959,24446
+int snd_soc_dapm_new_widgets(987,25075
+int snd_soc_dapm_get_volsw(1073,27026
+int snd_soc_dapm_put_volsw(1117,28333
+int snd_soc_dapm_get_enum_double(1186,30223
+int snd_soc_dapm_put_enum_double(1216,31126
+int snd_soc_dapm_new_control(1272,32746
+int snd_soc_dapm_new_controls(1304,33484
+int snd_soc_dapm_stream_event(1333,34096
+int snd_soc_dapm_set_endpoint(1397,35416
+void snd_soc_dapm_free(1420,35854
+
+soc-dapm.c,1740
+#define LOG_TAG 1,0
+#define DAPM_DEBUG 58,1908
+#define dump_dapm(60,1944
+#define dbg(61,2006
+#define dump_dapm(63,2063
+#define dbg(64,2096
+#define POP_DEBUG 67,2132
+#define POP_TIME 69,2166
+#define pop_wait(70,2237
+#define pop_dbg(71,2317
+#define pop_dbg(73,2398
+#define pop_wait(74,2430
+static int dapm_up_seq[dapm_up_seq78,2524
+static int dapm_down_seq[dapm_down_seq83,2762
+static int dapm_status 89,3003
+static inline struct snd_soc_dapm_widget *dapm_cnew_widget(dapm_cnew_widget94,3157
+static void dapm_set_path_status(103,3369
+static int dapm_connect_mux(165,4929
+static int dapm_connect_mixer(190,5644
+static int dapm_update_bits(213,6287
+static int dapm_set_pga(251,7319
+static int dapm_new_mixer(297,8564
+static inline void dapm_clear_walk(338,9554
+static int is_connected_output_ep(352,9873
+static int is_connected_input_ep(389,10708
+static int dapm_power_widgets(436,11735
+static void dbg_dump_dapm(591,15663
+static int dapm_mux_update_power(645,17054
+static int dapm_mixer_update_power(683,18011
+static ssize_t dapm_widget_show(721,18866
+int snd_soc_dapm_sys_add(778,20098
+static void snd_soc_dapm_sys_remove(790,20265
+static void dapm_free_widgets(799,20450
+int snd_soc_dapm_sync_endpoints(827,21054
+int snd_soc_dapm_connect_input(848,21635
+int snd_soc_dapm_add_routes(968,24745
+int snd_soc_dapm_new_widgets(996,25374
+int snd_soc_dapm_get_volsw(1135,28521
+int snd_soc_dapm_put_volsw(1179,29828
+int snd_soc_dapm_get_enum_double(1248,31718
+int snd_soc_dapm_put_enum_double(1278,32621
+int snd_soc_dapm_new_control(1334,34241
+int snd_soc_dapm_new_controls(1366,34979
+int snd_soc_dapm_stream_event(1395,35591
+int snd_soc_dapm_set_endpoint(1459,36911
+void snd_soc_dapm_free(1482,37349
+
+s3c-i2s.h,271
+#define S3C24XXI2S_H_18,547
+#define S3C24XX_CLKSRC_PCLK 21,590
+#define S3C24XX_CLKSRC_MPLL 22,620
+#define S3C24XX_DIV_MCLK	25,672
+#define S3C24XX_DIV_BCLK	26,699
+#define S3C24XX_DIV_PRESCALER	27,726
+#define S3C24XX_PRESCALE(31,840
+#define S3C24XX_PRESCALE(34,957
+
+codecs/wm8987.h,2115
+#define _WM8987_H15,331
+#define CONFIG_HHTECH_MINIPMP	17,350
+#define WM8987_LINVOL 21,412
+#define WM8987_RINVOL 22,442
+#define WM8987_LOUT1V 23,472
+#define WM8987_ROUT1V 24,502
+#define WM8987_ADCDAC 25,532
+#define WM8987_IFACE 26,562
+#define WM8987_SRATE 27,592
+#define WM8987_LDAC 28,622
+#define WM8987_RDAC 29,652
+#define WM8987_BASS 30,682
+#define WM8987_TREBLE 31,712
+#define WM8987_RESET 32,742
+#define WM8987_3D 33,772
+#define WM8987_ALC1 34,802
+#define WM8987_ALC2 35,832
+#define WM8987_ALC3 36,862
+#define WM8987_NGATE 37,892
+#define WM8987_LADC 38,922
+#define WM8987_RADC 39,952
+#define WM8987_ADCTL1 40,982
+#define WM8987_ADCTL2 41,1012
+#define WM8987_PWR1 42,1042
+#define WM8987_PWR2 43,1072
+#define WM8987_ADCTL3 44,1102
+#define WM8987_ADCIN 45,1132
+#define WM8987_LADCIN 46,1162
+#define WM8987_RADCIN 47,1192
+#define WM8987_LOUTM1 48,1222
+#define WM8987_LOUTM2 49,1252
+#define WM8987_ROUTM1 50,1282
+#define WM8987_ROUTM2 51,1312
+#define WM8987_MOUTM1 52,1342
+#define WM8987_MOUTM2 53,1372
+#define WM8987_LOUT2V 54,1402
+#define WM8987_ROUT2V 55,1432
+#define WM8987_MOUTV 56,1462
+#define WM8987_CACHE_REGNUM 58,1493
+#define WM8987_SYSCLK	60,1527
+struct wm8987_setup_data 62,1552
+	unsigned short i2c_address;63,1579
+#define WM8987_PLL1	70,1727
+#define WM8987_PLL2	71,1751
+#define WM8987_MCLK	74,1795
+#define WM8987_PCMCLK	75,1818
+#define WM8987_PCMDIV	78,1869
+#define WM8987_BCLKDIV	79,1894
+#define WM8987_VXCLKDIV	80,1920
+#define WM8987_PCM_DIV_1	83,1973
+#define WM8987_PCM_DIV_3	84,2007
+#define WM8987_PCM_DIV_5_5	85,2041
+#define WM8987_PCM_DIV_2	86,2077
+#define WM8987_PCM_DIV_4	87,2111
+#define WM8987_PCM_DIV_6	88,2145
+#define WM8987_PCM_DIV_8	89,2179
+#define WM8987_BCLK_DIV_1	92,2240
+#define WM8987_BCLK_DIV_2	93,2275
+#define WM8987_BCLK_DIV_4	94,2310
+#define WM8987_BCLK_DIV_8	95,2345
+#define WM8987_VXCLK_DIV_1	98,2408
+#define WM8987_VXCLK_DIV_2	99,2444
+#define WM8987_VXCLK_DIV_4	100,2480
+#define WM8987_VXCLK_DIV_8	101,2516
+#define WM8987_VXCLK_DIV_16	102,2552
+#define WM8987_DAI_HIFI	104,2590
+#define WM8987_DAI_VOICE	105,2617
+
+codecs/tlv320aic23.c,3956
+#define LOG_TAG 1,0
+#define AUDIO_NAME 41,923
+#define TLV320AIC23_VERSION 42,956
+struct tlv320aic23_srate_reg_info 52,1167
+	u32 sample_rate;53,1203
+	u8 control;54,1221
+	u8 divider;55,1280
+static const u16 tlv320aic23_reg[tlv320aic23_reg63,1513
+static inline unsigned int tlv320aic23_read_reg_cache(80,1994
+static inline void tlv320aic23_write_reg_cache(96,2277
+static int tlv320aic23_write(109,2528
+#define tlv320aic23_reset(150,3492
+static const char *rec_src_text[rec_src_text153,3566
+static const char *deemph_text[deemph_text154,3621
+static const struct soc_enum rec_src_enum 156,3696
+static const struct snd_kcontrol_new tlv320aic23_rec_src_mux_controls 159,3797
+static const struct soc_enum tlv320aic23_rec_src 162,3916
+static const struct soc_enum tlv320aic23_deemph 164,4023
+static int snd_soc_tlv320aic23_put_volsw(171,4328
+static int snd_soc_tlv320aic23_get_volsw(196,4905
+#define SOC_TLV320AIC23_SINGLE_TLV(212,5293
+static const struct snd_kcontrol_new tlv320aic23_snd_controls[tlv320aic23_snd_controls221,5750
+static int tlv320aic23_add_controls(238,6519
+static const struct snd_kcontrol_new tlv320aic23_output_mixer_controls[tlv320aic23_output_mixer_controls253,6867
+static const struct snd_soc_dapm_widget tlv320aic23_dapm_widgets[tlv320aic23_dapm_widgets259,7147
+static const struct snd_soc_dapm_route intercon[intercon281,7953
+static const struct tlv320aic23_srate_reg_info srate_reg_info[srate_reg_info307,8622
+static int tlv320aic23_add_widgets(320,9002
+struct _coeff_div 337,9374
+	u32 mclk;338,9394
+	u32 rate;339,9405
+	u16 fs;340,9416
+	u8 sr:sr341,9425
+	u8 usb:usb342,9435
+static const struct _coeff_div coeff_div[coeff_div346,9499
+static inline int get_coeff(410,11012
+static int tlv320aic23_set_dai_clkdiv(426,11314
+static int tlv320aic23_set_dai_fmt(440,11639
+static int tlv320aic23_set_dai_sysclk(486,12578
+static int tlv320aic23_pcm_hw_params(498,12788
+static int tlv320aic23_pcm_prepare(545,14053
+static void tlv320aic23_shutdown(559,14397
+static int tlv320aic23_mute(574,14765
+static int tlv320aic23_dapm_event(593,15113
+static int tlv320aic23_set_bias_level(600,15217
+#define AIC23_RATES 630,15983
+#define AIC23_FORMATS 631,16033
+struct snd_soc_codec_dai tlv320aic23_dai 634,16191
+static void tlv320aic23_work(662,16888
+static int tlv320aic23_suspend(667,16961
+static int tlv320aic23_resume(679,17288
+static int tlv320aic23_init(704,17920
+static struct snd_soc_device *tlv320aic23_socdev;tlv320aic23_socdev792,20865
+void hhbf_audio_close(794,20916
+static struct proc_dir_entry *w1_proc_entry;w1_proc_entry808,21253
+static struct proc_dir_entry *w2_proc_entry;w2_proc_entry809,21326
+static struct proc_dir_entry *ctrl_proc_entry;ctrl_proc_entry810,21399
+static struct proc_dir_entry *data_proc_entry;data_proc_entry811,21468
+static short w1_led 812,21535
+static short w2_led 813,21562
+static short ctrl_led 814,21589
+static short encoder_led 815,21618
+static ssize_t w1_LED_write(817,21651
+static int w1_LED_read(844,22292
+static ssize_t w2_LED_write(859,22576
+static int w2_LED_read(886,23217
+static int ctrl_LED_write(900,23501
+static int ctrl_LED_read(940,24492
+static ssize_t enc_LED_write(952,24734
+static int enc_LED_read(980,25422
+void create_proc_led(997,25727
+void release_proc_led(1058,27582
+static unsigned short normal_i2c[normal_i2c1073,27921
+I2C_CLIENT_INSMOD;1076,28039
+static struct i2c_driver tlv320aic23_i2c_driver;1078,28059
+static struct i2c_client client_template;1079,28108
+static int tlv320aic23_codec_probe(1081,28151
+static int tlv320aic23_i2c_detach(1121,29000
+static int tlv320aic23_i2c_attach(1129,29119
+static struct i2c_driver tlv320aic23_i2c_driver 1137,29296
+static struct i2c_client client_template 1148,29583
+static int tlv320aic23_probe(1155,29702
+static int run_delayed_work(1189,30686
+static int tlv320aic23_remove(1206,31057
+struct snd_soc_codec_device soc_codec_dev_tlv320aic23 1230,31650
+
+codecs/wm8987.c,3942
+#define LOG_TAG 1,0
+#define AUDIO_NAME 40,872
+#define WM8987_VERSION 41,900
+struct wm8987_priv 45,987
+	unsigned int sysclk;46,1008
+static unsigned wm8987_sysclk;49,1039
+static unsigned short init_reboot 53,1149
+static const u16 wm8987_reg[wm8987_reg61,1368
+static inline unsigned int wm8987_read_reg_cache(78,1916
+static inline void wm8987_write_reg_cache(97,2277
+static int wm8987_write(113,2611
+#define wm8987_reset(146,3304
+static const char *wm8987_bass[wm8987_bass151,3388
+static const char *wm8987_bass_filter[wm8987_bass_filter152,3461
+static const char *wm8987_treble[wm8987_treble153,3541
+static const char *wm8987_3d_lc[wm8987_3d_lc154,3596
+static const char *wm8987_3d_uc[wm8987_3d_uc155,3652
+static const char *wm8987_3d_func[wm8987_3d_func156,3710
+static const char *wm8987_alc_func[wm8987_alc_func157,3773
+static const char *wm8987_ng_type[wm8987_ng_type158,3848
+static const char *wm8987_line_mux[wm8987_line_mux160,3929
+static const char *wm8987_pga_sel[wm8987_pga_sel162,4024
+static const char *wm8987_out3[wm8987_out3164,4111
+static const char *wm8987_diff_sel[wm8987_diff_sel166,4192
+static const char *wm8987_adcpol[wm8987_adcpol167,4253
+static const char *wm8987_deemph[wm8987_deemph169,4343
+static const char *wm8987_mono_mux[wm8987_mono_mux170,4419
+static const struct soc_enum wm8987_enum[wm8987_enum173,4519
+static const struct snd_kcontrol_new wm8987_snd_controls[wm8987_snd_controls194,5482
+static int wm8987_add_controls(288,8822
+static const struct snd_kcontrol_new wm8987_left_mixer_controls[wm8987_left_mixer_controls308,9147
+static const struct snd_kcontrol_new wm8987_right_mixer_controls[wm8987_right_mixer_controls316,9492
+static const struct snd_kcontrol_new wm8987_mono_mixer_controls[wm8987_mono_mixer_controls324,9836
+static const struct snd_kcontrol_new wm8987_left_line_controls 332,10188
+static const struct snd_kcontrol_new wm8987_right_line_controls 336,10315
+static const struct snd_kcontrol_new wm8987_left_pga_controls 340,10441
+static const struct snd_kcontrol_new wm8987_right_pga_controls 344,10567
+static const struct snd_kcontrol_new wm8987_out3_controls 348,10690
+static const struct snd_kcontrol_new wm8987_diffmux_controls 352,10815
+static const struct snd_kcontrol_new wm8987_monomux_controls 356,10939
+static const struct snd_soc_dapm_widget wm8987_dapm_widgets[wm8987_dapm_widgets359,11044
+static const char *audio_map[audio_map419,13348
+static int wm8987_add_widgets(516,16329
+struct _coeff_div 536,16760
+	u32 mclk;537,16780
+	u32 rate;538,16791
+	u16 fs;539,16802
+	u8 sr:sr540,16811
+	u8 usb:usb541,16821
+static const struct _coeff_div coeff_div[coeff_div545,16885
+static inline int get_coeff(609,18398
+static int wm8987_set_dai_clkdiv(625,18696
+static int wm8987_set_dai_sysclk(640,18995
+static int wm8987_set_dai_fmt(667,19555
+static int wm8987_pcm_hw_params(735,20859
+static int wm8987_mute(782,22135
+static int wm8987_dapm_event(799,22562
+#define WM8987_RATES 830,23481
+#define WM8987_FORMATS 836,23732
+struct snd_soc_codec_dai wm8987_dai 839,23840
+static void wm8987_work(865,24427
+static int wm8987_suspend(875,24637
+static int wm8987_resume(886,24902
+static int wm8987_init(921,25803
+static struct snd_soc_device *wm8987_socdev;wm8987_socdev1039,29454
+void hhbf_audio_close(1042,29529
+static unsigned short normal_i2c[normal_i2c1061,29940
+I2C_CLIENT_INSMOD;1064,30058
+static struct i2c_driver wm8987_i2c_driver;1066,30078
+static struct i2c_client client_template;1067,30122
+static int wm8987_codec_probe(1069,30165
+static int wm8987_i2c_detach(1120,31227
+static int wm8987_i2c_attach(1135,31544
+static struct i2c_driver wm8987_i2c_driver 1143,31711
+static struct i2c_client client_template 1154,31974
+static int wm8987_probe(1160,32082
+static int run_delayed_work(1209,33275
+static int wm8987_remove(1228,33642
+struct snd_soc_codec_device soc_codec_dev_wm8987 1251,34215
+
+codecs/tlv320aic23_28.h,4121
+#define _TLV320AIC23_28_H13,370
+#define CONFIG_HHTECH_MINIPMP	15,397
+#define TLV320AIC23_SYSCLK	17,430
+struct tlv320aic23_setup_data 19,460
+	unsigned short i2c_address;20,492
+#define TLV320AIC23_LINVOL 24,549
+#define TLV320AIC23_RINVOL 25,594
+#define TLV320AIC23_LCHNVOL 26,639
+#define TLV320AIC23_RCHNVOL 27,684
+#define TLV320AIC23_ANLG 28,729
+#define TLV320AIC23_DIGT 29,774
+#define TLV320AIC23_PWR 30,819
+#define TLV320AIC23_DIGT_FMT 31,864
+#define TLV320AIC23_SRATE 32,909
+#define TLV320AIC23_ACTIVE 33,954
+#define TLV320AIC23_RESET 34,999
+#define TLV320AIC23_LRS_ENABLED 37,1099
+#define TLV320AIC23_LIM_MUTED 38,1146
+#define TLV320AIC23_LIV_DEFAULT 39,1193
+#define TLV320AIC23_LIV_MAX 40,1240
+#define TLV320AIC23_LIV_MIN 41,1287
+#define TLV320AIC23_LZC_ON 44,1396
+#define TLV320AIC23_LHV_DEFAULT 45,1443
+#define TLV320AIC23_LHV_MAX 46,1490
+#define TLV320AIC23_LHV_MIN 47,1537
+#define TLV320AIC23_STA_REG(50,1626
+#define TLV320AIC23_STE_ENABLED 51,1675
+#define TLV320AIC23_DAC_SELECTED 52,1722
+#define TLV320AIC23_BYPASS_ON 53,1769
+#define TLV320AIC23_INSEL_MIC 54,1816
+#define TLV320AIC23_MICM_MUTED 55,1863
+#define TLV320AIC23_MICB_20DB 56,1910
+#define TLV320AIC23_DACM_MUTE 59,2000
+#define TLV320AIC23_DEEMP_32K 60,2047
+#define TLV320AIC23_DEEMP_44K 61,2094
+#define TLV320AIC23_DEEMP_48K 62,2141
+#define TLV320AIC23_ADCHP_ON 63,2188
+#define TLV320AIC23_DEVICE_PWR_OFF 66,2270
+#define TLV320AIC23_CLK_OFF 67,2317
+#define TLV320AIC23_OSC_OFF 68,2364
+#define TLV320AIC23_OUT_OFF 69,2411
+#define TLV320AIC23_DAC_OFF 70,2458
+#define TLV320AIC23_ADC_OFF 71,2505
+#define TLV320AIC23_MIC_OFF 72,2552
+#define TLV320AIC23_LINE_OFF 73,2599
+#define TLV320AIC23_MS_MASTER 76,2686
+#define TLV320AIC23_LRSWAP_ON 77,2733
+#define TLV320AIC23_LRP_ON 78,2780
+#define TLV320AIC23_IWL_16 79,2827
+#define TLV320AIC23_IWL_20 80,2874
+#define TLV320AIC23_IWL_24 81,2921
+#define TLV320AIC23_IWL_32 82,2968
+#define TLV320AIC23_FOR_I2S 83,3015
+#define TLV320AIC23_FOR_DSP 84,3062
+#define TLV320AIC23_FOR_LJUST 85,3109
+#define TLV320AIC23_CLKOUT_HALF 88,3192
+#define TLV320AIC23_CLKIN_HALF 89,3239
+#define TLV320AIC23_BOSR_384fs 90,3286
+#define TLV320AIC23_USB_CLK_ON 91,3363
+#define TLV320AIC23_SR_MASK 92,3410
+#define TLV320AIC23_CLKOUT_SHIFT 93,3454
+#define TLV320AIC23_CLKIN_SHIFT 94,3496
+#define TLV320AIC23_SR_SHIFT 95,3538
+#define TLV320AIC23_BOSR_SHIFT 96,3580
+#define TLV320AIC23_ACT_ON 99,3656
+#define TLV320AIC23_DEFAULT_OUT_VOL 105,3736
+#define TLV320AIC23_DEFAULT_IN_VOLUME 106,3781
+#define TLV320AIC23_OUT_VOL_MIN 108,3827
+#define TLV320AIC23_OUT_VOL_MAX 109,3887
+#define TLV320AIC23_OUT_VO_RANGE 110,3947
+#define TLV320AIC23_OUT_VOL_MASK 112,4052
+#define TLV320AIC23_IN_VOL_MIN 114,4117
+#define TLV320AIC23_IN_VOL_MAX 115,4177
+#define TLV320AIC23_IN_VOL_RANGE 116,4237
+#define TLV320AIC23_IN_VOL_MASK 118,4340
+#define TLV320AIC23_SIDETONE_MASK 120,4404
+#define TLV320AIC23_SIDETONE_0 121,4450
+#define TLV320AIC23_SIDETONE_6 122,4496
+#define TLV320AIC23_SIDETONE_9 123,4542
+#define TLV320AIC23_SIDETONE_12 124,4588
+#define TLV320AIC23_SIDETONE_18 125,4634
+#define TLV320AIC23_PLL1	131,4806
+#define TLV320AIC23_PLL2	132,4835
+#define TLV320AIC23_MCLK	135,4884
+#define TLV320AIC23_PCMCLK	136,4912
+#define TLV320AIC23_PCMDIV	139,4968
+#define TLV320AIC23_BCLKDIV	140,4998
+#define TLV320AIC23_VXCLKDIV	141,5029
+#define TLV320AIC23_PCM_DIV_1	144,5087
+#define TLV320AIC23_PCM_DIV_3	145,5126
+#define TLV320AIC23_PCM_DIV_5_5	146,5165
+#define TLV320AIC23_PCM_DIV_2	147,5206
+#define TLV320AIC23_PCM_DIV_4	148,5245
+#define TLV320AIC23_PCM_DIV_6	149,5284
+#define TLV320AIC23_PCM_DIV_8	150,5323
+#define TLV320AIC23_BCLK_DIV_1	153,5389
+#define TLV320AIC23_BCLK_DIV_2	154,5429
+#define TLV320AIC23_BCLK_DIV_4	155,5469
+#define TLV320AIC23_BCLK_DIV_8	156,5509
+#define TLV320AIC23_VXCLK_DIV_1	159,5577
+#define TLV320AIC23_VXCLK_DIV_2	160,5618
+#define TLV320AIC23_VXCLK_DIV_4	161,5659
+#define TLV320AIC23_VXCLK_DIV_8	162,5700
+#define TLV320AIC23_VXCLK_DIV_16	163,5741
+#define TLV320AIC23_DAI_HIFI	165,5784
+#define TLV320AIC23_DAI_VOICE	166,5816

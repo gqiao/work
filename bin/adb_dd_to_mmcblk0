@@ -1,0 +1,25 @@
+#!/bin/sh
+
+
+if [ $# -lt 1 ]; then
+    echo "Usage: $prog <your data>"
+    echo "<your data> is your data in your host."
+    echo "Make sure you get the right one"
+    exit 1
+fi
+
+# save ROM token
+adb shell "cd /rom; PATH=/system/bin tar zcf /tmp/devconf.tgz ./devconf"
+adb pull  /tmp/devconf.tgz ./
+
+adb push  ${1} /tmp/src.img.bz2
+adb shell "export PATH=/system/bin; bzcat /tmp/src.img.bz2 | dd of=/dev/block/mmcblk0"
+adb sync
+
+# TODO: restore ROM token
+
+
+
+
+
+

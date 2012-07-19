@@ -1,0 +1,9 @@
+#!/bin/sh
+
+export TARGET_NAME=work
+export SERVER_NAME="git@github.com"
+export BRANCH_NAME=
+
+
+
+

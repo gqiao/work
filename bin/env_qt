@@ -1,0 +1,18 @@
+#!/bin/sh
+#sudo apt-get install libglib2.0-dev libSM-dev libxrender-dev libfontconfig1-dev libxext-dev libglui-dev g++ cmake pkg-config
+
+export TARGET_NAME=QTSDK
+export SERVER_NAME="localhost"
+QTHOME=/work/tool/qtsdk-2010.05
+QTDIR=${QTHOME}/qt
+PATH=$QTDIR/bin:${QTHOME}/bin:$PATH
+LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
+export QTDIR PATH LD_LIBRARY_PATH
+alias go='cd ${QTHOME}'
+
+
+echo "================================================="
+echo "TARGET_NAME          = ${TARGET_NAME}"
+echo "SERVER_NAME          = ${SERVER_NAME}"
+echo "QTHOME               = ${QTHOME}"
+echo "================================================="

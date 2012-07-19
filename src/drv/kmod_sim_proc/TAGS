@@ -1,0 +1,67 @@
+
+ipera_k.c,435
+#define __D(36,1009
+#define __D(38,1130
+#define __E(41,1167
+#define IPERA_DMA_CHANNEL_ANY 44,1312
+static int major 47,1356
+int master_ch;57,1522
+struct completion edmacompletion;58,1538
+unsigned long get_phys(67,1933
+static struct file_operations ipera_fops 91,2505
+static int ioctl(97,2618
+static int open(199,6096
+static int release(205,6205
+static int __init ipera_init(211,6316
+static void __exit ipera_exit(236,7021
+
+ipera_k.mod.c,86
+struct module __this_module7,124
+__attribute_used__14,317
+__attribute_used__21,483
+
+Omap3_PMU.c,196
+static pmu_statics_t pmu_statics[pmu_statics23,640
+void init_pmu_statics(25,694
+void start_pmu_caches_statics(31,813
+void end_pmu_caches_statics(39,998
+unsigned long long get_cycles(50,1281
+
+Omap3_PMU.h,1246
+#define K_DEV 12,279
+#define IPERA_INIT_PMU_STATICS 15,354
+#define IPERA_START_PMU_CACHES_STATICS 16,403
+#define IPERA_END_PMU_CACHES_STATICS 17,452
+#define IPERA_GET_CYCLES 18,501
+#define IPERA_GET_PHYS 19,550
+#define	PMU_UNUSED 22,624
+#define	PMU_ICACHE_EFFICIENCY 23,673
+#define	PMU_DCACHE_EFFICIENCY 24,723
+#define	PMU_ICACHE_FETCH_LATENCY 25,775
+#define	PMU_DBUFFER_STALL 26,827
+#define	PMU_WRITEBACK_STATICS 27,879
+#define	PMU_ITLB_EFFICIENCY 28,931
+#define	PMU_DTLB_EFFICIENCY 29,983
+#define EVENT_COUNTER0	32,1061
+#define EVENT_COUNTER1	33,1088
+#define EVENT_COUNTER2	34,1115
+#define EVENT_COUNTER3	35,1142
+	PMU_ALG_GS 39,1188
+	PMU_ALG_MOSQUITO,40,1206
+	PMU_ALG_PEAKING,41,1226
+	PMU_ALG_CE,42,1245
+	PMU_ALG_SCALING,43,1259
+	MAX_PMU_ALG_CNT,44,1278
+} pmu_alg_type_t;45,1297
+} pmu_statics_t;56,1568
+#define __D(74,2046
+#define __D(76,2150
+#define __E(81,2219
+static int k_fd;87,2410
+static inline int open_pmu(89,2430
+static inline int close_pmu(104,2717
+static inline void init_pmu_statics(113,2871
+static inline void start_pmu_caches_statics(120,3031
+static inline void end_pmu_caches_statics(127,3229
+static inline unsigned long long get_cycles(134,3421
+static inline unsigned long get_phys(142,3630

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+FROM_LOCAL=${1}
+TO_ANDROID=${2}
+
+adb push    ${FROM_LOCAL}  ${TO_ANDROID}
+
+adb shell   am broadcast -a android.intent.action.MEDIA_MOUNTED --ez read-only false -d file:///sdcard
+
+
+
+

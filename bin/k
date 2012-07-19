@@ -1,0 +1,36 @@
+#!/bin/sh
+
+L=/work/logs
+OS=`uname`
+
+if [ ${OS} = "Darwin" ]; then
+    COM_DEV=/dev/tty.usb
+else
+    COM_DEV=/dev/ttyUSB
+fi
+
+for i in `ls ${COM_DEV}*`
+do
+    echo "open ${i} ..."
+    cat > ~/.kermrc <<EOF
+set line          ${i}
+set speed         115200
+set carrier-watch off
+set handshake     none
+set flow-control  none
+robust
+set file type     bin
+set file name     lit
+set rec pack      1000
+set send pack     1000
+set window        5
+
+EOF
+    T=`date +%Y%m%d-%H.%M.%S`
+    if [ ! -e ${L} ]; then
+	mkdir ${L}
+    fi
+    kermit -c | tee ${L}/kermit_${T}.log
+done
+
+

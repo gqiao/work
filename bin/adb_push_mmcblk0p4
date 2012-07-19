@@ -1,0 +1,6 @@
+#!/bin/sh
+
+
+adb push ${1} /dev/block/mmcblk0p4
+
+

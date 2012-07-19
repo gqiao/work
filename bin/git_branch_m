@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo "rename a branch ${1} to ${2}"
+git branch -m $@
+
+git branch -a
+

@@ -1,0 +1,25 @@
+#!/bin/sh
+
+OPS=$@
+
+export CONCURRENCY_LEVEL=4
+
+if [ ! -e .config ]; then
+    cp /boot/config-`uname -r` .config
+fi
+
+make ${OPS}
+make modules ${OPS} 
+
+sudo make modules_install
+sudo make install
+
+
+echo "[ modules_name list: ]"
+ls -lt /lib/modules
+module_name=`ls -t /lib/modules | grep -m 1 . | awk '{print $1}'`
+
+
+sudo mkinitramfs -o /boot/initrd.img-${module_name}   /lib/modules/${module_name}
+echo "[ edit /boot/grub/grub.cfg, add new kernel menuentry. ]"
+

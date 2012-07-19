@@ -1,0 +1,93 @@
+format 48
+
+classinstance 128024 class_ref 128536 // ALSA
+  name "Kernel"   xyz -17 4 2005 life_line_z 2000
+classinstance 128130 class_ref 128408 // snd_soc_codec_device
+  name ""   xyz 314 4 2015 life_line_z 2000
+classinstance 128152 class_ref 128560 // platform_driver
+  name ""   xyz 75 4 2005 life_line_z 2000
+classinstance 128664 class_ref 128024 // snd_soc_machine
+  name ""   xyz 190 4 2010 life_line_z 2000
+classinstance 128770 class_ref 129304 // i2c_driver
+  name ""   xyz 518 5 2020 life_line_z 2000
+durationcanvas 128280 classinstance_ref 128024 // Kernel:ALSA
+  xyzwh 18 74 2010 11 40
+end
+durationcanvas 128408 classinstance_ref 128152 // platform_driver
+  xyzwh 116 74 2010 11 120
+end
+durationcanvas 128514 classinstance_ref 128130 // snd_soc_codec_device
+  xyzwh 378 156 2010 11 25
+end
+durationcanvas 128792 classinstance_ref 128664 // snd_soc_machine
+  xyzwh 240 96 2010 11 25
+end
+durationcanvas 128898 classinstance_ref 128770 // i2c_driver
+  xyzwh 545 170 2010 11 49
+end
+durationcanvas 129154 classinstance_ref 128130 // snd_soc_codec_device
+  xyzwh 378 204 2010 11 167
+  overlappingdurationcanvas 129410
+    xyzwh 384 232 2020 11 25
+  end
+  overlappingdurationcanvas 129666
+    xyzwh 384 269 2020 11 25
+  end
+  overlappingdurationcanvas 129922
+    xyzwh 384 310 2020 11 55
+    overlappingdurationcanvas 130178
+      xyzwh 390 334 2030 11 25
+    end
+  end
+end
+msg 128536 synchronous
+  from durationcanvas_ref 128280
+  to durationcanvas_ref 128408
+  yz 74 2015 explicitmsg "soc_probe()"
+  show_full_operations_definition default drawing_language default
+  label_xy 37 62
+msg 128642 synchronous
+  from durationcanvas_ref 128408
+  to durationcanvas_ref 128514
+  yz 156 2015 explicitmsg "tlv320aic23_probe()"
+  show_full_operations_definition default drawing_language default
+  label_xy 201 140
+msg 128920 synchronous
+  from durationcanvas_ref 128408
+  to durationcanvas_ref 128792
+  yz 96 2020 explicitmsg "s3c_i2s_probe()"
+  show_full_operations_definition default drawing_language default
+  label_xy 142 82
+msg 129026 synchronous
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 128898
+  yz 170 2015 explicitmsg "tlv320aic23_i2c_attach()"
+  show_full_operations_definition default drawing_language default
+  label_xy 394 155
+msg 129282 synchronous
+  from durationcanvas_ref 128898
+  to durationcanvas_ref 129154
+  yz 206 2020 explicitmsg "tlv320aic23_codec_probe()"
+  show_full_operations_definition default drawing_language default
+  label_xy 391 191
+reflexivemsg 129538 synchronous
+  to durationcanvas_ref 129410
+  yz 232 2025 explicitmsg "create_proc_led()"
+  show_full_operations_definition default drawing_language default
+  label_xy 396 216
+reflexivemsg 129794 synchronous
+  to durationcanvas_ref 129666
+  yz 269 2025 explicitmsg "tlv320aic23_init()"
+  show_full_operations_definition default drawing_language default
+  label_xy 396 255
+reflexivemsg 130050 synchronous
+  to durationcanvas_ref 129922
+  yz 310 2025 explicitmsg "tlv320aic23_write()"
+  show_full_operations_definition default drawing_language default
+  label_xy 398 295
+reflexivemsg 130306 synchronous
+  to durationcanvas_ref 130178
+  yz 334 2035 explicitmsg "tlv320aic23_write_reg_cache()"
+  show_full_operations_definition default drawing_language default
+  label_xy 397 319
+end

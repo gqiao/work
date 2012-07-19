@@ -1,0 +1,11 @@
+#!/bin/sh
+
+A=/work/prj/g1/eclair
+SYSDIR=${A}/out/target/product/generic
+BOOT_IMG=${SYSDIR}/boot.img
+SYSTEM_IMG=${SYSDIR}/system.img
+USERDATA_IMG=${SYSDIR}/userdata.img
+
+emulator -image ${SYSTEM_IMG} -data ${USERDATA_IMG} 
+
+

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+SERIAL_NUMBER=emulator-5554	# or emulator-5554
+APK=/work/prj/g1/videoplayer.apk # <my/path/to>/CoolApp.apk
+
+adb -s ${SERIAL_NUMBER} install ${APK}
+
+
+

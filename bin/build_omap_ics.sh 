@@ -1,0 +1,350 @@
+#!/bin/sh
+
+VENDOR_NAME=none
+
+S=/work/src/${TARGET_NAME}.${BRANCH_NAME}.${SERVER_NAME}
+cd ${S}
+
+OS=`uname`
+
+usage() {
+    echo "usage: $0 -s target [-c clean] [-t tagid] [-b branch]"
+    exit -1
+}
+
+#Check that the script is run in the good folder
+if [ ! -e kernel ]; then
+    echo "You are not in the good folder !!!"
+    echo "This script has to be launch from the root of your repo"
+    exit -1
+fi
+
+build_android.sh
+#Pre-define variable
+staticTools="n"
+romName="${BRANCH_NAME}.${TARGET_NAME}.erdf.ext"
+BOARD="${VENDOR_NAME}_${TARGET_NAME}"
+
+# How many build threads.
+if [ ${OS} = "Darwin" ]; then
+    THREADS=9
+else
+    THREADS=$((`cat /proc/cpuinfo | grep processor | wc -l` + 1))
+fi
+
+echo "Building $romName with $THREADS CPU threads"
+
+MYDROID=`pwd`
+MYOUT=$MYDROID/out
+DATE=`date +%y%m%d-%H%M%S`
+LOGDIR=$MYDROID/buildlogs/${DATE}
+MY_OUT_ROM=${MYOUT}/${romName}
+MY_ROOT_FS=$MY_OUT_ROM/rootfs
+MY_BOOT_FS=$MY_OUT_ROM/boot
+MY_IMG=$MY_OUT_ROM/myimg
+MY_IMAGES=$MY_OUT_ROM/images
+
+export PATH=${MYDROID}/bootable/bootloader/u-boot/tools:$PATH
+export TARGET_PREBUILT_KERNEL=$MYDROID/kernel/android-3.0/arch/arm/boot/zImage
+export WL12XX_ANDROID_BUILD=true
+
+MY_ENV_TXT=$MYDROID/device/ti/$TARGET_NAME/env.txt
+
+fail() {
+    echo "[$2] $1" && exit $2
+}
+
+try_exec() {
+    $1 || fail "ERROR: Failed to execute $1" $?
+}
+
+try_log_exec() {
+    log="$LOGDIR/build.log"
+    echo "`date`:`pwd`" >> "$log"
+    echo "Run command: $1" >> "$log"
+    echo "" >> "$log"
+    $1 2>&1 | tee -a "$log"
+    status=${PIPESTATUS[0]}
+    if [ $status != 0 ]; then
+        echo "" >> "$log"
+        echo "FAILED" >> "$log"
+        echo ""
+        echo "Command: $1 FAILED"
+        exit $status
+    fi
+    echo "" >> "$log"
+}
+
+print_info() {
+    echo "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
+    echo ">> $1 <<"
+    echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+}
+
+
+build_xloader() {
+    print_info "Make x-loader with board config ${BOARD}_config"
+
+    try_exec "cd $MYDROID/bootable/bootloader/x-loader"
+
+    if [ ${OS} = "Darwin" ]; then
+	if [ ! -e /usr/include/malloc.h ]; then
+	    cat > malloc.h <<EOF
+#include <sys/malloc.h>
+EOF
+	    sudo cp malloc.h /usr/include/malloc.h
+	fi
+
+	if cat Makefile | grep -q "echo -n"; then
+            cp Makefile /tmp/Makefile
+            sed 's/echo -n/printf/g' /tmp/Makefile > Makefile
+	fi
+
+	if cat scripts/signGP.c | grep -q "fclose(ofile);return 0;"; then
+	    echo
+	else
+            cp scripts/signGP.c /tmp/signGP.c
+            sed 's/fclose(ofile);/fclose(ofile);return 0;/g' /tmp/signGP.c > scripts/signGP.c
+	fi
+    fi
+
+    if [ ! -e include/config.h ]; then
+	#try_log_exec "make distclean"
+	try_log_exec "make ARCH=arm ${BOARD}_config"
+    fi
+    try_log_exec "make -j${THREADS} ift"
+}
+
+build_uboot() {
+    print_info "Make u-boot with board config ${BOARD}_config"
+
+    try_exec "cd $MYDROID/bootable/bootloader/u-boot"
+    if [ ! -e include/config.h ]; then
+	#try_log_exec "make distclean"
+	try_log_exec "make ARCH=arm ${BOARD}_config"
+    fi
+    try_log_exec "make"
+}
+
+build_kernel() {
+    print_info "Make kernel"
+
+    try_exec "cd $MYDROID/kernel/android-3.0"
+
+    if [ ${OS} = "Darwin" ]; then
+	if [ ! -e /usr/include/elf.h ]; then
+	    wget http://www.swissdisk.com/~bcollins/macosx/elf.h
+	    sudo cp elf.h  /usr/include/elf.h
+	fi
+    fi
+
+    if [ ! -e .config ]; then
+	#try_log_exec "make ARCH=arm distclean"
+	try_log_exec "make -j${THREADS} ARCH=arm ${TARGET_NAME}_ics_defconfig"
+    fi
+
+    try_log_exec "make -j${THREADS} uImage"
+    try_log_exec "make -j${THREADS} modules"
+
+    mkdir -p $MYDROID/out/target/product/$TARGET_NAME/system/lib/modules
+    for i in `find . -name "*.ko"`; do cp -f ${i} $MYDROID/out/target/product/$TARGET_NAME/system/lib/modules/; done
+}
+
+build_android() {
+    print_info "Make Android"
+
+    try_exec "cd $MYDROID"
+    source build/envsetup.sh
+    lunch $TARGET_NAME-userdebug
+    make -j${THREADS}
+}
+
+do_rootfs() {
+    print_info "Make Filesystems"
+
+    rm -rf $MY_ROOT_FS/*
+    try_exec "cd $MY_ROOT_FS"
+
+    try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/root/*    ./"
+    try_exec "rm -fr  data system"
+    try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/data      ./"
+    try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/system    ./"
+    try_exec "cp -Rfp $MYDROID/vendor/${VENDOR_NAME}/build/scripts/busybox           ./system/bin/"
+
+    if [ $staticTools = "y" ]; then
+	print_info "Copy statically built binaries"
+	try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/obj/EXECUTABLES/iw_intermediates/iw                 $MY_ROOT_FS/system/bin/static_iw"
+	try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/obj/EXECUTABLES/calibrator_intermediates/calibrator $MY_ROOT_FS/system/bin/static_calibrator"
+	try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/obj/EXECUTABLES/hcitool_intermediates/hcitool       $MY_ROOT_FS/system/bin/static_hcitool"
+	try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/obj/EXECUTABLES/hciconfig_intermediates/hciconfig   $MY_ROOT_FS/system/bin/static_hciconfig"
+	try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/obj/EXECUTABLES/uim-sysfs_intermediates/uim-sysfs   $MY_ROOT_FS/system/bin/static_uim-sysfs"
+	try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/obj/EXECUTABLES/tinyplay_intermediates/tinyplay     $MY_ROOT_FS/system/bin/static_tinyplay"
+	try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/obj/EXECUTABLES/tinymix_intermediates/tinymix       $MY_ROOT_FS/system/bin/static_tinymix"
+	try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/obj/EXECUTABLES/tinycap_intermediates/tinycap       $MY_ROOT_FS/system/bin/static_tinycap"
+    fi
+
+    cat $MYDROID/device/ti/$TARGET_NAME/init.omap4${TARGET_NAME}board.rc | sed 's!mount ext4 /dev/block/platform/omap/omap_hsmmc.1!# mount ext4 /dev/block/platform/omap/omap_hsmmc.1!g' > init.omap4${TARGET_NAME}board.rc
+    cat $MYDROID/out/target/product/$TARGET_NAME/root/init.rc | sed 's!mount rootfs rootfs / ro remount!mount rootfs rootfs / rw remount!g' > init.rc
+}
+
+do_bootfs() {
+    print_info "Make Mydroid"
+
+    rm -rf $MY_BOOT_FS/*
+    try_exec "cd $MY_BOOT_FS"
+
+    try_log_exec "cp -Rfp $MYDROID/device/ti/$TARGET_NAME/boot/MLO*      ."
+    try_log_exec "cp -Rfp $MYDROID/bootable/bootloader/u-boot/u-boot.bin   ."
+    try_log_exec "cp -Rfp $MYDROID/kernel/android-3.0/arch/arm/boot/*Image ."
+}
+
+create_fs_image() {
+    print_info "Produce File system Image"
+
+    cd $MYDROID
+    #out/host/linux-x86/bin/make_ext4fs -s -l 387973120 -b 4096 -L factory factory.img "$TEMPDIR"
+    try_exec "sh ./vendor/${VENDOR_NAME}/build/scripts/mk_ext3_image.sh $MY_ROOT_FS $MY_IMG/myrootfs.img"
+}
+
+create_env_image() {
+    echo "Produce Environement Image"
+
+    cd $MYOUT
+    try_exec "cp $MY_ENV_TXT env.txt"
+    KERNEL_SIZE=`du -b $MY_BOOT_FS/uImage | awk '{printf("0x%08X", $1)}'`
+    echo "kernel_size=$KERNEL_SIZE" >> env.txt
+    cat env.txt
+    try_exec "$MYDROID/vendor/${VENDOR_NAME}/build/scripts/uenvt_txt2bin env.txt $MY_IMG/env.img"
+}
+
+create_misc_image() {
+    printf "normal-boot\0" > $MY_IMG/misc.img
+}
+
+create_emmc_images() {
+    print_info  "Produce eMMC File system Image"
+
+    try_exec "cd $MY_IMAGES"
+    try_exec "cp -Rfp $MY_BOOT_FS/* ."
+    try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/system.img    ."
+    try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/userdata.img  ."
+    try_exec "cp -Rfp $MYDROID/bootable/bootloader/u-boot/u-boot.bin         ."
+    try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/boot.img      ."
+    try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/recovery.img  ."
+    try_exec "cp -Rfp $MYDROID/out/target/product/$TARGET_NAME/boot.img      ."
+}
+
+if [ ! -d "$LOGDIR" ]; then
+    mkdir -p $LOGDIR
+fi
+
+doBoots="y"
+doKern="y"
+doAndroid="y"
+doImg="y"
+doEnv="y"
+doBootfs="y"
+doRootfs="y"
+
+
+printf "Build Bootloaders? [n/y]: "
+if [ $doBoots = "y" ]; then
+    echo "y"
+else
+    read doBoots
+fi
+if [ $doBoots = "y" ]; then
+    doBootfs="y"
+fi
+
+printf "Build Kernel?      [n/y]: "
+if [ $doKern = "y" ]; then    
+    echo "y"
+else
+    read doKern
+fi
+if [ $doKern = "y" ]; then
+    doBootfs="y"
+    doEnv="y"
+fi
+
+printf "Build Android?     [n/y]: "
+if [ $doAndroid = "y" ]; then    
+    echo "y"
+else
+    read doAndroid
+fi
+if [ $doAndroid = "y" ]; then
+    doImg="y"
+    doRootfs="y"
+fi
+
+printf "Build FS image?    [n/y]: "
+if [ $doImg = "y" ]; then
+    echo "y"
+else
+    read doImg
+fi
+
+printf "Build Env image?   [n/y]: "
+if [ $doEnv = "y" ]; then
+    echo "y"
+else
+    read doEnv
+fi
+
+echo "romName = ${romName}"
+
+if [ $doBoots = "y" ]; then
+    build_uboot
+    build_xloader
+fi
+
+if [ $doKern = "y" ]; then
+    build_kernel
+fi
+
+if [ $doAndroid = "y" ]; then
+    echo build_android
+fi
+
+#Create the folder structure          
+if [ ! -e $MY_BOOT_FS ]; then
+    mkdir -p $MY_BOOT_FS
+fi
+if [ ! -e $MY_ROOT_FS ]; then
+    mkdir -p $MY_ROOT_FS
+fi
+
+if [ $doBootfs = "y" ]; then
+    do_bootfs
+fi
+
+if [ $doRootfs = "y" ]; then
+    do_rootfs
+fi
+
+#Create image for File System partition
+#mkdir -p $MY_IMG
+#mkdir -p $MY_IMAGES
+if [ $doImg = "y" ]; then
+    echo #create_fs_image
+fi
+
+#Create image for environement partition
+if [ $doEnv = "y" ]; then
+    echo #create_env_image
+fi
+
+#Create image for misc partition
+if [ ! -e $MY_IMG/misc.img ]; then
+    echo #create_misc_image
+fi
+
+#Create image for flashing external builds to emmc
+if [ -e $MY_IMAGES ]; then
+    echo #create_emmc_images
+fi
+
+print_info  "Completed OK - Board $BOARD"
+exit 0

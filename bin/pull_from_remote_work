@@ -1,0 +1,14 @@
+#!/bin/sh
+
+I=10.227.20.140
+
+mkdir -p ${PWD}/${1}
+cd ${PWD}/${1}
+rsync -avz root@${I}:${PWD} ${PWD} 
+
+
+
+
+
+
+
