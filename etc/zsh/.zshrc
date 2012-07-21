@@ -356,6 +356,7 @@ export EDITOR=emacs
 OS=`uname`
 HW=`uname -m`
 export PATH=/work/bin:/work/bin/${OS}:/work/bin/${OS}/${HW}:${PATH}
+export LD_LIBRARY_PATH=/work/lib/${OS}/${HW}
 if [ ${OS} = "Darwin" ]; then
     export PATH=${PATH}:/opt/local/bin
     #:/Applications/LyX.app/Contents/MacOS
