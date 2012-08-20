@@ -15,6 +15,7 @@
 (add-to-list 'load-path "~/.emacs.d/el")
 (add-to-list 'load-path "~/.emacs.d/el/android-mode")
 (add-to-list 'load-path "~/.emacs.d/el/color-theme")
+(add-to-list 'load-path "~/.emacs.d/el/git-emacs")
 
 (autoload 'company-mode "company" nil t)
 
@@ -96,6 +97,8 @@
 
 (require 'psvn)
 (require 'git)
+(require 'vc-git)
+(require 'git-emacs)
 (require 'google-define)
 (require 'android-mode)
 
@@ -150,6 +153,24 @@
                (recenter 1)
                (other-window 1))
       (find-tag default))))
+
+(defadvice lev/find-tag (around refresh-etags activate)
+  "Rerun etag and reload tags if tag not found and redo find-tag.              
+   If buffer is modified, ask about save before running etags."
+  (let ((extension (file-name-extension (buffer-file-name))))
+    (condition-case err ad-do-it
+      (error (and (buffer-modified-p)
+                  (not (ding)))
+             (er-refresh-etags extension)
+             ad-do-it))))
+(defun er-refresh-etags (&optional extension)
+  "Run etag on all peer files in current dir and reload them silently."
+  (interactive)
+  (shell-command (format "etag" (or extension "el")))
+  (let ((tags-revert-without-query t))  ; don't query, revert silently 
+    (visit-tags-table default-directory nil)))
+
+
 
 
 ;; [stardict]
@@ -217,12 +238,19 @@ frames with exactly two windows."
 (global-set-key (kbd "C-c d")     'kid-sdcv-to-buffer)
 (global-set-key (kbd "C-c e")     'eval-current-buffer)
 (global-set-key (kbd "C-c f")     'follow-mode)
-(global-set-key (kbd "C-c g")     'gdb-many-windows)
+;;(global-set-key (kbd "C-c g")     'gdb-many-windows)
+(global-set-key (kbd "C-c g s")   'git-status)
+(global-set-key (kbd "C-c g g")   'vc-git-grep)
 (global-set-key (kbd "C-c l")     'slime) ;lisp
 (global-set-key (kbd "C-c t")     'transparency)
-;;(global-set-key (kbd "C-c s")   'cscope...)
+(global-set-key (kbd "C-c s s")   'cscope-find-this-symbol)
+(global-set-key (kbd "C-c s d")   'cscope-find-global-definition)
+(global-set-key (kbd "C-c s i")   'cscope-find-files-including-file)
+(global-set-key (kbd "C-c s u")   'cscope-pop-mark)
+(global-set-key (kbd "C-c s f")   'cscope-find-this-file)
+(global-set-key (kbd "C-c s E")   'cscope-edit-list-of-files-to-index)
 (global-set-key (kbd "C-c |")     'toggle-window-split)
-(global-set-key (kbd "C-c C-g")   'git-status)
+
 ;; [ Right C-; ]
 ;;(global-set-key (kbd "C-; d")     'dict-pop)
 ;;(global-set-key (kbd "C-; k")     'kermit-c)
@@ -265,6 +293,14 @@ frames with exactly two windows."
 	    (c-add-style "PKJ" pkj-cc-style t)	; offset customizations not in my-c-style
 	    (c-set-offset 'member-init-intro '++) 
 	    (setq tab-width 4)			; tabs are *always* 8 spaces
-	    (setq indent-tabs-mode t)		; use tabs instead of spaces
+	    ;;(setq indent-tabs-mode t)		; use tabs instead of spaces
 	    (define-key c-mode-map "\C-m" 'newline-and-indent)	; indent on newline
 	    ))
+
+(setq cscope-initial-directory (getenv "PWD"))
+
+(if (file-exists-p "TAGS") 
+    (visit-tags-table "TAGS"))
+
+(setq tags-revert-without-query t)
+

@@ -345,14 +345,14 @@ ${(e)PR_APM}$PR_YELLOW%D{%H:%M}$PR_SET_CHARSET$PR_STITLE${(e)PR_TITLEBAR}\
 
 }
 
-export TARGET_NAME=`uname -m`
-export BRANCH_NAME=`uname`
-export SERVER_NAME="localhost"
+. /work/bin/env_`uname -m`_`uname`
 . /work/bin/change_env
 
 #alias hh='history 1'
 #alias ls='ls -F'
 export EDITOR=emacs
+export DATE=`date +%Y%m%d-%H`
+
 OS=`uname`
 HW=`uname -m`
 export PATH=/work/bin:/work/bin/${OS}:/work/bin/${OS}/${HW}:${PATH}
@@ -366,8 +366,9 @@ if [ ${OS} = "Darwin" ]; then
     alias ll='ls -alF'
     alias la='ls -A'
     alias df='df -h'
-    alias go='cd /work/src/${TARGET_NAME}.${BRANCH_NAME}.${SERVER_NAME}'
-    alias doc='cd /work/doc/${TARGET_NAME}'
+    #alias go='cd /work/src/${TARGET_NAME}.${BRANCH_NAME}.${SERVER_NAME}'
+    #alias doc='cd /work/doc/${TARGET_NAME}'
+    alias change_env='. /work/bin/change_env'
     alias umount='diskutil umount'
 
     if [ ! -e /Volumes/disk1 ]; then
@@ -384,12 +385,13 @@ elif [ ${OS} = "Linux" ]; then
     alias ll='ls -alF'
     alias la='ls -A'
     alias df='df -hT'
-    alias go='cd /work/src/${TARGET_NAME}.${BRANCH_NAME}.${SERVER_NAME}'
-    alias doc='cd /work/doc/${TARGET_NAME}'
+    #alias go='cd /work/src/${TARGET_NAME}.${BRANCH_NAME}.${SERVER_NAME}'
+    #alias doc='cd /work/doc/${TARGET_NAME}'
     alias egrep='egrep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias grep='grep --color=auto'
     alias suspend_after='sudo /work/bin/Linux/suspend_after'
+    alias change_env='. /work/bin/change_env'
 fi
 
 #echo "Hello `whoami`"  | figlet
@@ -401,4 +403,5 @@ if [[ "$TERM" == "dumb" ]]; then
 fi
 
 setprompt
+
 
