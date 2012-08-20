@@ -1,0 +1,6 @@
+#!/bin/sh
+
+. ${ENV_FILE}
+build
+
+

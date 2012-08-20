@@ -8,6 +8,6 @@ D=/diag_work
 for i in `cat diag_work.txt`
 do  
     echo "from  ${S}${i} to  ${D}${i}"
-    rsync -avz --delete ${S}${i}  ${D}${i}
+
 done
 

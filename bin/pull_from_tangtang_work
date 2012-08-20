@@ -1,5 +1,0 @@
-#!/bin/sh
-
-# rsync   -avz   --delete  /tangtang_work/prj/teclong/build/   /local_work/prj/teclong/build/
-rsync   -avz   --delete  /tangtang_work/prj/teclong/src/     /local_work/prj/teclong/src/
-

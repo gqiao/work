@@ -1,0 +1,11 @@
+#!/bin/sh
+
+mplayer /work/bin/bell.mp3&
+MPLAYER_PID=${!}
+
+# echo "MPLAYER_PID=${MPLAYER_PID}"
+sleep ${1}
+
+kill -9 ${MPLAYER_PID}
+
+

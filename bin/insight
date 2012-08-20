@@ -1,0 +1,6 @@
+#!/bin/sh
+
+wine /work/vm/xp/SourceInsight3.50.0056/Insight3.exe $@
+
+
+

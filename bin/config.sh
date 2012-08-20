@@ -23,7 +23,7 @@ function fail {
 	echo "$1 failed"
 	exit $2
 }  
-          
+
 
 function cdir {
 	name=$1
@@ -68,7 +68,7 @@ function simpcmd {
 	shift
 	$* || fail "$name" $?
 }
-          
+
 
 function logcmd {
 	name=$1

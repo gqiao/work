@@ -2,7 +2,7 @@
 
 # {-p 29418, -T}
 PORT=-T
-#export SERVER_NAME="git@github.com"
+export SERVER_NAME="git@github.com"
 KEYWEB="https://github.com/account/ssh"
 
 if [ -z ${SERVER_NAME} ]; then
@@ -19,7 +19,6 @@ cat ~/.ssh/id_rsa.pub
 echo "[ copy ssh-rsa public key to ${KEYWEB} ]"
 
 sleep 1
-read -p "Press any key to continue..." tmp
 read -p 'Press any key to continue...' tmp
 
 export SSH_AUTH_SOCK=""

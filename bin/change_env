@@ -29,10 +29,25 @@ for i in `find ${env_path}/ -name "env_*"`; do
 done
 
 . "${i}"
-echo "${TARGET_NAME}.${BRANCH_NAME}" | figlet
 
-
+#
 #env
+#
+#echo "${TARGET_NAME}.${BRANCH_NAME}" | figlet -ct 
+#echo "${TARGET_NAME}.${BRANCH_NAME}" | xargs /work/bin/cfont -cyan 
+
+echo "=============================================================================="
+echo " ${TARGET_NAME}.${BRANCH_NAME}"
+echo "=============================================================================="
+echo "TARGET_NAME          = ${TARGET_NAME}"
+echo "BRANCH_NAME          = ${BRANCH_NAME}"
+echo "SERVER_NAME          = ${SERVER_NAME}"
+echo "KERNEL_DIR           = ${KERNEL_DIR}"
+echo "CROSS_COMPILE        = ${CROSS_COMPILE}"
+echo "ARCH                 = ${ARCH}"
+echo "=============================================================================="
+
+
 
 
 

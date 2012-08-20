@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm -f /work/src/ker/current
+ln -s ${KERNEL_DIR} /work/src/ker/current
+

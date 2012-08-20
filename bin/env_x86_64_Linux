@@ -1,0 +1,29 @@
+#!/bin/sh
+
+
+export TARGET_NAME=x86_64
+export BRANCH_NAME=Linux
+export SERVER_NAME="localhost"
+#export SSH_AUTH_SOCK=0
+
+export KERNEL_DIR=/work/src/ker/`lsb_release -i -s`-`lsb_release -c -s`
+export ARCH=x86_64
+export PRJ_DIR=/work
+export SRC_DIR=${KERNEL_DIR}
+export ENV_FILE=/work/bin/env_${TARGET_NAME}_${BRANCH_NAME}
+
+
+alias src='cd ${SRC_DIR}'
+alias prj='cd ${PRJ_DIR}'
+alias doc='cd /work/doc'
+
+
+build () {
+    cd ${SRC_DIR}
+    make -j2
+    make modules -j2
+}
+
+
+cd ${PRJ_DIR}
+

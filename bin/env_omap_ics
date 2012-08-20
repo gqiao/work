@@ -8,9 +8,9 @@ export BRANCH_NAME=ics
 export SSH_AUTH_SOCK=0
 
 export MYDROID=/work/src/${TARGET_NAME}.${BRANCH_NAME}.${SERVER_NAME}
-export KDIR=${MYDROID}/kernel/android-3.0
-export KLIB=${KDIR}
-export KLIB_BUILD=${KLIB}
+export KERNEL_DIR=${MYDROID}/kernel/android-2.6.35
+# export KLIB=${KDIR}
+# export KLIB_BUILD=${KLIB}
 
 OS=`uname`
 
@@ -25,19 +25,9 @@ export ARCH=arm
 
 
 alias go='cd ${MYDROID}'
+#/work/bin/change_ker
 
 
-echo "================================================="
-echo "TARGET_NAME          = ${TARGET_NAME}"
-echo "SERVER_NAME          = ${SERVER_NAME}"
-echo "BRANCH_NAME          = ${BRANCH_NAME}"
-# echo "MYDROID              = ${MYDROID}"
-# echo "KDIR                 = ${KDIR}"
-# echo "KLIB                 = ${KLIB}"
-# echo "KLIB_BUILD           = ${KLIB_BUILD}"
-echo "CROSS_COMPILE        = ${CROSS_COMPILE}"
-echo "ARCH                 = ${ARCH}"
-echo "================================================="
 
 
 
