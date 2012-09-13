@@ -1,8 +1,26 @@
 #!/bin/sh
 
-export TARGET_NAME=work
+export TARGET_NAME=github
+export BRANCH_NAME=Linux
 export SERVER_NAME="git@github.com"
-export BRANCH_NAME=
+
+export PRJ_DIR=/work/src/github
+export SRC_DIR=/work/src/github
+export ENV_FILE=/work/bin/env_${TARGET_NAME}
+
+
+alias src='cd ${SRC_DIR}'
+alias prj='cd ${PRJ_DIR}'
+alias doc='cd /work/books'
+
+
+build () {
+    cd ${SRC_DIR}
+    git push
+}
+
+
+cd ${PRJ_DIR}
 
 
 

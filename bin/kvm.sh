@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd /work/src/kvm
+
 git_clone_pull() {
     URL=${1}
     REPOS=${2}
@@ -7,19 +9,20 @@ git_clone_pull() {
     for i in ${REPOS}; do
         echo "[ ${i} ]"
         if [ ! -e ${i} ]; then
-            git clone ${URL}/${i}.git
+            git clone ${URL}/${i}.git 
         fi
-        cd ${i}
-        git pull
-        cd - > /dev/null
+        if [ -e ${i} ]; then
+            cd ${i}
+            git pull
+            cd - > /dev/null
+        fi
     done
 }
 
-echo "[kernel kvm tree]"
-echo "[kernel module kvm tree]"
-echo "[userspace kvm tree]"
-git_clone_pull "git://git.kernel.org/pub/scm/virt/kvm" "kvm" "kvm-kmod" "qemu-kvm" 
-
-
-git_clone_pull "git://github.com/awilliam" "linux-vfio"
+# [kernel kvm] [kernel module kvm] [userspace kvm]
+git_clone_pull "git://git.kernel.org/pub/scm/virt/kvm" "kvm kvm-kmod qemu-kvm" 
+# [kernel module vfio]
+git_clone_pull "git://github.com/awilliam"             "linux-vfio"
+# [kernel kvm arm] [usersapce kvm arm]
+git_clone_pull "git://github.com/virtualopensystems"   "linux-kvm-arm qemu" 
 

@@ -1,0 +1,25 @@
+#!/bin/sh
+
+
+export TARGET_NAME=matlab
+export BRANCH_NAME=Linux
+export SERVER_NAME="localhost"
+
+export PRJ_DIR=/work/src/matlab
+export SRC_DIR=/work/src/matlab
+export ENV_FILE=/work/bin/env_${TARGET_NAME}
+
+
+alias src='cd ${SRC_DIR}'
+alias prj='cd ${PRJ_DIR}'
+alias doc='cd /work/books'
+
+
+build () {
+    cd ${SRC_DIR}
+    octave
+}
+
+
+cd ${PRJ_DIR}
+

@@ -32,7 +32,10 @@
 (setq frame-title-format (list "[ " (getenv "TARGET_NAME") "." (getenv "BRANCH_NAME") " ]  %f" ))
 ;;(setq frame-title-format '(" " (buffer-file-name "%f\ " (dired-directory dired-directory "%b\ "))))
 
-
+(setq auto-mode-alist
+      (cons
+       '("\\.m$" . octave-mode)
+       auto-mode-alist))
 
 
 (custom-set-faces
@@ -249,6 +252,7 @@ frames with exactly two windows."
 (global-set-key (kbd "C-c s u")   'cscope-pop-mark)
 (global-set-key (kbd "C-c s f")   'cscope-find-this-file)
 (global-set-key (kbd "C-c s E")   'cscope-edit-list-of-files-to-index)
+(global-set-key (kbd "C-c s a")   'cscope-set-initial-directory)
 (global-set-key (kbd "C-c |")     'toggle-window-split)
 
 ;; [ Right C-; ]

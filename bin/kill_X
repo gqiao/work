@@ -1,0 +1,7 @@
+#!/bin/sh
+
+PID=`ps aux | grep -m 1 X | awk '{print $2}'`
+
+sudo kill -SIGKILL ${PID}
+
+

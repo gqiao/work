@@ -1,0 +1,40 @@
+#!/bin/sh
+
+
+export TARGET_NAME=omap
+export BRANCH_NAME=x-loader
+export SERVER_NAME="github.com"
+export SSH_AUTH_SOCK=0
+
+export KERNEL_DIR=/work/src/omap.ics.github.com/kernel/android-2.6.35
+export SRC_DIR=/work/src/omap.ics.github.com/bootable/bootloader/x-loader
+export PRJ_DIR=/work/prj/x-loader
+export ENV_FILE=/work/bin/env_${BRANCH_NAME}
+
+OS=`uname`
+if [ ${OS} = "Darwin" ]; then
+    export CROSS_COMPILE=arm-eabi-
+    export PATH=/work/toolchain/darwin-arm-eabi-4.4.3/bin:${PATH}
+else
+    export CROSS_COMPILE=arm-none-linux-gnueabi-
+    export PATH=/work/toolchain/arm-2010q1/bin:${PATH}
+fi
+export ARCH=arm
+
+
+alias src='cd ${SRC_DIR}'
+alias prj='cd ${PRJ_DIR}'
+alias doc='cd /work/doc'
+
+build () {
+    cd ${SRC_DIR}
+    if [ ! -e include/config.h ]; then
+        make omap4430sdp_config
+    fi
+    make ift
+}
+
+
+
+cd ${PRJ_DIR}
+

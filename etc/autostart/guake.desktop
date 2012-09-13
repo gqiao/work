@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Guake Terminal
+GenericName=Guake Terminal
+Comment=Guake Terminal
+Exec=guake
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/guake/guake.png
+Categories=GNOME;GTK;Utility;TerminalEmulator;
+StartupNotify=false
+
