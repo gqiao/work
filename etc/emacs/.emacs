@@ -104,6 +104,7 @@
 (require 'git-emacs)
 (require 'google-define)
 (require 'android-mode)
+(require 'douban-music)
 
 
 (defun k ()
@@ -244,7 +245,10 @@ frames with exactly two windows."
 ;;(global-set-key (kbd "C-c g")     'gdb-many-windows)
 (global-set-key (kbd "C-c g s")   'git-status)
 (global-set-key (kbd "C-c g g")   'vc-git-grep)
-(global-set-key (kbd "C-c l")     'slime) ;lisp
+;;(global-set-key (kbd "C-c l")     'slime) ;lisp
+(global-set-key (kbd "C-c l")     'linum-mode)
+(global-set-key (kbd "C-c m")     'douban-music-play-song)
+(global-set-key (kbd "C-c p")     'list-processes)
 (global-set-key (kbd "C-c t")     'transparency)
 (global-set-key (kbd "C-c s s")   'cscope-find-this-symbol)
 (global-set-key (kbd "C-c s d")   'cscope-find-global-definition)
@@ -254,15 +258,13 @@ frames with exactly two windows."
 (global-set-key (kbd "C-c s E")   'cscope-edit-list-of-files-to-index)
 (global-set-key (kbd "C-c s a")   'cscope-set-initial-directory)
 (global-set-key (kbd "C-c |")     'toggle-window-split)
-
-;; [ Right C-; ]
 ;;(global-set-key (kbd "C-; d")     'dict-pop)
 ;;(global-set-key (kbd "C-; k")     'kermit-c)
-(global-set-key (kbd "C-; l")     'linum-mode)
-(global-set-key (kbd "C-; ;")     'shell-pop)
-(global-set-key (kbd "C-; C-;")   'multi-term)
-(global-set-key (kbd "C-.")       '(lambda () (interactive) (lev/find-tag t)))
 ;;(global-set-key [(shift return)]  'complete-tag) ;; 查找 tag 自动补全
+(global-set-key (kbd "C-.")       '(lambda () (interactive) (lev/find-tag t)))
+(global-set-key (kbd "C-c x")     'shell-pop)
+(global-set-key (kbd "C-c C-x")   'multi-term)
+
 
 
 ;; [Coding Style: C/C++]
