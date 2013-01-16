@@ -1,9 +1,0 @@
-#!/bin/sh
-
-export TARGET_NAME=guile
-export SERVER_NAME="gnu.org"
-export BRANCH_NAME=lisp
-
-
-
-

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+export TARGET_NAME=lisp
+export SERVER_NAME="gnu.org"
+export BRANCH_NAME=Linux
+
+
+export PRJ_DIR=/work/src/lisp
+export SRC_DIR=/work/src/lisp
+export ENV_FILE=/work/bin/env_${TARGET_NAME}
+
+
+alias src='cd ${SRC_DIR}'
+alias prj='cd ${PRJ_DIR}'
+alias doc='cd /work/books'
+
+
+build () {
+    cd ${SRC_DIR}
+    sbcl
+}
+
+
+cd ${PRJ_DIR}
+
+
+
+
+
+
