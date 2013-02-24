@@ -392,6 +392,8 @@ elif [ ${OS} = "Linux" ]; then
     alias grep='grep --color=auto'
     alias suspend_after='sudo /work/bin/Linux/suspend_after'
     alias change_env='. /work/bin/change_env'
+    alias reboot='sudo reboot'
+    alias poweroff='sudo poweroff'
 fi
 
 #echo "Hello `whoami`"  | figlet

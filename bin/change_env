@@ -35,9 +35,10 @@ done
 #
 #echo "${TARGET_NAME}.${BRANCH_NAME}" | figlet -ct 
 #echo "${TARGET_NAME}.${BRANCH_NAME}" | xargs /work/bin/cfont -cyan 
-
+clear
 echo "=============================================================================="
-echo " ${TARGET_NAME}.${BRANCH_NAME}"
+#echo " ${TARGET_NAME}.${BRANCH_NAME}"
+echo "${TARGET_NAME}" | figlet
 echo "=============================================================================="
 echo "TARGET_NAME          = ${TARGET_NAME}"
 echo "BRANCH_NAME          = ${BRANCH_NAME}"

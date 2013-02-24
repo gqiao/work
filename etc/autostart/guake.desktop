@@ -2,7 +2,7 @@
 Name=Guake Terminal
 GenericName=Guake Terminal
 Comment=Guake Terminal
-Exec=guake
+Exec=/usr/bin/guake
 Terminal=false
 Type=Application
 Icon=/usr/share/pixmaps/guake/guake.png
