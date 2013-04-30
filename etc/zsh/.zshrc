@@ -1,5 +1,5 @@
 ##RPROMPT='%/'
-#PROMPT='%{[36m%}%n%{[35m%}@%{[34m%}%M %{[33m%}%D %T  %{[32m%}%/ 
+#PROMPT='%{[36m%}%n%{[35m%}@%{[34m%}%M %{[33m%}%D %T  %{[32m%}%/
 #%{[31m%}>>%{[m%}'
 
 
@@ -86,17 +86,17 @@ zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
 
 
 function precmd {
-    
+
     local TERMWIDTH
     (( TERMWIDTH = ${COLUMNS} - 1 ))
 
-    
+
     ###
     # Truncate the path if it's too long.
-    
+
     PR_FILLBAR=""
     PR_PWDLEN=""
-    
+
     local promptsize=${#${(%):---(%n@%m:%l)---()--}}
     local pwdsize=${#${(%):-%~}}
 
@@ -106,11 +106,11 @@ function precmd {
     # PR_FILLBAR="\${(l.(($TERMWIDTH - ($promptsize + $pwdsize)))..${PR_HBAR}.)}"
     PR_FILLBAR="\${(l.(($TERMWIDTH - ($promptsize + $pwdsize)))..${PR_HBAR}.)}"
     fi
-    
-    
+
+
     ###
     # Get APM info.
-    
+
     #if which ibam > /dev/null; then
     #PR_APM_RESULT=`ibam --percentbattery`
     #elif which apm > /dev/null; then
@@ -133,7 +133,7 @@ setprompt () {
     # Need this so the prompt will work.
 
     setopt prompt_subst
-    
+
 
     ###
     # See if we can use colors.
@@ -148,11 +148,11 @@ setprompt () {
     (( count = $count + 1 ))
     done
     PR_NO_COLOUR="%{$terminfo[sgr0]%}"
-    
-    
+
+
     ###
     # See if we can use extended characters to look nicer.
-    
+
     typeset -A altchar
     set -A altchar ${(s..)terminfo[acsc]}
     PR_SET_CHARSET="%{$terminfo[enacs]%}"
@@ -164,11 +164,11 @@ setprompt () {
     PR_LLCORNER=${altchar[m]:--}
     PR_LRCORNER=${altchar[j]:--}
     PR_URCORNER=${altchar[k]:--}
-    
-    
+
+
     ###
     # Decide if we need to set titlebar text.
-    
+
     case $TERM in
     xterm*)
         PR_TITLEBAR=$'%{\e]0;%(!.-=*[ROOT]*=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\a%}'
@@ -180,8 +180,8 @@ setprompt () {
         PR_TITLEBAR=''
         ;;
     esac
-    
-    
+
+
     ###
     # Decide whether to set a screen title
     if [[ "$TERM" == "screen" ]]; then
@@ -189,11 +189,11 @@ setprompt () {
     else
     PR_STITLE=''
     fi
-    
-    
+
+
     ###
     # APM detection
-    
+
     #if which ibam > /dev/null; then
     #PR_APM='$PR_RED${${PR_APM_RESULT[(f)1]}[(w)-2]}%%(${${PR_APM_RESULT[(f)3]}[(w)-1]})$PR_LIGHT_BLUE:'
     #elif which apm > /dev/null; then
@@ -201,11 +201,11 @@ setprompt () {
     #else
     PR_APM=''
     #fi
-    
-    
+
+
     ###
     # Finally, the prompt.
-    
+
     PROMPT='$PR_SET_CHARSET$PR_STITLE${(e)PR_TITLEBAR}\
 $PR_CYAN$PR_SHIFT_IN$PR_ULCORNER$PR_BLUE$PR_HBAR$PR_SHIFT_OUT(\
 $PR_GREEN%(!.%SROOT%s.%n)$PR_GREEN@%m:%l\
@@ -220,10 +220,10 @@ ${(e)PR_APM}$PR_YELLOW%D{%H:%M}\
 $PR_LIGHT_BLUE:%(!.$PR_RED.$PR_WHITE)%#$PR_BLUE)$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
 $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
 $PR_NO_COLOUR '
-    
+
     RPROMPT=' $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_BLUE$PR_HBAR$PR_SHIFT_OUT\
 ($PR_YELLOW%D{%a,%b%d}$PR_BLUE)$PR_SHIFT_IN$PR_HBAR$PR_CYAN$PR_LRCORNER$PR_SHIFT_OUT$PR_NO_COLOUR'
-    
+
     PS2='$PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
 $PR_BLUE$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT(\
 $PR_LIGHT_GREEN%_$PR_BLUE)$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
@@ -236,7 +236,7 @@ setprompt_emacs () {
     # Need this so the prompt will work.
 
     setopt prompt_subst
-    
+
 
     ###
     # See if we can use colors.
@@ -251,11 +251,11 @@ setprompt_emacs () {
     (( count = $count + 1 ))
     done
     PR_NO_COLOUR="%{$terminfo[sgr0]%}"
-    
-    
+
+
     ###
     # See if we can use extended characters to look nicer.
-    
+
     typeset -A altchar
     set -A altchar ${(s..)terminfo[acsc]}
     PR_SET_CHARSET="%{$terminfo[enacs]%}"
@@ -267,11 +267,11 @@ setprompt_emacs () {
     PR_LLCORNER=${altchar[m]:--}
     PR_LRCORNER=${altchar[j]:--}
     PR_URCORNER=${altchar[k]:--}
-    
-    
+
+
     ###
     # Decide if we need to set titlebar text.
-    
+
     case $TERM in
     xterm*)
         PR_TITLEBAR=$'%{\e]0;%(!.-=*[ROOT]*=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\a%}'
@@ -283,8 +283,8 @@ setprompt_emacs () {
         PR_TITLEBAR=''
         ;;
     esac
-    
-    
+
+
     ###
     # Decide whether to set a screen title
     if [[ "$TERM" == "screen" ]]; then
@@ -292,11 +292,11 @@ setprompt_emacs () {
     else
     PR_STITLE=''
     fi
-    
-    
+
+
     ###
     # APM detection
-    
+
     #if which ibam > /dev/null; then
     #PR_APM='$PR_RED${${PR_APM_RESULT[(f)1]}[(w)-2]}%%(${${PR_APM_RESULT[(f)3]}[(w)-1]})$PR_LIGHT_BLUE:'
     #elif which apm > /dev/null; then
@@ -304,11 +304,11 @@ setprompt_emacs () {
     #else
     PR_APM=''
     #fi
-    
-    
+
+
     ###
     # Finally, the prompt.
-    
+
     PROMPT='$PR_SET_CHARSET$PR_STITLE${(e)PR_TITLEBAR}\
 $PR_CYAN$PR_SHIFT_IN$PR_ULCORNER$PR_BLUE$PR_HBAR$PR_SHIFT_OUT(\
 $PR_GREEN%(!.%SROOT%s.%n)$PR_GREEN@%m:%l\
@@ -323,10 +323,10 @@ ${(e)PR_APM}$PR_YELLOW%D{%H:%M}\
 $PR_LIGHT_BLUE:%(!.$PR_RED.$PR_WHITE)%#$PR_BLUE)$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
 $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
 $PR_NO_COLOUR '
-    
+
     RPROMPT=' $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_BLUE$PR_HBAR$PR_SHIFT_OUT\
 ($PR_YELLOW%D{%a,%b%d}$PR_BLUE)$PR_SHIFT_IN$PR_HBAR$PR_CYAN$PR_LRCORNER$PR_SHIFT_OUT$PR_NO_COLOUR'
-    
+
     PS2='$PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
 $PR_BLUE$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT(\
 $PR_LIGHT_GREEN%_$PR_BLUE)$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
@@ -339,7 +339,7 @@ ${(e)PR_APM}$PR_YELLOW%D{%H:%M}$PR_SET_CHARSET$PR_STITLE${(e)PR_TITLEBAR}\
 ($PR_MAGENTA%$PR_PWDLEN<...<%~%<<$PR_BLUE)\
 
 %(!.$PR_RED.$PR_WHITE)%#$PR_BLUE>>'
- 
+
     setopt No_prompt_cr
     setopt No_prompt_sp
 
@@ -372,8 +372,8 @@ if [ ${OS} = "Darwin" ]; then
     alias umount='diskutil umount'
 
     if [ ! -e /Volumes/disk1 ]; then
-	hdiutil attach /disk/disk128g.sparseimage -mountpoint /Volumes/disk1
-	#-verbose -readwrite -noverify -ignorebadchecksums 
+    hdiutil attach /disk/disk128g.sparseimage -mountpoint /Volumes/disk1
+    #-verbose -readwrite -noverify -ignorebadchecksums
     fi
 
 
@@ -394,6 +394,7 @@ elif [ ${OS} = "Linux" ]; then
     alias change_env='. /work/bin/change_env'
     alias reboot='sudo reboot'
     alias poweroff='sudo poweroff'
+    alias ifconfig='sudo ifconfig'
 fi
 
 #echo "Hello `whoami`"  | figlet
