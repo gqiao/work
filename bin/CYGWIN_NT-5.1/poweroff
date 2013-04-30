@@ -1,0 +1,4 @@
+#!/bin/sh
+
+shutdown -s -f 0
+
