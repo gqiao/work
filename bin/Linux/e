@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if pgrep "emacs"; then
+    emacsclient -c $@
+else
+    emacs --daemon
+    emacsclient -c $@
+fi
+
+
+
+
