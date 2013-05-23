@@ -1,0 +1,71 @@
+#!/usr/bin/env ruby
+
+def print_ip_mask(ip1, ip2, ip3, ip4, mask)
+
+  printf("%.8b.%.8b.%.8b.%.8b\n", ip1,ip2,ip3,ip4)
+
+  i = 0
+  while(i < mask)
+    if(i != 0 && i % 8 == 0)
+      printf(".")
+    end
+    printf("1")
+    i += 1
+  end
+  printf("\n")
+end
+
+
+require 'yaml'
+options = { }
+CONFIG_FILE = File.join(ENV['HOME'], 'ip_mask.rc.yaml')
+if File.exists? CONFIG_FILE
+  config_options = YAML.load_file(CONFIG_FILE)
+  options.merge!(config_options)
+else
+  File.open(CONFIG_FILE, 'w') { |file| YAML::dump(options, file) }
+  STDERR.puts "Initialized configuration file in #{CONFIG_FILE}"
+end
+
+
+if ARGV.empty?
+  puts "default config:  #{options.inspect}"
+  # exit(0)
+end
+
+
+require 'optparse'
+option_parser = OptionParser.new do |opts|
+  opts.on("-i IP", "--ip IP") do |ip|
+    unless ip =~ /^.+\..+\..+\..+\/.+$/
+      raise ArgumentError, "IP must be in 'xxx.xxx.xxx.xxx/xxx' format"
+    end
+
+    options[:ip] = ip
+  end
+end
+
+option_parser.parse!
+
+File.open(CONFIG_FILE, 'w') { |file| YAML::dump(options, file) }
+
+
+
+
+#puts options.inspect
+
+ip, m = options[:ip].split(/\//)
+mask = m.to_i
+
+i1, i2, i3, i4 = ip.split(/\./)
+ip1 = i1.to_i
+ip2 = i2.to_i
+ip3 = i3.to_i
+ip4 = i4.to_i
+
+#puts "#{ip1}.#{ip2}.#{ip3}.#{ip4}/#{mask}"
+print_ip_mask(ip1, ip2, ip3, ip4, mask)
+#print_ip_mask(192, 168, 1, 1, mask)
+
+
+

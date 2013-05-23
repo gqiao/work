@@ -5,23 +5,23 @@ env_path=/work/bin
 cd ${env_path}
 
 idx=0
-for i in `find ${env_path}/ -name "env_*"`; do 
+for i in `find ${env_path}/ -name "env_*"`; do
     echo "${idx}\t${i}"
     idx=$((${idx} + 1))
 done
 
 
 K=0
-echo -n "?" 
+echo -n "?"
 read K
 
 if [ -z ${K} ]; then
-    echo "${TARGET_NAME}.${BRANCH_NAME}" | figlet
+    echo "${TARGET_NAME}" | toilet -f mono12 -F metal
     return
 fi
 
 idx=0
-for i in `find ${env_path}/ -name "env_*"`; do 
+for i in `find ${env_path}/ -name "env_*"`; do
     if [ ${K} = ${idx} ]; then
         break
     fi
@@ -33,12 +33,13 @@ done
 #
 #env
 #
-#echo "${TARGET_NAME}.${BRANCH_NAME}" | figlet -ct 
-#echo "${TARGET_NAME}.${BRANCH_NAME}" | xargs /work/bin/cfont -cyan 
+#echo "${TARGET_NAME}.${BRANCH_NAME}" | figlet -ct
+#echo "${TARGET_NAME}.${BRANCH_NAME}" | xargs /work/bin/cfont -cyan
 clear
 echo "=============================================================================="
 #echo " ${TARGET_NAME}.${BRANCH_NAME}"
-echo "${TARGET_NAME}" | figlet
+#echo "${TARGET_NAME}" | figlet
+echo "${TARGET_NAME}" | toilet -f mono12 -F metal
 echo "=============================================================================="
 echo "TARGET_NAME          = ${TARGET_NAME}"
 echo "BRANCH_NAME          = ${BRANCH_NAME}"
