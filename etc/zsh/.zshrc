@@ -395,6 +395,7 @@ elif [ ${OS} = "Linux" ]; then
     alias reboot='sudo reboot'
     alias poweroff='sudo poweroff'
     alias ifconfig='sudo ifconfig'
+    alias adb='sudo /work/bin/Linux/adb'
 fi
 
 #echo "Hello `whoami`"  | figlet
