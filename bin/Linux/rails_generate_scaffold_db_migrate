@@ -1,0 +1,20 @@
+#!/bin/sh
+
+banner () {
+    echo ""
+    echo "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
+    echo ">> $*"
+    echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    echo ""
+}
+
+cd ${SRC_DIR}
+
+banner "rails generate scaffold Product title:string description:text image_url:string price:decimal"
+rails generate scaffold Product title:string description:text image_url:string price:decimal
+
+banner "rake db:migrate"
+rake db:migrate
+
+google-chrome localhost:3000/products
+

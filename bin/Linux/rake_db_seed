@@ -1,0 +1,33 @@
+#!/bin/sh
+
+banner () {
+    echo ""
+    echo "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
+    echo ">> $*"
+    echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    echo ""
+}
+
+cd ${SRC_DIR}
+
+banner "please input a set of test data of db from ${SRC_DIR}/db/seeds.rb \n\n\t Example as below:"
+cat > /dev/stdout <<EOF
+Product.delete_all
+# . . .
+Product.create(:title => 'Programming Ruby 1.9',
+  :description =>
+    %{<p>
+        Ruby is the fastest growing and most exciting dynamic language
+        out there. If you need to get working programs delivered fast,
+        you should add Ruby to your toolbox.
+      </p>},
+  :image_url => '/images/ruby.jpg',
+  :price => 49.50)
+# . . .
+
+EOF
+
+
+rake db:seed
+
+

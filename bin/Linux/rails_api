@@ -1,0 +1,7 @@
+#!/bin/sh
+
+rails new dummy_app  --skip-bundle
+cd dummy_app
+rake doc:rails
+google-chrome ./doc/api/index.html &
+

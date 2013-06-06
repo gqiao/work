@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rails new $@  --skip-bundle
+

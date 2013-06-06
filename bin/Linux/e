@@ -3,7 +3,7 @@
 if pgrep "emacs"; then
     emacsclient -c $@
 else
-    emacs --daemon
+    nohup emacs --daemon > /work/log/emacs.log
     emacsclient -c $@
 fi
 

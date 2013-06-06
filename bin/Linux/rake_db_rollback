@@ -1,0 +1,11 @@
+#!/bin/sh
+
+cd ${SRC_DIR}
+
+echo "rake db:rollback ..."
+rake db:rollback
+
+echo "command to create db and db.tables:  rake db:migrate"
+echo "command to create info to db.tables: rake db:seed"
+
+
