@@ -1,0 +1,27 @@
+#!/bin/sh
+
+
+export TARGET_NAME=rails
+export BRANCH_NAME=Linux
+export SERVER_NAME="localhost"
+
+export PRJ_DIR=/work/src/rails
+export SRC_DIR=/work/src/rails/depot
+export ENV_FILE=/work/bin/env_${TARGET_NAME}
+
+
+alias src='cd ${SRC_DIR}'
+alias prj='cd ${PRJ_DIR}'
+alias doc='cd /work/books/ruby'
+
+
+build () {
+    cd ${SRC_DIR}
+    rails_server &
+    e ./&
+}
+
+
+#cd ${PRJ_DIR}
+#build
+
