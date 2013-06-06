@@ -16,7 +16,7 @@ echo "K=${K}"
 
 if [ -z ${K} ]; then
     echo "DO NOTHING !!!" | figlet
-    return
+    exit 0
 fi
 
 idx=0

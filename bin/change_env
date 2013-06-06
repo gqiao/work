@@ -48,7 +48,7 @@ echo "KERNEL_DIR           = ${KERNEL_DIR}"
 echo "CROSS_COMPILE        = ${CROSS_COMPILE}"
 echo "ARCH                 = ${ARCH}"
 echo "=============================================================================="
-
+cd ${SRC_DIR}
 
 
 
