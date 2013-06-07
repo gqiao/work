@@ -20,6 +20,8 @@
         <a href="http://www..../faq">Questions</a><br />
         <a href="http://www..../news">News</a><br />
         <a href="http://www..../contact">Contact</a><br />
+        seesion[:counter] = <%= @count %><br />
+        You've been here <%= pluralize(@count.to_i, "time") %>
       </div>
       <div id="main">
         <%= yield %><!-- <label id="code.depot.e.include"/> -->
