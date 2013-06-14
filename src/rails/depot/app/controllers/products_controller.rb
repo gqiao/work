@@ -1,4 +1,14 @@
 class ProductsController < ApplicationController
+
+  def who_bought
+    @product = Product.find(params[:id])
+    respond_to do |format|
+      format.atom
+      format.json { render :json => @product }
+    end
+  end
+
+
   # GET /products
   # GET /products.json
   def index
