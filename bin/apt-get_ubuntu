@@ -2,7 +2,7 @@
 
 GET="sudo apt-get install -y "
 
-PACKAGES="unrar unzip axel meld bouml ckermit sharutils kpartx sdcv mplayer cscope libgmp-dev libiconv-hook-dev libintl-perl libltdl-dev libunistring-dev libgc-dev libffi-dev samba nfs-common git-core git-doc git-arch git-cvs git-svn git-email git-daemon-run git-gui gitk gitweb build-essential libncurses-dev kernel-package fakeroot initramfs-tools module-init-tools libncurses5-dev libncurses5-dev wget bzip2 libqt3-headers libqt3-mt-dev libqt3-compat-headers crash kexec-tools makedumpfile kernel-wedge libelf-dev libdw-dev binutils-dev asciidoc openssh-server vim g++ libssl-dev cgdb subversion fop doxygen-gui libboost-all-dev automake gnupg flex bison gperf zip curl zlib1g-dev gcc-multilib g++-multilib x11proto-core-dev libx11-dev java-common unixodbc"
+PACKAGES="flex bison gperf zip curl zlib1g-dev gcc-multilib g++-multilib x11proto-core-dev libx11-dev java-common unixodbc unrar unzip axel meld bouml ckermit sharutils kpartx sdcv mplayer cscope libgmp-dev libiconv-hook-dev libintl-perl libltdl-dev libunistring-dev libgc-dev libffi-dev samba nfs-common git-core git-doc git-arch git-cvs git-svn git-email git-daemon-run git-gui gitk gitweb build-essential libncurses-dev kernel-package fakeroot initramfs-tools module-init-tools libncurses5-dev libncurses5-dev wget bzip2 libqt3-headers libqt3-mt-dev libqt3-compat-headers crash kexec-tools makedumpfile kernel-wedge libelf-dev libdw-dev binutils-dev asciidoc openssh-server vim g++ libssl-dev cgdb subversion fop doxygen-gui libboost-all-dev automake gnupg "
 
 for i in ${PACKAGES}; do ${GET} ${i}; done
 
@@ -12,7 +12,7 @@ for i in ${PACKAGES}; do ${GET} ${i}; done
 # tar zxf m4-1.4.10.tar.gz
 # cd m4-1.4.10
 # ./configure --prefix=/usr/local/m4
-# make 
+# make
 #sudo make install
 
 # wget http://ftp.gnu.org/gnu/bison/bison-2.3.tar.gz

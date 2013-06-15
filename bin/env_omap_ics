@@ -23,9 +23,11 @@ else
 fi
 export ARCH=arm
 
-
+alias src='cd ${MYDROID}'
+alias prj='cd ${MYDROID}'
+alias doc='cd /work/books'
 alias go='cd ${MYDROID}'
-#/work/bin/change_ker
+
 
 
 

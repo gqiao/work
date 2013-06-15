@@ -2,37 +2,40 @@
 
 # using ctags to generate TAGS for emacs
 # TODO: using: ctags -e -R *.cpp *.hpp *.h
-# 
+#
 
 # CPU=omap4
 # ARCH=arm
 
 if [ -e cscope.files ]; then
     echo "using exist cscope.files"
-    cscope -b -q -k -i cscope.files 2> /dev/null 
+    cscope -b -q -k -i cscope.files 2> /dev/null
 else
     echo "generating new cscope.files"
     make cscope 2> /dev/null
     if [ ! -e cscope.files ]; then
         # [Makefile]
         # cscope:
-        # 		find $(TAG_SUBDIRS) -name '*.[chS]' -print > cscope.files
-        # 		cscope -b -q -k
+        #       find $(TAG_SUBDIRS) -name '*.[chS]' -print > cscope.files
+        #       cscope -b -q -k
 
         if echo ${PWD} | grep -q "x-loader"; then
-	        echo "detected x-loader"
-	        find  include lib board/${BOARDDIR} cpu/${CPU} fs/fat disk drivers common \( -name CVS -prune \) -o \( -name '*.[ch]' -print \) > cscope.files
+            echo "detected x-loader"
+            find  include lib board/${BOARDDIR} cpu/${CPU} fs/fat disk drivers common \( -name CVS -prune \) -o \( -name '*.[ch]' -print \) > cscope.files
         elif echo ${PWD} | grep -q "u-boot"; then
-	        echo "detected u-boot"
-	        find tools post examples post/cpu include lib_generic board/${BOARDDIR} cpu/${CPU} lib_${ARCH} fs/cramfs fs/fat fs/fdos fs/jffs2 net disk rtc dtt drivers drivers/sk98lin common \( -name CVS -prune \) -o \( -name '*.[ch]' -print \) > cscope.files
+            echo "detected u-boot"
+            find tools post examples post/cpu include lib_generic board/${BOARDDIR} cpu/${CPU} lib_${ARCH} fs/cramfs fs/fat fs/fdos fs/jffs2 net disk rtc dtt drivers drivers/sk98lin common \( -name CVS -prune \) -o \( -name '*.[ch]' -print \) > cscope.files
+        elif ls | grep -q "Gemfile"; then
+            echo "detected ruby project"
+            find ${PWD}  -regextype posix-egrep -iregex '.*\.(rb|erb|css|scss|rjs|yml)' > cscope.files
         else
-	        find ${PWD} -regextype posix-egrep -iregex '.*\.(c|h|cpp)' > cscope.files
+            find ${PWD} -regextype posix-egrep -iregex '.*\.(c|h|cpp)' > cscope.files
         fi
         cscope -b -q -k -i cscope.files 2> /dev/null
     fi
 fi
 
-#ebrowse -f cscope.files 
+#ebrowse -f cscope.files
 
 rm -f TAGS
 #TODO: make TAGS 2> /dev/null
@@ -40,7 +43,7 @@ make etags 2> /dev/null
 if [ ! -e TAGS ]; then
     echo "generate TAGS by cscope.files"
     #etags -a `cat cscope.files`
-    cat cscope.files | xargs etags -a 
+    cat cscope.files | xargs etags -a
 fi
 
 
