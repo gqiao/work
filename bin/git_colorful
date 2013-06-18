@@ -1,0 +1,6 @@
+#!/bin/sh
+
+git config color.ui true
+git config format.pretty oneline
+echo "[ NOTES ]:"
+echo "          1. interactive git add command:  git add -i"
