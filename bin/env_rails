@@ -5,7 +5,7 @@ export TARGET_NAME=rails
 export BRANCH_NAME=Linux
 export SERVER_NAME="localhost"
 
-export PRJ_DIR=/work/src/rails
+export PRJ_DIR=/work/prj/Depot
 export SRC_DIR=/work/src/rails/depot
 export ENV_FILE=/work/bin/env_${TARGET_NAME}
 
@@ -13,10 +13,12 @@ export ENV_FILE=/work/bin/env_${TARGET_NAME}
 alias src='cd ${SRC_DIR}'
 alias prj='cd ${PRJ_DIR}'
 alias doc='cd /work/books/ruby'
-
+alias uml='bouml /work/prj/Depot/Depot.prj'
+#alias log='tail -f ${SRC_DIR}/log/development.log'
 
 build () {
     cd ${SRC_DIR}
+    sudo pwd
     rails_server &
     e ./&
 }

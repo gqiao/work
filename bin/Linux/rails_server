@@ -1,12 +1,17 @@
 #!/bin/sh
 
-if pgrep "ruby"; then
+PID=`pgrep "ruby"`
+
+if [ ! -z ${PID} ]; then
     ps aux  | grep -m 1 "rails server"
-else
-    cd ${SRC_DIR}
-    rails server&
-    cd -
+    echo "[ kill rails server process] : PID = ${PID}"
+    sudo kill -SIGKILL ${PID}
 fi
+
+cd ${SRC_DIR}
+rails server&
+cd -
+
 
 google-chrome localhost:3000/$@
 

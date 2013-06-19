@@ -1,0 +1,5 @@
+#!/bin/sh
+
+tail -f ${SRC_DIR}/log/development.log
+
+
