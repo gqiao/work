@@ -1,0 +1,4 @@
+#!/bin/sh
+
+seahorse &
+echo "change passwd -> enter old passwd -> blank new passwd&confirm passwd"
