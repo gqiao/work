@@ -1,6 +1,11 @@
 #!/bin/sh
 
-git config color.ui true
+# {true auto}
+git config color.ui auto
 git config format.pretty oneline
+
+# {current simple}
+git config --global push.default current
+
 echo "[ NOTES ]:"
 echo "          1. interactive git add command:  git add -i"
