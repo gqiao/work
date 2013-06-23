@@ -15,8 +15,9 @@ if [ ! -f ~/.ssh/id_rsa.pub ]; then
     ssh-keygen -t rsa
 fi
 
-cat ~/.ssh/id_rsa.pub 
+cat ~/.ssh/id_rsa.pub
 echo "[ copy ssh-rsa public key to ${KEYWEB} ]"
+google-chrome ${KEYWEB} || chromium-browser ${KEYWEB} || firefox ${KEYWEB} &
 
 sleep 1
 read -p 'Press any key to continue...' tmp
@@ -26,7 +27,7 @@ ssh ${PORT} ${SERVER_NAME}
 echo "[ connect to ${SERVER_NAME}, and made know_hosts: ]"
 ls -l ~/.ssh/known_hosts
 
-# set the default ssh id to your Gerrit ID 
+# set the default ssh id to your Gerrit ID
 cat > ~/.ssh/config <<EOF
 User gqiao
 EOF
@@ -45,7 +46,3 @@ EOF
 #token = 35a0c89ac6b7e8328409fa3d24bd5543
 
 #github_repo
-
-
-
-
