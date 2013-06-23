@@ -1,8 +1,8 @@
 #!/bin/sh
 
 sudo apt-get install -y build-essential libopenssl-ruby libfcgi-dev
-sudo apt-get install -y ruby irb rubygems ruby1.8-dev
-sudo apt-get install -y sqlite3 libsqlite3-dev
+sudo apt-get install -y ruby irb rubygems ruby-dev
+sudo apt-get install -y sqlite3 sqlite libsqlite3-dev
 
 # REALLY_GEM_UPDATE_SYSTEM=1 sudo gem update --system
 
@@ -14,5 +14,4 @@ sudo gem install sqlite3
 
 sudo apt-get install nodejs
 
-sudo chown -R ${USER}.${USER}  /var/lib/gems
-
+#sudo chown -R ${USER}.${USER}  /var/lib/gems
