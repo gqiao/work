@@ -1,1 +1,4 @@
-toilet -f mono12 -F metal hello
+#!/bin/sh
+
+
+toilet -f mono12 -F metal ${1}

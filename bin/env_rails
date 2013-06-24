@@ -14,6 +14,7 @@ alias src='cd ${SRC_DIR}'
 alias prj='cd ${PRJ_DIR}'
 alias doc='cd /work/books/ruby'
 alias uml='bouml /work/prj/Depot/Depot.prj'
+alias book='evince /work/books/ruby/Agile_Web_Development_with_Rails_4th_cn.pdf'
 #alias log='tail -f ${SRC_DIR}/log/development.log'
 
 build () {
@@ -26,4 +27,3 @@ build () {
 
 #cd ${PRJ_DIR}
 #build
-

@@ -15,14 +15,18 @@ if [ ! -f ~/.ssh/id_rsa.pub ]; then
     ssh-keygen -t rsa
 fi
 
+echo "[ copy ssh-rsa public key to clipboard ]"
 cat ~/.ssh/id_rsa.pub
-echo "[ copy ssh-rsa public key to ${KEYWEB} ]"
+xclip -selection clipboard < ~/.ssh/id_rsa.pub
+
+echo "[ paste(ctrl-v) to ${KEYWEB} ]"
 google-chrome ${KEYWEB} || chromium-browser ${KEYWEB} || firefox ${KEYWEB} &
 
 sleep 1
 read -p 'Press any key to continue...' tmp
 
-export SSH_AUTH_SOCK=""
+# Note: ugly way: export SSH_AUTH_SOCK=""
+ssh-add -L
 ssh ${PORT} ${SERVER_NAME}
 echo "[ connect to ${SERVER_NAME}, and made know_hosts: ]"
 ls -l ~/.ssh/known_hosts

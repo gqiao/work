@@ -8,7 +8,11 @@
 
 
 gem sources --remove https://rubygems.org/
-gem sources -a http://ruby.taobao.org/
+if gem sources -l | grep -q "ruby.taobao.org"; then
+    echo "already added taobao sources"
+else
+    gem sources -a http://ruby.taobao.org/
+fi
 gem sources -l
 
 
@@ -17,6 +21,17 @@ sudo gem install sqlite3
 #sudo gem install execjs
 #sudo gem install multi_json
 
-sudo apt-get install nodejs
+
+if ls | grep -q "Gemfile"; then
+    echo "detected ruby project in ${PWD}"
+    if cat ./Gemfile | grep -q "https://rubygems.org"; then
+        echo "Change Gemfile source to ruby.taobao.org"
+        cp -fr ./Gemfile /tmp/
+        sed 's/https:\/\/rubygems.org/http:\/\/ruby.taobao.org/g' /tmp/Gemfile > ./Gemfile
+    fi
+    bundle install
+    bundle update
+fi
+
 
 #sudo chown -R ${USER}.${USER}  /var/lib/gems
