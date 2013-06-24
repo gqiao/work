@@ -1,4 +1,6 @@
 #!/bin/sh
 
-
-setxkbmap -option "ctrl:nocaps"
+# enable
+# setxkbmap -option "ctrl:nocaps"
+# setxkbmap -option 'ctrl:swapcaps'
+setxkbmap -option '' -option 'ctrl:swapcaps'
