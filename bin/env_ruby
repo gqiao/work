@@ -23,3 +23,4 @@ build () {
 
 cd ${PRJ_DIR}
 
+pry
