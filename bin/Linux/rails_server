@@ -9,10 +9,10 @@ if [ ! -z ${PID} ]; then
 fi
 
 cd ${SRC_DIR}
-rails server&
+rails server $@ &
 cd -
 
 
-google-chrome localhost:3000/$@ || chromium-browser localhost:3000/$@ || firefox localhost:3000/$@
+google-chrome localhost:3000 || chromium-browser localhost:3000 || firefox localhost:3000/
 
 #tail -f ${SRC_DIR}/log/development.log

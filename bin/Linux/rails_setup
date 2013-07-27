@@ -15,11 +15,11 @@ else
 fi
 gem sources -l
 
+GET="sudo gem install "
 
-sudo gem install rails
-sudo gem install sqlite3
-#sudo gem install execjs
-#sudo gem install multi_json
+#  debugger debugger-pry pry-remote pry-stack_explorer pry-debugger rails sqlite3 multi_json
+PKGS="rails sqlite3 passenger execjs irbtools pry ruby-debug19"
+for i in ${PKGS}; do ${GET} ${i}; done
 
 
 if ls | grep -q "Gemfile"; then
