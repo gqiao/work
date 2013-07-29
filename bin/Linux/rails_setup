@@ -18,9 +18,8 @@ gem sources -l
 GET="sudo gem install "
 
 #  debugger debugger-pry pry-remote pry-stack_explorer pry-debugger rails sqlite3 multi_json
-PKGS="rails sqlite3 passenger execjs irbtools pry ruby-debug19"
+PKGS="rails sqlite3 passenger execjs irbtools pry pry-doc ruby-debug19 rdoc rdoc-data"
 for i in ${PKGS}; do ${GET} ${i}; done
-
 
 if ls | grep -q "Gemfile"; then
     echo "detected ruby project in ${PWD}"
@@ -33,5 +32,7 @@ if ls | grep -q "Gemfile"; then
     bundle update
 fi
 
+
+sudo rdoc-data --install
 
 #sudo chown -R ${USER}.${USER}  /var/lib/gems
