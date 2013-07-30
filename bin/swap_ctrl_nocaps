@@ -1,6 +1,29 @@
 #!/bin/sh
 
-# enable
-# setxkbmap -option "ctrl:nocaps"
-# setxkbmap -option 'ctrl:swapcaps'
-setxkbmap -option '' -option 'ctrl:swapcaps'
+banner () {
+    echo ""
+    echo "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
+    echo ">> $*"
+    echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    echo ""
+}
+
+if [ "$1" = "x" ]; then
+    setxkbmap -option '' -option 'ctrl:swapcaps'
+elif [ "$1" = "all" ]; then
+    TEMPDIR=`mktemp -d`
+    cat > ${TEMPDIR}/keyboard <<EOF
+XKBMODEL="pc105"
+XKBLAYOUT="us"
+XKBVARIANT=""
+XKBOPTIONS="ctrl:swapcaps"
+
+EOF
+    sudo cp ${TEMPDIR}/keyboard /etc/default/keyboard
+    sudo chmod 644 /etc/default/keyboard
+    sudo dpkg-reconfigure keyboard-configuration
+    banner 'reboot computer or update it now by run 'setupcon' from a console'
+elif [ "$#" -lt 1 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    banner "Usage: $0 x   - set current Xwindow onetime \n          $0 all - set for all system"
+    exit 1
+fi
