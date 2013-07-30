@@ -396,16 +396,19 @@ elif [ ${OS} = "Linux" ]; then
     alias poweroff='sudo poweroff'
     alias ifconfig='sudo ifconfig'
     alias adb='sudo /work/bin/Linux/adb'
+    alias rtags='/usr/local/bin/rtags'
 fi
 
 #echo "Hello `whoami`"  | figlet
 
 # emacs使用不同的prompt
 if [[ "$TERM" == "dumb" ]]; then
+    echo "TERM=$TERM"
     setprompt_emacs
-    return
+elif [[ "$TERM" == "linux" ]]; then
+    echo "TERM=$TERM"
+    setprompt_emacs
+else
+    echo "TERM=$TERM"
+    setprompt
 fi
-
-setprompt
-
-
