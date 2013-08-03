@@ -1,0 +1,8 @@
+#!/bin/sh
+
+S="/work/bin/Linux"
+if [ ! -e /bin/power_reboot_after ]; then
+    sudo ln -s ${S}/power_reboot_after /bin/power_reboot_after
+fi
+
+sudo ${S}/reboot_after $@
