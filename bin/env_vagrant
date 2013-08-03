@@ -1,0 +1,30 @@
+#!/bin/sh
+
+
+export TARGET_NAME=vagrant
+export BRANCH_NAME=Linux
+export SERVER_NAME="localhost"
+
+export PRJ_DIR=/work/vm/vagrant
+export SRC_DIR=/work/vm/vagrant
+export ENV_FILE=/work/bin/env_${TARGET_NAME}
+
+
+alias src='cd ${SRC_DIR}'
+alias prj='cd ${PRJ_DIR}'
+alias doc='cd /work/books'
+
+
+build () {
+    cd ${SRC_DIR}
+    vagrant up
+    vagrant ssh
+}
+
+
+cd ${PRJ_DIR}
+vagrant up
+vagrant ssh
+
+#pry
+#e -nw /work/src/vagrant/test.rb
