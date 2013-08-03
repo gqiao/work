@@ -1,6 +1,5 @@
 #!/bin/sh
 
-sleep ${1}
+sleep ${1} 2> /dev/null
 
 echo mem > /sys/power/state
-

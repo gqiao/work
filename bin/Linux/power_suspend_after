@@ -1,0 +1,8 @@
+#!/bin/sh
+
+S="/work/bin/Linux"
+if [ ! -e /bin/power_suspend_after ]; then
+    sudo ln -s ${S}/power_suspend_after /bin/power_suspend_after
+fi
+
+sudo ${S}/suspend_after $@
