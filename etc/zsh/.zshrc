@@ -390,13 +390,14 @@ elif [ ${OS} = "Linux" ]; then
     alias egrep='egrep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias grep='grep --color=auto'
-    alias suspend_after='sudo /work/bin/Linux/suspend_after'
+    #alias suspend_after='sudo /work/bin/Linux/suspend_after'
     alias change_env='. /work/bin/change_env'
     alias reboot='sudo reboot'
     alias poweroff='sudo poweroff'
     alias ifconfig='sudo ifconfig'
     alias adb='sudo /work/bin/Linux/adb'
     alias rtags='/usr/local/bin/rtags'
+    alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 fi
 
 #echo "Hello `whoami`"  | figlet
