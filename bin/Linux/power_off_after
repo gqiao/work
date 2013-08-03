@@ -1,0 +1,8 @@
+#!/bin/sh
+
+S="/work/bin/Linux"
+if [ ! -e /bin/power_off_after ]; then
+    sudo ln -s ${S}/power_off_after /bin/power_off_after
+fi
+
+sudo ${S}/poweroff_after $@
