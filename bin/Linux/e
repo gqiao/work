@@ -1,12 +1,10 @@
 #!/bin/sh
 
-if pgrep "emacs"; then
-    emacsclient -c $@
-else
-    nohup emacs --daemon > /work/log/emacs.log
-    emacsclient -c $@
-fi
+# if pgrep "emacs"; then
+#     emacsclient -c $@
+# else
+#     nohup emacs --daemon > /work/log/emacs.log
+#     emacsclient -c $@
+# fi
 
-
-
-
+emacsclient -c -nw $@ 2> /dev/null || (nohup emacs --daemon && emacsclient -c -nw $@) || emacs -nw $@
