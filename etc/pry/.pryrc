@@ -16,3 +16,10 @@ def show_regexp(a, re)
     "no match"
   end
 end
+
+def abc
+  while true do
+    c = STDIN.getc
+    system("echo \"#{c}\" | figlet")
+  end
+end
