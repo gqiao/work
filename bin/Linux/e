@@ -7,4 +7,4 @@
 #     emacsclient -c $@
 # fi
 
-emacsclient -c -nw $@ 2> /dev/null || (nohup emacs --daemon && emacsclient -c -nw $@) || emacs -nw $@
+emacsclient -c -nw $@ 2> /dev/null || (nohup emacs --daemon > /dev/null && emacsclient -c -nw $@) || emacs -nw $@
