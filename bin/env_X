@@ -1,0 +1,26 @@
+#!/bin/sh
+
+
+export TARGET_NAME=X
+export BRANCH_NAME=Linux
+export SERVER_NAME="localhost"
+
+export PRJ_DIR=/work
+export SRC_DIR=/work/src/X
+export ENV_FILE=/work/bin/env_${TARGET_NAME}
+
+
+alias src='cd ${SRC_DIR}'
+alias prj='cd ${PRJ_DIR}'
+alias doc='cd /work/books/X'
+
+
+build () {
+    cd ${SRC_DIR}
+    sudo lightdm
+}
+
+
+cd ${PRJ_DIR}
+
+sudo lightdm
