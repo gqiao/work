@@ -28,12 +28,12 @@ else
 fi
 
 if [ ${EXPIRED} = "1" ]; then
-    sudo apt-get update
+    sudo apt-get update -y
 fi
 
 GET="sudo apt-get install -y "
 
-PACKAGES="skype mysql-server-5.5 mysql-client-core-5.5 mysql-server-core-5.5 libcurl4-openssl-dev apache2-prefork-dev libapr1-dev libaprutil1-dev nodejs seahorse xclip libxml2 ant toilet emacs stardict libopenssl-ruby libfcgi-dev ruby rubygems ruby-dev sqlite3 sqlite libsqlite3-dev chromium-browser flex bison gperf zip curl zlib1g-dev gcc-multilib g++-multilib x11proto-core-dev libx11-dev java-common unixodbc unrar unzip axel meld bouml ckermit sharutils kpartx sdcv mplayer cscope libgmp-dev libiconv-hook-dev libintl-perl libltdl-dev libunistring-dev libgc-dev libffi-dev samba nfs-common git-core git-doc git-arch git-cvs git-svn git-email git-daemon-run git-gui gitk gitweb build-essential libncurses-dev kernel-package fakeroot initramfs-tools module-init-tools libncurses5-dev libncurses5-dev wget bzip2 libqt3-headers libqt3-mt-dev libqt3-compat-headers crash kexec-tools makedumpfile kernel-wedge libelf-dev libdw-dev binutils-dev asciidoc openssh-server vim g++ libssl-dev cgdb subversion fop doxygen-gui libboost-all-dev automake gnupg "
+PACKAGES="skype mysql-server-5.5 mysql-client-core-5.5 mysql-server-core-5.5 libcurl4-openssl-dev apache2-prefork-dev libapr1-dev libaprutil1-dev nodejs seahorse xclip libxml2 ant toilet emacs stardict libopenssl-ruby libfcgi-dev ruby rubygems ruby-dev sqlite3 sqlite libsqlite3-dev chromium-browser flex bison gperf zip curl zlib1g-dev gcc-multilib g++-multilib x11proto-core-dev libx11-dev java-common unixodbc unrar unzip axel meld bouml ckermit sharutils kpartx sdcv mplayer cscope libgmp-dev libiconv-hook-dev libintl-perl libltdl-dev libunistring-dev libgc-dev libffi-dev samba nfs-common git-core git-doc git-arch git-cvs git-svn git-email git-daemon-run git-gui gitk gitweb build-essential libncurses-dev kernel-package fakeroot initramfs-tools module-init-tools libncurses5-dev libncurses5-dev wget bzip2 libqt3-headers libqt3-mt-dev libqt3-compat-headers crash kexec-tools makedumpfile kernel-wedge libelf-dev libdw-dev binutils-dev asciidoc openssh-server vim g++ libssl-dev cgdb subversion fop doxygen-gui libboost-all-dev automake gnupg libreadline-dev libyaml-dev libcurl4-dev apache2-dev"
 
 for i in ${PACKAGES}; do
     banner "${i}"
