@@ -4,8 +4,8 @@
 usage() {
     echo "$0 -t|--try -h|--help"
     echo "Example:"
-    echo "$0 --try 01 02 03 04 05 06 07 08 09 10 11 12"
-    echo "$0       01 02 03 04 05 06 07 08 09 10 11 12"
+    echo "$0 --try firstname lastname 01 02 03 04 05 06 07 08 09 10 11 12"
+    echo "$0       firstname lastname 01 02 03 04 05 06 07 08 09 10 11 12"
 }
 
 if [ -z ${2} ]; then
