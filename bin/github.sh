@@ -12,7 +12,9 @@ fi
 
 
 if [ ! -f ~/.ssh/id_rsa.pub ]; then
-    ssh-keygen -t rsa
+    #ssh-keygen -t rsa
+    #ssh-keygen -f ~/.ssh/id_rsa -t rsa -N '' -y
+    ssh-keygen -f ~/.ssh/id_rsa -t rsa -N ''
 fi
 
 echo "[ copy ssh-rsa public key to clipboard ]"
@@ -24,9 +26,12 @@ google-chrome ${KEYWEB} || chromium-browser ${KEYWEB} || firefox ${KEYWEB} &
 
 sleep 1
 read -p 'Press any key to continue...' tmp
+echo "waiting for WEB SERVER to update new public key from: ~/.ssh/id_rsa.pub ..."
+sleep 5
 
 # Note: ugly way: export SSH_AUTH_SOCK=""
-ssh-add -L
+#ssh-add -L
+export SSH_AUTH_SOCK=""
 ssh ${PORT} ${SERVER_NAME}
 echo "[ connect to ${SERVER_NAME}, and made know_hosts: ]"
 ls -l ~/.ssh/known_hosts
