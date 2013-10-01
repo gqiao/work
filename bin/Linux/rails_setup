@@ -8,6 +8,7 @@
 
 
 gem sources --remove https://rubygems.org/
+gem sources --remove http://rubygems.org/
 if gem sources -l | grep -q "ruby.taobao.org"; then
     echo "already added taobao sources"
 else
