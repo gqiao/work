@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [[ -s "/home/gqiao/.rvm/environments/ruby-1.9.3-p448@global" ]]
+then
+  source "/home/gqiao/.rvm/environments/ruby-1.9.3-p448@global"
+  exec rdoc "$@"
+else
+  echo "ERROR: Missing RVM environment file: '/home/gqiao/.rvm/environments/ruby-1.9.3-p448@global'" >&2
+  exit 1
+fi

@@ -1,0 +1,168 @@
+[2013-10-13 06:54:48] requirements_debian_update_system
+requirements_debian_update_system () 
+{ 
+    __rvm_try_sudo apt-get --quiet --yes update || { 
+        typeset __ret=$?;
+        case ${__ret} in 
+            100)
+                rvm_error "There has been error while updating 'apt-get', please give it some time and try again later.
+For 404 errors check your sources configured in:
+    /etc/apt/sources.list
+    /etc/apt/sources.list.d/*.list
+"
+            ;;
+        esac;
+        return ${__ret}
+    }
+}
+current path: /work/bin
+command(2): requirements_debian_update_system ruby-1.9.3-p448
+Hit http://dl.google.com stable Release.gpg
+Hit http://dl.google.com stable Release
+Get:1 http://dl.google.com stable/main amd64 Packages [1,207 B]
+Hit http://cn.archive.ubuntu.com precise Release.gpg
+Get:2 http://cn.archive.ubuntu.com precise-updates Release.gpg [198 B]
+Hit http://cn.archive.ubuntu.com precise-backports Release.gpg
+Hit http://cn.archive.ubuntu.com precise Release
+Get:3 http://cn.archive.ubuntu.com precise-updates Release [49.6 kB]
+Ign http://dl.google.com stable/main TranslationIndex
+Hit http://cn.archive.ubuntu.com precise-backports Release
+Hit http://security.ubuntu.com precise-security Release.gpg
+Get:4 http://cn.archive.ubuntu.com precise/multiverse Sources [155 kB]
+Get:5 http://extras.ubuntu.com precise Release.gpg [71 B]
+Hit http://archive.canonical.com precise Release.gpg
+Hit http://security.ubuntu.com precise-security Release
+Hit http://security.ubuntu.com precise-security/main Sources
+Get:6 http://cn.archive.ubuntu.com precise/main amd64 Packages [1,273 kB]
+Hit http://extras.ubuntu.com precise Release
+Hit http://archive.canonical.com precise Release
+Get:7 http://extras.ubuntu.com precise/main Sources [934 kB]
+Hit http://security.ubuntu.com precise-security/restricted Sources
+Hit http://security.ubuntu.com precise-security/universe Sources
+Hit http://security.ubuntu.com precise-security/multiverse Sources
+Hit http://security.ubuntu.com precise-security/main amd64 Packages
+Hit http://security.ubuntu.com precise-security/restricted amd64 Packages
+Hit http://security.ubuntu.com precise-security/universe amd64 Packages
+Hit http://security.ubuntu.com precise-security/multiverse amd64 Packages
+Hit http://security.ubuntu.com precise-security/main i386 Packages
+Hit http://security.ubuntu.com precise-security/restricted i386 Packages
+Hit http://security.ubuntu.com precise-security/universe i386 Packages
+Hit http://www.bouml.fr precise Release.gpg
+Hit http://security.ubuntu.com precise-security/multiverse i386 Packages
+Hit http://security.ubuntu.com precise-security/main TranslationIndex
+Hit http://www.bouml.fr precise Release
+Hit http://security.ubuntu.com precise-security/multiverse TranslationIndex
+Hit http://security.ubuntu.com precise-security/restricted TranslationIndex
+Hit http://security.ubuntu.com precise-security/universe TranslationIndex
+Hit http://dl.google.com stable/main i386 Packages
+Hit http://security.ubuntu.com precise-security/main Translation-en
+Hit http://security.ubuntu.com precise-security/multiverse Translation-en
+Hit http://security.ubuntu.com precise-security/restricted Translation-en
+Hit http://security.ubuntu.com precise-security/universe Translation-en
+Hit http://extras.ubuntu.com precise/main amd64 Packages
+Hit http://extras.ubuntu.com precise/main i386 Packages
+Ign http://extras.ubuntu.com precise/main TranslationIndex
+Hit http://archive.canonical.com precise/partner Sources
+Hit http://www.bouml.fr precise/non-free amd64 Packages
+Hit http://cn.archive.ubuntu.com precise/restricted amd64 Packages
+Get:8 http://cn.archive.ubuntu.com precise/universe amd64 Packages [4,786 kB]
+Hit http://archive.canonical.com precise/partner amd64 Packages
+Hit http://archive.canonical.com precise/partner i386 Packages
+Ign http://archive.canonical.com precise/partner TranslationIndex
+Ign http://extras.ubuntu.com precise/main Translation-en_US
+Hit http://www.bouml.fr precise/non-free i386 Packages
+Ign http://www.bouml.fr precise/non-free TranslationIndex
+Ign http://extras.ubuntu.com precise/main Translation-en
+Ign http://www.bouml.fr precise/non-free Translation-en_US
+Ign http://www.bouml.fr precise/non-free Translation-en
+Ign http://archive.canonical.com precise/partner Translation-en_US
+Ign http://archive.canonical.com precise/partner Translation-en
+Get:9 http://cn.archive.ubuntu.com precise/multiverse amd64 Packages [119 kB]
+Get:10 http://cn.archive.ubuntu.com precise/main i386 Packages [1,274 kB]
+Hit http://cn.archive.ubuntu.com precise/restricted i386 Packages
+Hit http://cn.archive.ubuntu.com precise/universe Sources
+Get:11 http://cn.archive.ubuntu.com precise/universe i386 Packages [4,796 kB]
+Hit http://cn.archive.ubuntu.com precise/main TranslationIndex
+Hit http://cn.archive.ubuntu.com precise/multiverse TranslationIndex
+Hit http://cn.archive.ubuntu.com precise/restricted TranslationIndex
+Hit http://cn.archive.ubuntu.com precise/universe TranslationIndex
+Get:12 http://cn.archive.ubuntu.com precise-updates/main Sources [420 kB]
+Get:13 http://cn.archive.ubuntu.com precise-updates/restricted Sources [7,006 B]
+Get:14 http://cn.archive.ubuntu.com precise-updates/universe Sources [97.8 kB]
+Get:15 http://cn.archive.ubuntu.com precise-updates/multiverse Sources [8,343 B]
+Get:16 http://cn.archive.ubuntu.com precise/universe i386 Packages [4,796 kB]
+Get:17 http://cn.archive.ubuntu.com precise/multiverse i386 Packages [121 kB]
+Get:18 http://cn.archive.ubuntu.com precise-updates/universe i386 Packages [223 kB]
+Get:19 http://cn.archive.ubuntu.com precise-updates/multiverse i386 Packages [14.0 kB]
+Get:20 http://cn.archive.ubuntu.com precise-updates/main TranslationIndex [3,564 B]
+Get:21 http://cn.archive.ubuntu.com precise-updates/multiverse TranslationIndex [2,605 B]
+Get:22 http://cn.archive.ubuntu.com precise-updates/main amd64 Packages [695 kB]
+Get:23 http://cn.archive.ubuntu.com precise-updates/restricted amd64 Packages [11.5 kB]
+Get:24 http://cn.archive.ubuntu.com precise-updates/universe amd64 Packages [219 kB]
+Get:25 http://cn.archive.ubuntu.com precise-updates/multiverse amd64 Packages [13.9 kB]
+Get:26 http://cn.archive.ubuntu.com precise-updates/main i386 Packages [715 kB]
+Get:27 http://cn.archive.ubuntu.com precise-updates/restricted i386 Packages [11.4 kB]
+Get:28 http://cn.archive.ubuntu.com precise-updates/restricted TranslationIndex [2,461 B]
+Get:29 http://cn.archive.ubuntu.com precise-updates/restricted TranslationIndex [2,461 B]
+Get:30 http://cn.archive.ubuntu.com precise-updates/universe TranslationIndex [2,850 B]
+Get:31 http://cn.archive.ubuntu.com precise-updates/universe TranslationIndex [2,850 B]
+Hit http://cn.archive.ubuntu.com precise-backports/main Sources
+Hit http://cn.archive.ubuntu.com precise-backports/restricted Sources
+Get:32 http://cn.archive.ubuntu.com precise-backports/universe Sources [35.5 kB]
+Hit http://cn.archive.ubuntu.com precise-backports/main amd64 Packages
+Hit http://cn.archive.ubuntu.com precise-backports/restricted amd64 Packages
+Get:33 http://cn.archive.ubuntu.com precise-backports/universe amd64 Packages [36.5 kB]
+Hit http://cn.archive.ubuntu.com precise-backports/multiverse amd64 Packages
+Hit http://cn.archive.ubuntu.com precise-backports/main i386 Packages
+Hit http://cn.archive.ubuntu.com precise-backports/restricted i386 Packages
+Get:34 http://cn.archive.ubuntu.com precise-backports/universe i386 Packages [36.3 kB]
+Hit http://cn.archive.ubuntu.com precise-backports/multiverse i386 Packages
+Get:35 http://cn.archive.ubuntu.com precise-backports/universe Sources [35.5 kB]
+Hit http://cn.archive.ubuntu.com precise-backports/multiverse Sources
+Hit http://cn.archive.ubuntu.com precise-backports/main TranslationIndex
+Hit http://cn.archive.ubuntu.com precise-backports/multiverse TranslationIndex
+Hit http://cn.archive.ubuntu.com precise-backports/restricted TranslationIndex
+Hit http://cn.archive.ubuntu.com precise-backports/universe TranslationIndex
+Get:36 http://cn.archive.ubuntu.com precise/main Sources [1,175 kB]
+Hit http://cn.archive.ubuntu.com precise/restricted Sources
+Hit http://cn.archive.ubuntu.com precise/main Translation-en
+Hit http://cn.archive.ubuntu.com precise/multiverse Translation-en
+Hit http://cn.archive.ubuntu.com precise/restricted Translation-en
+Get:37 http://cn.archive.ubuntu.com precise/universe Translation-en [3,341 kB]
+Get:38 http://cn.archive.ubuntu.com precise/universe Translation-en [3,341 kB]
+Ign http://dl.google.com stable/main Translation-en_US
+Ign http://dl.google.com stable/main Translation-en
+Get:39 http://cn.archive.ubuntu.com precise-updates/main Translation-en [313 kB]
+
+bzip2: Data integrity error when decompressing.
+	Input file = (stdin), output file = (stdout)
+
+It is possible that the compressed file(s) have become corrupted.
+You can use the -tvv option to test integrity of such files.
+
+You can use the `bzip2recover' program to attempt to recover
+data from undamaged sections of corrupted files.
+
+Hit http://cn.archive.ubuntu.com precise-updates/multiverse Translation-en
+Hit http://cn.archive.ubuntu.com precise-updates/restricted Translation-en
+Hit http://cn.archive.ubuntu.com precise-backports/main Translation-en
+Hit http://cn.archive.ubuntu.com precise-backports/multiverse Translation-en
+Hit http://cn.archive.ubuntu.com precise-backports/restricted Translation-en
+Get:40 http://cn.archive.ubuntu.com precise-backports/universe Translation-en [26.7 kB]
+Fetched 19.7 MB in 49s (401 kB/s)
+W: Size of file /var/lib/apt/lists/partial/cn.archive.ubuntu.com_ubuntu_dists_precise_main_i18n_Index is not what the server reported 0 4795820
+W: Size of file /var/lib/apt/lists/partial/cn.archive.ubuntu.com_ubuntu_dists_precise-backports_main_binary-amd64_Packages is not what the server reported 0 35483
+W: Failed to fetch gzip:/var/lib/apt/lists/partial/cn.archive.ubuntu.com_ubuntu_dists_precise_main_source_Sources  Hash Sum mismatch
+
+W: Failed to fetch http://cn.archive.ubuntu.com/ubuntu/dists/precise-updates/universe/i18n/Index  
+
+W: Failed to fetch bzip2:/var/lib/apt/lists/partial/extras.ubuntu.com_ubuntu_dists_precise_main_source_Sources  Hash Sum mismatch
+
+W: Failed to fetch gzip:/var/lib/apt/lists/partial/cn.archive.ubuntu.com_ubuntu_dists_precise_universe_i18n_Translation-en  Encountered a section with no Package: header
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+There has been error while updating 'apt-get', please give it some time and try again later.
+For 404 errors check your sources configured in:
+    /etc/apt/sources.list
+    /etc/apt/sources.list.d/*.list
+

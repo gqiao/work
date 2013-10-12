@@ -1,0 +1,375 @@
+#!/usr/bin/env bash
+
+rvm_base_except="selector"
+
+source "$rvm_scripts_path/base"
+
+usage()
+{
+  "${rvm_scripts_path}/help" list "$@"
+  return 0
+}
+
+list_remote()
+{
+  is_a_function __list_remote_${1:-rubies}_for || {
+    rvm_error "Do not know how to display binary rubies for '${1:-rubies}'."
+    return 1
+  }
+  typeset version _system_path
+  _system_path="$( __rvm_system_path_for ${1:-rubies} )"
+  rubies=($(
+    __list_remote_${1:-rubies}_for "${_system_path}" |
+      __rvm_sed -e 's/.tar.*$//' -e 's/jruby-bin-/jruby-/' |
+      __rvm_awk -F/ '{print $NF}' | sort -u
+  ))
+
+  if (( ${#rubies[@]} == 0 ))
+  then
+    rvm_error "
+# No remote rubies available for ${_system_path}.
+# Check 'rvm list known' for what can be installed.
+"
+    return 1
+  fi
+
+  printf "%b" "\n# Rubies available for '${_system_path}':\n\n"
+
+  for version in "${rubies[@]}"
+  do
+    if [[ -r "$rvm_rubies_path/$version/bin/ruby" ]]
+    then printf "%b" " * "
+    else printf "%b" "   "
+    fi
+
+    if rvm_pretty_print stdout
+    then printf "%b" "${rvm_notify_clr:-}$version${rvm_reset_clr:-}\n"
+    else printf "%b" "$version\n"
+    fi
+  done
+
+  printf "%b" "\n# * - installed already\n\n"
+
+  if rvm_pretty_print stdout
+  then printf "%b" "# To download and install: ${rvm_notify_clr:-}rvm install {name} --binary${rvm_reset_clr:-}\n\n"
+  else printf "%b" "# To download and install: rvm install {name} --binary\n\n"
+  fi
+}
+
+list_detect_arch()
+{
+  if
+    [[ -d "$rvm_gems_path/${__version}" && ! -d "$rvm_rubies_path/${__version%%@*}" ]]
+  then
+    __arch="ruby not installed"
+  elif
+    [[ ! -x "$rvm_rubies_path/${__version%%@*}/bin/ruby" ]]
+  then
+    __arch="missing bin/ruby"
+  elif
+    [[ -f "$rvm_rubies_path/${__version%%@*}/config" ]]
+  then
+    __arch="$(
+      __rvm_awk -F= "\$1==\"target_cpu\" {gsub(/[\"']/,\"\"); print \$2}" < \
+        $rvm_rubies_path/${__version%%@*}/config
+    )" #'
+  else
+    __arch="$( __rvm_ruby_config_get "target_cpu" "$rvm_rubies_path/${__version%%@*}/bin/ruby" )"
+  fi
+  if
+    [[ -z "${__arch}" ]]
+  then
+    case "${__version}" in
+      (maglev-*|macruby-*) __arch="x86_64"  ;;
+      (*)                  __arch="broken" ;;
+    esac
+  fi
+}
+
+list_show_version_with_arch()
+{
+  typeset __arch __prefix __version __suffix
+  __prefix="$1"
+  __version="$2"
+  __suffix="${3:-}"
+
+  list_detect_arch
+
+  if rvm_pretty_print stdout
+  then __version="${rvm_notify_clr:-}${__version}${rvm_reset_clr:-}"
+  fi
+  printf "%b" "${__prefix}${__version} [ ${__arch} ]${__suffix}"
+}
+
+list_gemsets()
+{
+  typeset all_rubies version versions ruby_version_name current_ruby selected system_ruby system_version string binary prefix
+
+  if [[ "${1:-""}" == "strings" ]]
+  then
+    list_gemset_strings
+    return 0
+  fi
+
+  current_ruby="$(__rvm_env_string)"
+
+  all_rubies="$(list_strings | sort)"
+
+  printf "%b" "\nrvm gemsets\n"
+
+  versions=($(
+    __rvm_cd "${rvm_gems_path:-"$rvm_path/gems"}/"
+    __rvm_find . -maxdepth 1 -mindepth 1 -type d -print 2> /dev/null |
+      __rvm_awk '/[a-z]*-.*/ {print $NF}' | sort
+  ))
+
+  for version in "${versions[@]//.\/}"
+  do
+    ruby_version_name="$(echo "$version" | __rvm_awk -F"${rvm_gemset_separator:-"@"}" '{print $1}')"
+
+    if [[ "$all_rubies" != *"$ruby_version_name"* ]]
+    then continue
+    fi
+    if [[ "$version" == "$current_ruby" ]]
+    then prefix="=> "
+    else prefix="   "
+    fi
+    list_show_version_with_arch "\n${prefix}" "$version"
+  done
+
+  if [[ -f "$rvm_path/config/default" && -s "$rvm_path/config/default" ]]
+  then
+    version=$(
+      __rvm_grep 'MY_RUBY_HOME' "$rvm_path/config/default" |
+        head -1 | __rvm_awk -F"'" '{print $2}' | __rvm_xargs basename --
+    )
+    if
+      [[ -n "$version" ]]
+    then
+      printf "%b" "\nDefault Ruby (for new shells)\n"
+      list_show_version_with_arch "\n  " "$version" "\n"
+    fi
+  fi
+  printf "%b" "\n\n"
+  return 0
+}
+
+list_default()
+{
+  typeset version string
+  if
+    [[ "${args[0]:-""}" == "string" ]]
+  then
+    "$rvm_scripts_path/alias" show default 2>/dev/null |
+      __rvm_awk -F"${rvm_gemset_separator:-"@"}" '{print $1}' |
+      __rvm_xargs basename --
+  else
+    if
+      [[ -L "$rvm_rubies_path/default" ]]
+    then
+      version=$(
+      "$rvm_scripts_path/alias" show default 2>/dev/null |
+        __rvm_awk -F"${rvm_gemset_separator:-"@"}" '{print $1}' |
+        __rvm_xargs basename --
+      )
+      if
+        [[ -n "$version" ]]
+      then
+        printf "%b" "\nDefault Ruby (for new shells)\n"
+        list_show_version_with_arch "\n   " "$version" "\n"
+      fi
+    fi
+  fi
+  printf "%b" "\n"
+  return 0
+}
+
+list_ruby_svn_tags()
+{
+  typeset -a tags
+  typeset prefix tag
+
+  __rvm_read_lines tags <(
+    svn list http://svn.ruby-lang.org/repos/ruby/tags/ | __rvm_awk '/^v1_[8|9]/{print}'
+  )
+
+  for tag in "${tags[@]}"
+  do
+    prefix="$(
+      echo ${tag/\//} |
+      __rvm_sed 's#^v1_##' |
+      __rvm_awk -F'_' '{print "(ruby-)1."$1"."$2}' |
+      __rvm_sed 's#p$##'
+    )"
+    echo "${prefix}-t${tag/\//}"
+  done
+
+  return 0
+}
+
+# Query for valid rvm ruby strings
+# This is meant to be used with scripting.
+list_strings()
+(
+  __rvm_cd "$rvm_rubies_path" &&
+  __rvm_find . -maxdepth 1 -mindepth 1 -type d | __rvm_sed -e 's#./##g' ||
+  return $?
+)
+
+# This is meant to be used with scripting.
+list_gemset_strings()
+{
+  typeset all_rubies ruby_name gemset gemsets
+
+  all_rubies="$(list_strings | sort)"
+
+  gemsets=($(
+    __rvm_cd "${rvm_gems_path:-"$rvm_path/gems"}"
+    __rvm_find . -maxdepth 1 -mindepth 1 -type d 2>/dev/null | \
+      __rvm_xargs -n1 basename -- | \
+      __rvm_grep -v '^\(@\|doc$\|cache$\|system$\)' | sort
+  ))
+
+  for gemset in "${gemsets[@]//.\/}"
+  do
+    ruby_name="${gemset//${rvm_gemset_separator:-"@"}*}"
+
+    if [[ "$all_rubies" != *"$ruby_name"* ]]
+    then
+      continue
+    fi
+    echo "$gemset"
+  done
+
+  return 0
+}
+
+# This is meant to be used with scripting.
+list_known_strings()
+{
+  __rvm_sed -e 's/#.*$//g' -e 's#\[##g' -e 's#\]##g' < "$rvm_path/config/known" | \
+    sort -r | uniq
+
+  return $?
+}
+
+list_known()
+{
+  if [[ "${1:-""}" == "strings" ]]
+  then
+    list_known_strings
+    return 0
+  fi
+
+  if [[ -t 0 ]]
+  then
+    __rvm_pager_or_cat_v "$rvm_path/config/known"
+  else
+    \cat "$rvm_path/config/known"
+  fi
+
+  return $?
+}
+
+list_rubies_strings()
+{
+  (
+  __rvm_cd "$rvm_rubies_path"
+    __rvm_find -maxdepth 0 -type d | __rvm_tail -n+2 | __rvm_xargs -n1 basename -- |  __rvm_strip
+  )
+
+  return $?
+}
+
+list_rubies()
+{
+  typeset current_ruby rubies version selected system_ruby system_version \
+    default_ruby string binary prefix
+
+  if [[ "${1:-""}" == "strings" ]]
+  then
+    list_rubies_strings
+    return 0
+  fi
+
+  current_ruby="$( __rvm_env_string )"
+  current_ruby="${current_ruby%${rvm_gemset_separator:-"@"}*}"
+
+  default_ruby="$( "$rvm_scripts_path/alias" show default 2>/dev/null )"
+  default_ruby="${default_ruby%${rvm_gemset_separator:-"@"}*}"
+
+  printf "%b" "\nrvm rubies\n\n"
+
+  rubies=($(
+    __rvm_cd "$rvm_rubies_path/"
+    __rvm_find . -maxdepth 1 -mindepth 1 -type d 2> /dev/null | sort
+  ))
+
+  for version in "${rubies[@]//.\/}"
+  do
+    if
+      [[ "$version" == "$current_ruby" && "$version" == "$default_ruby" ]]
+    then
+      prefix="=* "
+    elif
+      [[ "$version" == "$current_ruby" ]]
+    then
+      prefix="=> "
+    elif
+      [[ "$version" == "$default_ruby" ]]
+    then
+      prefix=" * "
+    else
+      prefix="   "
+    fi
+    list_show_version_with_arch "${prefix}" "$version" "\n"
+  done
+
+  if (( ${#rubies[@]} == 0 ))
+  then
+    printf "%b" "
+# No rvm rubies installed yet. Try 'rvm help install'.
+"
+  else
+    if [[ -z "${default_ruby}" ]]
+    then
+      printf "%b" "
+# Default ruby not set. Try 'rvm alias create default <ruby>'.
+"
+    fi
+    printf "%b" "
+# => - current
+# =* - current && default
+#  * - default
+"
+  fi
+
+  printf "%b" "\n"
+
+  return 0
+}
+
+# List all rvm installed rubies, default ruby and system ruby.
+# Display the rubies, indicate their architecture and indicate which is currently used.
+# This is not meant to be used with scripting. This is for interactive mode usage only.
+args=($*)
+action="${args[0]:-""}"
+args=${args[@]:1} # Strip trailing / leading / extra spacing.
+
+case "${action:-rubies}" in
+  -r|--remote|remote) list_remote "${args// /}" ;;
+  known)         list_known           ;;
+  known_strings) list_known_strings   ;;
+  gemsets)       list_gemsets "$args" ;;
+  default)       list_default         ;;
+  rubies)        list_rubies "$args"  ;;
+  strings)       list_strings         ;;
+  ruby_svn_tags) list_ruby_svn_tags   ;;
+  help)          usage                ;;
+  *)
+    rvm_error_help "Unknown action '$action' for 'rvm list'." list $action
+    exit 1
+    ;;
+esac
+
+exit $?

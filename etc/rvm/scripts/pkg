@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+if (( ${rvm_trace_flag:=0} == 2 ))
+then
+  set -x
+  export rvm_trace_flag
+fi
+
+rvm_base_except="selector"
+
+source "$rvm_scripts_path/base"
+source "$rvm_scripts_path/functions/build"
+source "$rvm_scripts_path/functions/db"
+source "$rvm_scripts_path/functions/pkg"
+
+set +o errexit
+
+# Tools to make managing ruby dependencies inside of rvm easier.
+args=($*)
+action="${args[0]:-""}"
+library="${args[1]:-""}"
+args="$(echo ${args[@]:2})"
+
+rvm_warn "
+Beware, 'rvm pkg ...' is deprecated, read about the new autolibs feature: 'rvm help autolibs'.
+"
+
+if [[ -n "$library" ]]
+then
+  case $library in
+    readline|iconv|curl|openssl|zlib|autoconf|ncurses|pkgconfig|gettext|glib|mono|llvm|libxml2|libxslt|libyaml|epel)
+      __rvm_setup_compile_environment ${library}
+      install_${library}
+      ;;
+    ree_dependencies)
+      for i in zlib ncurses readline openssl iconv
+      do
+        (
+          __rvm_setup_compile_environment ${i}
+          install_${i}
+        )
+      done
+      ;;
+    *)
+      rvm_error "Package '${library}' is unknown."
+      ;;
+  esac
+
+  exit $?
+elif [[ "$action" == remove ]]
+then
+  rvm_log "Removing '$rvm_usr_path' ..."
+  __rvm_rm_rf "$rvm_usr_path" &&
+    rvm_log "Removed" ||
+    rvm_error "Failed"
+else
+  rvm_log "
+Usage:
+
+    rvm pkg {install,uninstall} {readline,iconv,curl,openssl,zlib,autoconf,ncurses,pkgconfig,gettext,glib,mono,llvm,libxml2,libxslt,libyaml,epel}
+    rvm pkg remove # to start fresh
+
+ree_dependencies installs zlib, ncurses, readline, openssl and iconv in this order.
+Still need to add --with-readline-dir=$rvm_usr_path --with-iconv-dir=$rvm_usr_path
+ --with-zlib-dir=$rvm_usr_path --with-openssl-dir=$rvm_usr_path to rvm install ree
+
+Starting with ruby **1.9.3** it is enough to use --with-opt-dir=$rvm_usr_path for all the packages.
+"
+  exit 1
+fi

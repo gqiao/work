@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [[ -s "/home/gqiao/.rvm/environments/ruby-2.1.0-preview1" ]]
+then
+  source "/home/gqiao/.rvm/environments/ruby-2.1.0-preview1"
+  exec ri "$@"
+else
+  echo "ERROR: Missing RVM environment file: '/home/gqiao/.rvm/environments/ruby-2.1.0-preview1'" >&2
+  exit 1
+fi

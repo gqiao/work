@@ -1,0 +1,7 @@
+[2013-10-13 07:09:37] env
+current path: /work/bin
+command(5): env GEM_HOME=/home/gqiao/.rvm/gems/ruby-1.9.3-p448@global gem install rvm
+Successfully installed rvm-1.11.3.8
+1 gem installed
+Installing ri documentation for rvm-1.11.3.8...
+Installing RDoc documentation for rvm-1.11.3.8...

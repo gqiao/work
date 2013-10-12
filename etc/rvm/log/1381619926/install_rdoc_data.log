@@ -1,0 +1,12 @@
+[2013-10-13 07:18:46] install_rdoc_data
+install_rdoc_data () 
+{ 
+    __rvm_use ${rvm_docs_ruby_string%%@*}@global;
+    update_rdoc;
+    gem list rdoc-data | __rvm_grep "^rdoc" || gem install rdoc-data;
+    rdoc-data --install
+}
+current path: /home/gqiao
+command(1): install_rdoc_data
+/home/gqiao/.rvm/scripts/docs: line 115: __rvm_use: command not found
+Building native extensions.  This could take a while...

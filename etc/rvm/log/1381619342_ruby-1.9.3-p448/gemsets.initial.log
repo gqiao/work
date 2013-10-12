@@ -1,0 +1,27 @@
+[2013-10-13 07:09:02] __rvm_with
+__rvm_with () 
+{ 
+    ( __rvm_use "$1";
+    shift;
+    "$@" || return $? )
+}
+current path: /work/bin
+command(4): __rvm_with ruby-1.9.3-p448 /home/gqiao/.rvm/scripts/gemsets initial
+Importing initial gemsets for ruby-1.9.3-p448.
+
+Installing gems listed in /home/gqiao/.rvm/gemsets/default.gems file...
+
+
+Processing of /home/gqiao/.rvm/gemsets/default.gems is complete.
+
+
+Installing gems listed in /home/gqiao/.rvm/gemsets/global.gems file...
+
+[32minstalling gem 'rubygems-bundler'[0m...........
+[32minstalling gem 'bundler'[0m....
+[32minstalling gem 'rake'[0m....
+[32minstalling gem 'rvm'[0m....
+
+Processing of /home/gqiao/.rvm/gemsets/global.gems is complete.
+
+Installation of gems for ruby-1.9.3-p448 is complete.

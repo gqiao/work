@@ -1,0 +1,733 @@
+	CC = gcc
+	LD = ld
+	LDSHARED = gcc -shared
+	CFLAGS = -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Werror=pointer-arith -Werror=write-strings -Werror=declaration-after-statement -Werror=implicit-function-declaration -ansi -std=iso9899:199409  -fPIC 
+	XCFLAGS = -D_FORTIFY_SOURCE=2 -fstack-protector -fno-strict-overflow -fvisibility=hidden -DRUBY_EXPORT
+	CPPFLAGS =   -I. -I.ext/include/x86_64-linux -I./include -I.
+	DLDFLAGS = -Wl,-soname,libruby.so.2.1  -fstack-protector  
+	SOLIBS = -lpthread -lrt -lgmp -ldl -lcrypt -lm  
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.6/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu/Linaro 4.6.3-1ubuntu5' --with-bugurl=file:///usr/share/doc/gcc-4.6/README.Bugs --enable-languages=c,c++,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.6 --enable-shared --enable-linker-build-id --with-system-zlib --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.6 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --enable-plugin --enable-objc-gc --disable-werror --with-arch-32=i686 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) 
+compiling array.c
+compiling vm.c
+compiling ./enc/us_ascii.c
+compiling ./enc/unicode.c
+compiling ./enc/utf_8.c
+compiling newline.c
+compiling ./missing/strlcpy.c
+compiling ./missing/strlcat.c
+compiling ./missing/setproctitle.c
+compiling addr2line.c
+compiling dmyext.c
+compiling dln.c
+compiling localeinit.c
+compiling sizes.c
+linking miniruby
+generating encdb.h
+rbconfig.rb updated
+generating enc.mk
+encdb.h unchanged
+creating verconf.h
+generating prelude.c
+making srcs under enc
+compiling loadpath.c
+make[1]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1'
+make[1]: Nothing to be done for `srcs'.
+make[1]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1'
+compiling prelude.c
+generating transdb.h
+linking static-library libruby-static.a
+verifying static-library libruby-static.a
+transdb.h unchanged
+linking shared-library libruby.so.2.1.0
+making enc
+making trans
+make[1]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1'
+compiling ./enc/encdb.c
+make[1]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1'
+compiling ./enc/trans/transdb.c
+compiling ./enc/big5.c
+compiling ./enc/trans/big5.c
+compiling ./enc/cp949.c
+compiling ./enc/emacs_mule.c
+compiling ./enc/euc_jp.c
+compiling ./enc/euc_kr.c
+compiling ./enc/euc_tw.c
+compiling ./enc/gb2312.c
+compiling ./enc/gb18030.c
+compiling ./enc/gbk.c
+compiling ./enc/iso_8859_1.c
+compiling ./enc/iso_8859_2.c
+compiling ./enc/iso_8859_3.c
+compiling ./enc/iso_8859_4.c
+compiling ./enc/iso_8859_5.c
+compiling ./enc/iso_8859_6.c
+compiling ./enc/iso_8859_7.c
+compiling ./enc/iso_8859_8.c
+compiling ./enc/iso_8859_9.c
+compiling ./enc/iso_8859_10.c
+compiling ./enc/iso_8859_11.c
+compiling ./enc/iso_8859_13.c
+compiling ./enc/iso_8859_14.c
+compiling ./enc/iso_8859_15.c
+compiling ./enc/iso_8859_16.c
+compiling ./enc/koi8_r.c
+compiling ./enc/trans/chinese.c
+compiling ./enc/koi8_u.c
+compiling ./enc/shift_jis.c
+compiling ./enc/utf_16be.c
+compiling ./enc/utf_16le.c
+compiling ./enc/utf_32be.c
+compiling ./enc/utf_32le.c
+compiling ./enc/windows_31j.c
+compiling ./enc/trans/emoji.c
+compiling ./enc/windows_1251.c
+compiling ./enc/trans/emoji_iso2022_kddi.c
+linking encoding encdb.so
+linking encoding big5.so
+linking encoding cp949.so
+linking encoding emacs_mule.so
+linking encoding euc_jp.so
+linking encoding euc_kr.so
+linking encoding euc_tw.so
+linking encoding gb2312.so
+linking encoding gb18030.so
+linking encoding gbk.so
+linking encoding iso_8859_1.so
+linking encoding iso_8859_2.so
+linking encoding iso_8859_3.so
+linking encoding iso_8859_4.so
+linking encoding iso_8859_5.so
+linking encoding iso_8859_6.so
+linking encoding iso_8859_7.so
+compiling ./enc/trans/emoji_sjis_docomo.c
+linking encoding iso_8859_8.so
+linking encoding iso_8859_9.so
+linking encoding iso_8859_10.so
+linking encoding iso_8859_11.so
+linking encoding iso_8859_13.so
+linking encoding iso_8859_14.so
+linking encoding iso_8859_15.so
+linking encoding iso_8859_16.so
+linking encoding koi8_r.so
+linking encoding koi8_u.so
+linking encoding shift_jis.so
+linking encoding utf_16be.so
+linking encoding utf_16le.so
+linking encoding utf_32be.so
+linking encoding utf_32le.so
+linking encoding windows_31j.so
+compiling ./enc/trans/emoji_sjis_kddi.c
+linking encoding windows_1251.so
+make[1]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1'
+compiling ./enc/trans/emoji_sjis_softbank.c
+compiling ./enc/trans/escape.c
+generating makefile exts.mk
+compiling ./enc/trans/gb18030.c
+configuring -test-/array/resize
+configuring -test-/bignum
+configuring -test-/bug-3571
+configuring -test-/bug-3662
+configuring -test-/bug-5832
+configuring -test-/debug
+configuring -test-/exception
+configuring -test-/fatal
+configuring -test-/funcall
+configuring -test-/iter
+configuring -test-/load/dot.dot
+configuring -test-/marshal/compat
+configuring -test-/marshal/usr
+configuring -test-/method
+configuring -test-/num2int
+configuring -test-/old_thread_select
+configuring -test-/path_to_class
+configuring -test-/postponed_job
+configuring -test-/printf
+configuring -test-/rational
+configuring -test-/st/numhash
+configuring -test-/st/update
+configuring -test-/string
+configuring -test-/symbol
+configuring -test-/tracepoint
+configuring -test-/typeddata
+configuring -test-/wait_for_single_fd
+configuring -test-/win32/dln
+Failed to configure -test-/win32/dln. It will not be installed.
+configuring -test-/win32/fd_setsize
+Failed to configure -test-/win32/fd_setsize. It will not be installed.
+configuring bigdecimal
+configuring continuation
+configuring coverage
+configuring curses
+compiling ./enc/trans/gbk.c
+header: ncurses.h
+library: ncurses
+compiling ./enc/trans/iso2022.c
+compiling ./enc/trans/japanese.c
+compiling ./enc/trans/japanese_euc.c
+compiling ./enc/trans/japanese_sjis.c
+compiling ./enc/trans/korean.c
+compiling ./enc/trans/single_byte.c
+compiling ./enc/trans/utf8_mac.c
+compiling ./enc/trans/utf_16_32.c
+linking transcoder transdb.so
+linking transcoder big5.so
+linking transcoder chinese.so
+linking transcoder emoji.so
+linking transcoder emoji_iso2022_kddi.so
+linking transcoder emoji_sjis_docomo.so
+linking transcoder emoji_sjis_kddi.so
+linking transcoder emoji_sjis_softbank.so
+linking transcoder escape.so
+linking transcoder gb18030.so
+linking transcoder gbk.so
+linking transcoder iso2022.so
+linking transcoder japanese.so
+linking transcoder japanese_euc.so
+linking transcoder japanese_sjis.so
+linking transcoder korean.so
+linking transcoder single_byte.so
+linking transcoder utf8_mac.so
+linking transcoder utf_16_32.so
+make[1]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1'
+making encs
+make[1]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1'
+make[1]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1'
+configuring date
+configuring dbm
+Failed to configure dbm. It will not be installed.
+configuring digest
+configuring digest/bubblebabble
+configuring digest/md5
+configuring digest/rmd160
+configuring digest/sha1
+configuring digest/sha2
+configuring dl
+configuring dl/callback
+configuring etc
+configuring fcntl
+configuring fiber
+configuring fiddle
+configuring gdbm
+Failed to configure gdbm. It will not be installed.
+configuring io/console
+configuring io/nonblock
+configuring io/wait
+configuring json
+configuring json/generator
+configuring json/parser
+configuring mathn/complex
+configuring mathn/rational
+configuring nkf
+configuring objspace
+configuring openssl
+configuring pathname
+configuring psych
+configuring pty
+configuring racc/cparse
+configuring readline
+configuring ripper
+configuring sdbm
+configuring socket
+configuring stringio
+configuring strscan
+configuring syslog
+configuring thread
+configuring tk
+...........
+check struct members..
+check libraries....
+Use ActiveTcl libraries (if available).
+Search tclConfig.sh and tkConfig.sh...............................
+Fail to find [tclConfig.sh, tkConfig.sh]
+Use X11 libraries (or use TK_XINCLUDES/TK_XLIBSW information on tkConfig.sh).
+
+Search tcl.h..
+Search tk.h..Search Tcl library...........
+Warning:: cannot find Tcl library. tcltklib will not be compiled (tcltklib is disabled on your Ruby. That is, Ruby/Tk will not work). Please check configure options.
+
+Can't find proper Tcl/Tk libraries. So, can't make tcltklib.so which is required by Ruby/Tk.
+If you have Tcl/Tk libraries on your environment, you may be able to use them with configure options (see ext/tk/README.tcltklib).
+At present, Tcl/Tk8.6 is not supported. Although you can try to use Tcl/Tk8.6 with configure options, it will not work correctly. I recommend you to use Tcl/Tk8.5 or 8.4.
+Failed to configure tk. It will not be installed.
+configuring tk/tkutil
+Failed to configure tk/tkutil. It will not be installed.
+configuring win32
+Failed to configure win32. It will not be installed.
+configuring win32ole
+Failed to configure win32ole. It will not be installed.
+configuring zlib
+make[1]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/bignum'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/array/resize'
+compiling bigzero.c
+installing default resize libraries
+linking shared-object -test-/array/resize.so
+compiling intpack.c
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/array/resize'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/bug-3571'
+compiling bug.c
+installing default bug libraries
+linking shared-object -test-/bug-3571/bug.so
+compiling init.c
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/bug-3571'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/bug-3662'
+compiling bug.c
+compiling div.c
+installing default bug libraries
+linking shared-object -test-/bug-3662/bug.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/bug-3662'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/bug-5832'
+compiling bug.c
+compiling mul.c
+installing default bug libraries
+linking shared-object -test-/bug-5832/bug.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/bug-5832'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/debug'
+compiling inspector.c
+compiling big2str.c
+compiling init.c
+compiling str2big.c
+installing default debug libraries
+linking shared-object -test-/debug.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/debug'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/exception'
+compiling ensured.c
+installing default bignum libraries
+linking shared-object -test-/bignum.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/bignum'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/fatal'
+compiling rb_fatal.c
+compiling init.c
+installing default rb_fatal libraries
+linking shared-object -test-/fatal/rb_fatal.so
+compiling enc_raise.c
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/fatal'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/funcall'
+compiling passing_block.c
+installing default exception libraries
+linking shared-object -test-/exception.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/exception'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/iter'
+compiling break.c
+installing default funcall libraries
+linking shared-object -test-/funcall/funcall.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/funcall'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/load/dot.dot'
+compiling dot.dot.c
+installing default break libraries
+linking shared-object -test-/iter/break.so
+installing default dot.dot libraries
+linking shared-object -test-/load/dot.dot/dot.dot.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/load/dot.dot'
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/iter'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/marshal/compat'
+compiling usrcompat.c
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/marshal/usr'
+compiling usrmarshal.c
+installing default compat libraries
+linking shared-object -test-/marshal/compat.so
+installing default usr libraries
+linking shared-object -test-/marshal/usr.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/marshal/compat'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/method'
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/marshal/usr'
+compiling init.c
+compiling arity.c
+installing default method libraries
+linking shared-object -test-/method.so
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/num2int'
+compiling num2int.c
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/method'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/old_thread_select'
+compiling old_thread_select.c
+installing default num2int libraries
+linking shared-object -test-/num2int/num2int.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/num2int'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/path_to_class'
+compiling path_to_class.c
+installing default old_thread_select libraries
+linking shared-object -test-/old_thread_select/old_thread_select.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/old_thread_select'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/postponed_job'
+compiling postponed_job.c
+installing default path_to_class libraries
+linking shared-object -test-/path_to_class/path_to_class.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/path_to_class'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/printf'
+compiling printf.c
+installing default postponed_job libraries
+linking shared-object -test-/postponed_job.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/postponed_job'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/rational'
+compiling rat.c
+installing default printf libraries
+linking shared-object -test-/printf.so
+installing default rational libraries
+linking shared-object -test-/rational.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/printf'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/st/numhash'
+compiling numhash.c
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/rational'
+installing default numhash libraries
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/st/update'
+compiling update.c
+installing default update libraries
+linking shared-object -test-/st/update.so
+linking shared-object -test-/st/numhash.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/st/update'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/string'
+compiling normalize.c
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/st/numhash'
+compiling init.c
+compiling set_len.c
+compiling coderange.c
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/symbol'
+compiling init.c
+compiling enc_str_buf_cat.c
+compiling type.c
+compiling modify.c
+compiling intern.c
+compiling enc_associate.c
+installing default symbol libraries
+linking shared-object -test-/symbol.so
+compiling cstr.c
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/symbol'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/tracepoint'
+compiling tracepoint.c
+compiling ellipsize.c
+installing default tracepoint libraries
+linking shared-object -test-/tracepoint.so
+compiling qsort.c
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/tracepoint'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/typeddata'
+compiling typeddata.c
+installing default typeddata libraries
+linking shared-object -test-/typeddata/typeddata.so
+installing default string libraries
+linking shared-object -test-/string/string.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/typeddata'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/wait_for_single_fd'
+compiling wait_for_single_fd.c
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/string'
+installing default wait_for_single_fd libraries
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/win32/dln'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/win32/dln'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/win32/fd_setsize'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/win32/fd_setsize'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/bigdecimal'
+compiling bigdecimal.c
+linking shared-object -test-/wait_for_single_fd/wait_for_single_fd.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/-test-/wait_for_single_fd'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/continuation'
+compiling continuation.c
+installing default continuation libraries
+linking shared-object continuation.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/continuation'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/coverage'
+compiling coverage.c
+installing default coverage libraries
+linking shared-object coverage.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/coverage'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/curses'
+compiling curses.c
+installing default curses libraries
+linking shared-object curses.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/curses'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/date'
+compiling date_parse.c
+linking shared-object bigdecimal.so
+installing default bigdecimal libraries
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/bigdecimal'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/dbm'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/dbm'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/digest'
+compiling digest.c
+linking shared-object digest.so
+installing digest libraries
+installing default digest libraries
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/digest'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/digest/bubblebabble'
+compiling bubblebabble.c
+installing default bubblebabble libraries
+linking shared-object digest/bubblebabble.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/digest/bubblebabble'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/digest/md5'
+compiling md5init.c
+compiling md5ossl.c
+installing default md5 libraries
+linking shared-object digest/md5.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/digest/md5'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/digest/rmd160'
+compiling rmd160init.c
+compiling rmd160.c
+compiling date_strftime.c
+installing default rmd160 libraries
+linking shared-object digest/rmd160.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/digest/rmd160'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/digest/sha1'
+compiling sha1init.c
+compiling sha1ossl.c
+installing default sha1 libraries
+linking shared-object digest/sha1.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/digest/sha1'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/digest/sha2'
+compiling sha2init.c
+compiling sha2ossl.c
+compiling date_strptime.c
+installing default sha2 libraries
+linking shared-object digest/sha2.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/digest/sha2'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/dl'
+compiling cptr.c
+compiling handle.c
+compiling dl.c
+compiling date_core.c
+compiling cfunc.c
+installing dl libraries
+linking shared-object dl.so
+installing default dl libraries
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/dl'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/dl/callback'
+compiling callback.c
+compiling callback-0.c
+compiling callback-1.c
+linking shared-object date_core.so
+installing default date_core libraries
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/date'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/etc'
+compiling etc.c
+installing default etc libraries
+linking shared-object etc.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/etc'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/fcntl'
+compiling fcntl.c
+installing default fcntl libraries
+linking shared-object fcntl.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/fcntl'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/fiber'
+compiling fiber.c
+installing default fiber libraries
+linking shared-object fiber.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/fiber'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/fiddle'
+compiling handle.c
+compiling conversions.c
+compiling function.c
+compiling pointer.c
+compiling closure.c
+compiling fiddle.c
+linking shared-object fiddle.so
+installing default fiddle libraries
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/fiddle'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/gdbm'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/gdbm'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/io/console'
+compiling console.c
+compiling callback-2.c
+linking shared-object io/console.so
+installing default console libraries
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/io/console'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/io/nonblock'
+compiling nonblock.c
+installing default nonblock libraries
+linking shared-object io/nonblock.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/io/nonblock'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/io/wait'
+compiling wait.c
+installing default wait libraries
+linking shared-object io/wait.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/io/wait'
+compiling callback-3.c
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/json'
+installing default libraries
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/json'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/json/generator'
+compiling generator.c
+compiling callback-4.c
+installing default generator libraries
+linking shared-object json/ext/generator.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/json/generator'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/json/parser'
+compiling parser.c
+installing default parser libraries
+linking shared-object json/ext/parser.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/json/parser'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/mathn/complex'
+compiling complex.c
+installing default complex libraries
+linking shared-object mathn/complex.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/mathn/complex'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/mathn/rational'
+compiling rational.c
+installing default rational libraries
+linking shared-object mathn/rational.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/mathn/rational'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/nkf'
+compiling nkf.c
+compiling callback-5.c
+compiling callback-6.c
+installing default nkf libraries
+linking shared-object nkf.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/nkf'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/objspace'
+compiling gc_hook.c
+compiling objspace.c
+compiling object_tracing.c
+installing default objspace libraries
+linking shared-object objspace.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/objspace'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/openssl'
+compiling ossl_x509ext.c
+compiling ossl_pkey.c
+compiling ossl_x509name.c
+compiling callback-7.c
+compiling ossl_x509revoked.c
+compiling ossl_hmac.c
+compiling ossl_engine.c
+compiling ossl_x509attr.c
+compiling ossl_x509req.c
+compiling openssl_missing.c
+compiling ossl_digest.c
+compiling ossl_config.c
+compiling ossl_ssl_session.c
+compiling callback-8.c
+compiling ossl_x509cert.c
+compiling ossl_pkcs12.c
+compiling ossl_pkey_ec.c
+compiling ossl_pkey_rsa.c
+compiling ossl_bio.c
+installing default callback libraries
+linking shared-object dl/callback.so
+compiling ossl_ns_spki.c
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/dl/callback'
+compiling ossl_x509.c
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/pathname'
+compiling pathname.c
+compiling ossl_pkey_dsa.c
+compiling ossl_x509store.c
+installing default pathname libraries
+linking shared-object pathname.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/pathname'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/psych'
+compiling psych_to_ruby.c
+compiling psych_yaml_tree.c
+compiling ossl_rand.c
+compiling psych.c
+compiling psych_parser.c
+compiling ossl_pkcs5.c
+compiling psych_emitter.c
+compiling ossl_asn1.c
+linking shared-object psych.so
+installing default psych libraries
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/psych'
+compiling ossl_cipher.c
+compiling ossl_ocsp.c
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/pty'
+compiling pty.c
+installing default pty libraries
+linking shared-object pty.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/pty'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/racc/cparse'
+compiling cparse.c
+compiling ossl_ssl.c
+installing default cparse libraries
+linking shared-object racc/cparse.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/racc/cparse'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/readline'
+compiling readline.c
+installing default readline libraries
+linking shared-object readline.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/readline'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/ripper'
+compiling ripper.c
+compiling ossl_x509crl.c
+compiling ossl.c
+compiling ossl_pkcs7.c
+compiling ossl_pkey_dh.c
+compiling ossl_bn.c
+linking shared-object openssl.so
+installing default openssl libraries
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/openssl'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/sdbm'
+compiling _sdbm.c
+compiling init.c
+installing default sdbm libraries
+linking shared-object sdbm.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/sdbm'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/socket'
+generating constant definitions
+generating constant definitions
+compiling basicsocket.c
+compiling socket.c
+compiling ipsocket.c
+compiling tcpsocket.c
+compiling tcpserver.c
+compiling sockssocket.c
+compiling udpsocket.c
+compiling unixsocket.c
+compiling unixserver.c
+compiling option.c
+checking ../.././parse.y and ../.././ext/ripper/eventids2.c
+linking shared-object ripper.so
+installing default ripper libraries
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/ripper'
+compiling ancdata.c
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/stringio'
+compiling stringio.c
+compiling raddrinfo.c
+installing default stringio libraries
+linking shared-object stringio.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/stringio'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/strscan'
+compiling strscan.c
+compiling ifaddr.c
+installing default strscan libraries
+linking shared-object strscan.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/strscan'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/syslog'
+compiling syslog.c
+installing default socket libraries
+compiling init.c
+linking shared-object syslog.so
+installing default syslog libraries
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/syslog'
+compiling constants.c
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/thread'
+compiling thread.c
+installing default thread libraries
+linking shared-object thread.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/thread'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/tk'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/tk'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/tk/tkutil'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/tk/tkutil'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/win32'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/win32'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/win32ole'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/win32ole'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/zlib'
+compiling zlib.c
+linking shared-object socket.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/socket'
+installing default zlib libraries
+linking shared-object zlib.so
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1/ext/zlib'
+make[2]: Entering directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1'
+linking shared-library libruby.so.2.1.0
+linking ruby
+make[2]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1'
+make[1]: Leaving directory `/home/gqiao/github/etc/rvm/src/ruby-2.1.0-preview1'

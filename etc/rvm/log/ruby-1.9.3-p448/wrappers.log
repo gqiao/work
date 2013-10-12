@@ -1,0 +1,10 @@
+prefix: '--no-links'.
+wrapper: 'erb'.
+wrapper: 'gem'.
+wrapper: 'irb'.
+wrapper: 'rake'.
+wrapper: 'rdoc'.
+wrapper: 'ri'.
+wrapper: 'ruby'.
+wrapper: 'ruby_executable_hooks'.
+wrapper: 'testrb'.
